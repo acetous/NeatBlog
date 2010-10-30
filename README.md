@@ -36,7 +36,14 @@ View `http://your-domain.com` for your new blog or `http://your-domain.com/backe
 
 Fork my project and add your own features! Or just report your ideas (and - if you find any - bugs)!
 
+# Attributions
+
+* for the underlying framework: [Symfony][symfony]
+* for the great icons: [Silk Icons by FAMFAMFAM][silkicons]
+
 
 
 [neatblog]: http://github.com/acetous/NeatBlog
 [markdown]: http://daringfireball.net/projects/markdown/syntax
+[symfony]: http://www.symfony-project.org/
+[silkicons]: http://www.famfamfam.com/lab/icons/silk/
