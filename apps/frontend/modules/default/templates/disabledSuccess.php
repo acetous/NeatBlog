@@ -1,3 +1,3 @@
 <div class="error">
-	<p>Diese Seite ist derzeit nicht verfügbar!</p>
+	<p><?php echo __('This page is currently not available.'); ?></p>
 </div>

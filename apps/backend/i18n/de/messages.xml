@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2010-10-30T19:34:13Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>New Post</source>
+        <target>Neuer Post</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Visit me on</source>
+        <target>Ich bin auch auf</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Post!</source>
+        <target>Posten!</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Preview</source>
+        <target>Vorschau</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>at</source>
+        <target>vom</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Visitors</source>
+        <target>Besucher</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Edit Post</source>
+        <target>Post bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>This page does not exist!</source>
+        <target>Diese Seite existiert nicht!</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>You need to be logged in to view this page.</source>
+        <target>Du musst eingeloggt sein, um diese Seite zu betreten.</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>You do not have enough credentials to view this page.</source>
+        <target>Dir fehlen die Rechte, um diese Seite zu betreten.</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>This page is currently not available.</source>
+        <target>Diese Seite ist gerade nicht verfügbar.</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>The title for your post's link:</source>
+        <target>Der Titel für den Postlink:</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Your content:</source>
+        <target>Dein Post:</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Make it public?</source>
+        <target>Veröffentlichen?</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

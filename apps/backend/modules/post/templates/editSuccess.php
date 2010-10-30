@@ -1,3 +1,3 @@
-<h2>Post bearbeiten</h2>
+<h2><?php echo __('Edit Post'); ?></h2>
 
 <?php include_partial('form', array('form' => $form)) ?>

@@ -1,3 +1,3 @@
 <div class="error">
-	<p>Du bist nicht eingeloggt!</p>
+	<p><?php echo __('You need to be logged in to view this page.'); ?></p>
 </div>

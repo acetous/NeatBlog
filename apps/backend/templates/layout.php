@@ -11,7 +11,7 @@
 <body>
 	<h1><?php echo link_to(sfConfig::get('app_details_name').' | Backend', 'homepage'); ?></h1>
 	<div id="menu" class="wrapper annotation">
-		<?php echo link_to('Neuer Post', 'post_new'); ?>
+		<?php echo link_to(__('New Post'), 'post_new'); ?>
 	</div>
 	<div id="content" class="wrapper">
 		<?php echo $sf_content ?>
@@ -22,7 +22,7 @@
 				$contact = sfConfig::get('app_details_contact');
 				if (!empty($contact)) :
 			?>
-			Visit me on<br />
+			<?php echo __('Visit me on'); ?><br />
 			<?php 
 				$contact = explode('|', $contact);
 				array_walk($contact, create_function('&$el, $i', '$el = explode(":", $el, 2);'));

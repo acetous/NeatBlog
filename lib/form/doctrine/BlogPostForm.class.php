@@ -13,5 +13,9 @@ class BlogPostForm extends BaseBlogPostForm
 	public function configure()
 	{
 		$this->useFields(array('title', 'content', 'published'));
+		
+		$this->widgetSchema->setLabel('title', 'The title for your post\'s link:');
+		$this->widgetSchema->setLabel('content', 'Your content:');
+		$this->widgetSchema->setLabel('published', 'Make it public?');
 	}
 }

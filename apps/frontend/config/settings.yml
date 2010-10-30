@@ -26,12 +26,4 @@ all:
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            b7fc7a108034b09f826a17d6e924fa70c28beda7
-
-    # Output escaping settings
-    escaping_strategy:      true
-    escaping_method:        ESC_SPECIALCHARS
-
-    # Enable the database manager
-    use_database:           true
-
-    check_lock:             true
+    

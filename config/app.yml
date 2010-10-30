@@ -2,3 +2,5 @@ all:
   details:
     name: NeatBlog
     contact: Twitter:http://www.twitter.com|Facebook:http://www.facebook.com|gibhub:http://www.github.com
+  view:
+    language: en # available: en, de

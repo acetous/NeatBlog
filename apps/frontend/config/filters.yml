@@ -4,7 +4,8 @@
 rendering: ~
 security:  ~
 
-# insert your own filters here
+language:
+  class: BlogLanguageFilter
 
 cache:     ~
 execution: ~

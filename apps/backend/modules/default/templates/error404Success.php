@@ -1,3 +1,3 @@
 <div class="error">
-	<p>Diese Seite existiert nicht!</p>
+	<p><?php echo __('This page does not exist!'); ?></p>
 </div>

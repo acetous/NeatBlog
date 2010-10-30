@@ -19,7 +19,7 @@
 				$contact = sfConfig::get('app_details_contact');
 				if (!empty($contact)) :
 			?>
-			Visit me on<br />
+			<?php echo __('Visit me on'); ?><br />
 			<?php 
 				$contact = explode('|', $contact);
 				array_walk($contact, create_function('&$el, $i', '$el = explode(":", $el, 2);'));

@@ -17,10 +17,10 @@
 	<br />
 <?php endforeach; ?>
 
-<input type="submit" value="Posten!" />		
+<input type="submit" value="<?php echo __('Post!'); ?>" />		
 
 <?php echo $form->renderHiddenFields(); ?>
 </form>
 
-<div class="annotation">Vorschau</div>
+<div class="annotation"><?php echo __('Preview'); ?></div>
 <div id="blog_post_preview" class="post"></div>

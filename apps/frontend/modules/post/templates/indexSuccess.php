@@ -1,6 +1,6 @@
 <?php if (sizeof($posts) == 0) : ?>
 
-	<p>Keine Posts vorhanden.</p>
+	<p><?php echo __('No posts found.'); ?></p>
 
 <?php else : ?>
 

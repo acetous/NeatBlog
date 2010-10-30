@@ -27,6 +27,10 @@ If you got the source from github, make sure to remove the `dev` directory from 
 **Do ONLY let the `web` folder be accessible through the web.**<br />
 Otherwise everyone will be able to read your database configuration by just calling `http://your-domain.com/config/databases.yml` from the web.
 
+## You're done!
+
+View `http://your-domain.com` for your new blog or `http://your-domain.com/backend` for writing new content.
+
 
 ## Feel free to contribute!
 
