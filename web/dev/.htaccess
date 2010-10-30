@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # redirect anything else than files to the real root
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ /$1 [R=301]
+</IfModule>

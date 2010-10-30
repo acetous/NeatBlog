@@ -1,5 +1,6 @@
 cache/*
 log/*
 web/uploads/*
-.htaccess
-databases.yml
+web/*/.htaccess
+config/databases.yml
+properties.ini

@@ -10,7 +10,8 @@
  */
 class BlogPostForm extends BaseBlogPostForm
 {
-  public function configure()
-  {
-  }
+	public function configure()
+	{
+		$this->useFields(array('title', 'content', 'published'));
+	}
 }

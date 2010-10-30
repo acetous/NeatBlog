@@ -214,4 +214,5 @@ div#footer .left {
 div#footer .left, div#footer .right {
 	width: 292px;
 	padding: 3px;
+	float: left;
 }
