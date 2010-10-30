@@ -1,0 +1,1 @@
+CREATE TABLE blog_post (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, content TEXT NOT NULL, views BIGINT DEFAULT 0, published TINYINT(1) DEFAULT '0', created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, slug VARCHAR(255), UNIQUE INDEX blog_post_sluggable_idx (slug), PRIMARY KEY(id)) ENGINE = INNODB;

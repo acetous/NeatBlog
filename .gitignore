@@ -1,0 +1,5 @@
+cache/*
+log/*
+web/uploads/*
+.htaccess
+databases.yml

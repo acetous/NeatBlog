@@ -1,0 +1,17 @@
+post:
+  url:     /
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: list }
+  param:   { module: post, action: index, sf_format: html }
+  requirements: { sf_method: get }
+
+post_show:
+  url:     /post/:id/:slug
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: show, sf_format: html }
+  requirements: { sf_method: get }
+
+homepage:
+  url:	/
+  param:   { module: post, action: index, sf_format: html }

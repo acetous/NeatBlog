@@ -1,0 +1,59 @@
+post:
+  url:     /
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: list }
+  param:   { module: post, action: index, sf_format: html }
+  requirements: { sf_method: get }
+  
+post_new:
+  url:     /post/new
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: new, sf_format: html }
+  requirements: { sf_method: get }
+  
+post_create:
+  url:     /post
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: create, sf_format: html }
+  requirements: { sf_method: post }
+
+post_edit:
+  url:     /post/:id/:slug/edit
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: edit, sf_format: html }
+  requirements: { sf_method: get }
+
+post_update:
+  url:     /post/:id/:slug/edit
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: update, sf_format: html }
+  requirements: { sf_method: post }
+
+post_publish:
+  url:     /post/:id/:slug/publish
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: publish, sf_format: html }
+  requirements: { sf_method: put }
+
+post_delete:
+  url:     /post/:id/:slug/delete
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: delete, sf_format: html }
+  requirements: { sf_method: delete }
+  
+post_show:
+  url:     /post/:id/:slug
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: show, sf_format: html }
+  requirements: { sf_method: get }
+
+homepage:
+  url:	/
+  param:   { module: post, action: index, sf_format: html }

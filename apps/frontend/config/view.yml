@@ -1,0 +1,23 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        see layout.php
+    #description:  none
+    #keywords:     none
+    language:     de
+    robots:       index, follow
+
+  stylesheets:
+    - main.css
+    - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
+    - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
+
+  javascripts: []
+
+  has_layout:     true
+  layout:         layout

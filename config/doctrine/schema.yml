@@ -1,0 +1,18 @@
+BlogPost:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      canUpdate: true
+  columns:
+    title: 
+      type: string(255)
+      notnull: true
+    content:
+      type: string
+      notnull: true
+    views:
+      type: integer
+      default: 0
+    published:
+      type: boolean
+      default: false
