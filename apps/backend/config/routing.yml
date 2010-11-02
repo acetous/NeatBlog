@@ -53,6 +53,12 @@ post_show:
   options: { model: BlogPost, type: object }
   param:   { module: post, action: show, sf_format: html }
   requirements: { sf_method: get }
+  
+upload:
+  url:     /upload
+  class:   sfRequestRoute
+  param:   { module: file, action: upload, sf_format: json }
+  requirements: { sf_method: post }
 
 homepage:
   url:	/
