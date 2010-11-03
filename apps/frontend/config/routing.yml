@@ -6,7 +6,7 @@ post:
   requirements: { sf_method: get }
 
 post_show:
-  url:     /post/:id/:slug
+  url:     /:id/:slug
   class:   sfDoctrineRoute
   options: { model: BlogPost, type: object }
   param:   { module: post, action: show, sf_format: html }

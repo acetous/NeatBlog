@@ -16,6 +16,7 @@ class BlogPostForm extends BaseBlogPostForm
 		
 		$this->widgetSchema->setLabel('title', 'The title for your post\'s link:');
 		$this->widgetSchema->setLabel('content', 'Your content:');
+		$this->widgetSchema->setHelp('content', '<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown Syntax</a>');
 		$this->widgetSchema->setLabel('published', 'Make it public?');
 	}
 }

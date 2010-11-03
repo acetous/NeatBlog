@@ -54,11 +54,17 @@ post_show:
   param:   { module: post, action: show, sf_format: html }
   requirements: { sf_method: get }
   
-upload:
+file_upload:
   url:     /upload
   class:   sfRequestRoute
   param:   { module: file, action: upload, sf_format: json }
   requirements: { sf_method: post }
+  
+file_index:
+  url:     /files
+  class:   sfRequestRoute
+  param:   { module: file, action: index, sf_format: json }
+  requirements: { sf_method: get }
 
 homepage:
   url:	/

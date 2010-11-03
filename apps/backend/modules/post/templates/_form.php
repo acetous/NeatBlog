@@ -33,23 +33,30 @@
 <button id="imagechooser-button"><?php echo __('Choose files'); ?></button>
 <div class="error" id="imagechooser-error"><p><?php echo __('Your webbrowser needs to be HTML5 capable to upload files!'); ?></p></div>
 <script type="text/javascript">
-var image_path = '/uploads/other/';
+var image_path = '/uploads/<?php echo ($form->getObject()->isNew() ? 'other' : $form->getObject()->getDateTimeObject('created_at')->format('Y/m/').$form->getObject()->getId()); ?>/';
 $(function() {
 	// handle view
 	$("button#imagechooser-button").hide();
+
+	// load existing images
+	$.getJSON('<?php echo url_for('file_index') . ($form->getObject()->isNew() ? '' : '?post='.$form->getObject()->getId()); ?>', function(data) {
+		$.each(data, function(index, file) {
+			$("div#imagechooser").prepend('<div class="image"><img src="'+image_path+file+'" /><br /><span class="name">'+file+'</span></div>');
+		});
+	});
 	
 	// uploader config
 	var uploader = new plupload.Uploader({
 		runtimes:	'html5',
-		url:		'<?php echo url_for('upload'); ?>',
+		url:		'<?php echo url_for('file_upload') . ( $form->getObject()->isNew() ? '' : '?id='.$form->getObject()->getId() ); ?>',
 		max_file:	'10mb',
 		filters: [
-        	{title: 'Images', extensions: 'jpg,jpeg,gif,png'}
+        	{title: '<?php echo __('Images'); ?>', extensions: 'jpg,jpeg,gif,png'}
   		],
-  		browse_button: 'imagechooser-button',
-  		drop_element: 'imagechooser',
+  		browse_button:	'imagechooser-button',
+  		drop_element:	'imagechooser',
 
-  		file_data_name: 'blog_upload[file]'
+  		file_data_name:	'blog_upload[file]'
 	});
 
 	uploader.bind('Init', function (up, params) {
@@ -67,7 +74,7 @@ $(function() {
 			// remove existing file
 			$("div#imagechooser span.name").each(function(i, element) {
 				if ($(this).html() == file.name) {
-					$(this).parent("span").remove();
+					$(this).parent("div").remove();
 				}
 			});
 			$("div#imagechooser").prepend('<div class="image-upload" id="'+file.id+'"><span class="name">'+file.name+'</span></div>');
@@ -76,7 +83,7 @@ $(function() {
 	});
 
 	uploader.bind('UploadProgress', function (up, file) {
-		$("div#"+file.id).html('<span class="name">'+file.percent+'%<br />'+file.name+'</span>');
+		$("div#"+file.id).html(file.percent+'%<br /><span class="name">'+file.name+'</span>');
 	});
 
 	uploader.bind('FileUploaded', function (up, file) {

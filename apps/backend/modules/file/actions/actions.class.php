@@ -12,13 +12,44 @@ class fileActions extends sfActions
 {
 	public function executeUpload(sfWebRequest $request)
 	{
-		$this->form = new BlogUploadForm();
+		$form = new BlogUploadForm();
 		
-		$this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 		
-		if ($this->form->isValid()) {
-			$file = $this->form->getValue('file');
-			$file->save($file->getPath().'/'.$file->getOriginalName());
+		if ($form->isValid()) {
+			$file = $form->getValue('file');
+			
+			$path = sfConfig::get('sf_upload_dir').'/other';
+			
+			$postId = $request->getGetParameter('id');
+			if (!empty($postId)) {
+				$post = Doctrine::getTable('BlogPost')->findOneById($postId);
+				$path = sfConfig::get('sf_upload_dir') . $post->getDateTimeObject('created_at')->format('/Y/m/') . $post->getId();
+			}
+			
+			$file->save($path.'/'.$file->getOriginalName());
+			
+			$this->file = $path.'/'.$file->getOriginalName();
 		}
+	}
+	
+	public function executeIndex(sfWebRequest $request)
+	{
+		$this->files = array();
+		
+		$path = sfConfig::get('sf_upload_dir').'/other';
+		$postId = $request->getGetParameter('post');
+		if (!empty($postId)) {
+				$post = Doctrine::getTable('BlogPost')->findOneById($postId);
+				$path = sfConfig::get('sf_upload_dir') . $post->getDateTimeObject('created_at')->format('/Y/m/') . $post->getId();
+		}
+		
+		$dir = dir($path);
+		while (false !== ($entry = $dir->read())) {
+			if (!in_array($entry, array('.', '..'))) {
+				$this->files[] = $entry;
+			}
+		}
+		$dir->close();
 	}
 }

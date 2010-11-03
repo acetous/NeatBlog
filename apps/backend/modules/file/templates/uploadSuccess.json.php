@@ -1,3 +1,1 @@
-<?php
-
-echo $form;
+{file: '<?php echo $file; ?>'}
