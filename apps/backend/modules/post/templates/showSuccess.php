@@ -6,5 +6,5 @@
 </div>
 
 <div class="post">
-	<?php echo markdown($post->getContent()); ?>
+	<?php echo markdown( $sf_data->getRaw('post')->getContent() ); ?>
 </div>
