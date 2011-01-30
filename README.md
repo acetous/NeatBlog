@@ -15,8 +15,8 @@ It aims for making fast blogging possible without the overhead of WYSIWYG editor
 * Unpack it on your server and poit your domain to the `web` directory
 * Let the webserver write into `log`, `cache` and `web/uploads`
 * Put your database configuration into `config/databases.yml` (see `databases.yml.example`)
-* Make your changes to `/config/app.yml` <br/>
-  If your ever change your cofig, clear the `cache` directory or run `./symfony cc`
+* Put your blog configuration into `config/app.yml` (see `app.yml.example`)
+  If your ever change your config, clear the `cache` directory or run `./symfony cc`
 * Import `data/sql/schema.sql` into your database OR run `./symfony doctrine:insert-sql`
 * Secure the `backend` directory somehow (e.g. HTTP Auth via .htaccess)
 

@@ -2,6 +2,7 @@ cache/*
 log/*
 web/uploads/*
 config/databases.yml
+config/app.yml
 
 # eclipse
 .project

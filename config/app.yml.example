@@ -1,7 +1,7 @@
 all:
   details:
     name: NeatBlog
-    contact: Twitster:http://twitter.com/|github:http://github.com/
+    contact: twitter:http://twitter.com/|github:http://github.com/
     imprint: |
       <h2>Imprint</h2>
       <p>Use HTML oder leave blank to let it disappear.</p>
