@@ -1,0 +1,2 @@
+1. Check the version you currently have installed: SELECT version FROM migration_version;
+2. Run all versionX.sql files with X > your version.
