@@ -5,7 +5,7 @@
  *
  * @package    blog
  * @subpackage filter
- * @author     Sebastian Herbermann
+ * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
@@ -17,6 +17,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
       'content'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'views'      => new sfWidgetFormFilterInput(),
       'published'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'micropost'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'created_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'slug'       => new sfWidgetFormFilterInput(),
@@ -27,6 +28,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
       'content'    => new sfValidatorPass(array('required' => false)),
       'views'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'published'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'micropost'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'created_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'slug'       => new sfValidatorPass(array('required' => false)),
@@ -54,6 +56,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
       'content'    => 'Text',
       'views'      => 'Number',
       'published'  => 'Boolean',
+      'micropost'  => 'Boolean',
       'created_at' => 'Date',
       'updated_at' => 'Date',
       'slug'       => 'Text',

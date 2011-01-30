@@ -7,7 +7,7 @@
  *
  * @package    blog
  * @subpackage form
- * @author     Sebastian Herbermann
+ * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseBlogPostForm extends BaseFormDoctrine
@@ -20,6 +20,7 @@ abstract class BaseBlogPostForm extends BaseFormDoctrine
       'content'    => new sfWidgetFormTextarea(),
       'views'      => new sfWidgetFormInputText(),
       'published'  => new sfWidgetFormInputCheckbox(),
+      'micropost'  => new sfWidgetFormInputCheckbox(),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
       'slug'       => new sfWidgetFormInputText(),
@@ -31,6 +32,7 @@ abstract class BaseBlogPostForm extends BaseFormDoctrine
       'content'    => new sfValidatorString(),
       'views'      => new sfValidatorInteger(array('required' => false)),
       'published'  => new sfValidatorBoolean(array('required' => false)),
+      'micropost'  => new sfValidatorBoolean(array('required' => false)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
       'slug'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),

@@ -16,3 +16,6 @@ BlogPost:
     published:
       type: boolean
       default: false
+    micropost:
+      type: boolean
+      default: false

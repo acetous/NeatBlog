@@ -15,7 +15,7 @@ It aims for making fast blogging possible without the overhead of WYSIWYG editor
 * Unpack it on your server and poit your domain to the `web` directory
 * Let the webserver write into `log`, `cache` and `web/uploads`
 * Put your database configuration into `config/databases.yml` (see `databases.yml.example`)
-* Put your blog configuration into `config/app.yml` (see `app.yml.example`)
+* Put your blog configuration into `config/app.yml` (see `app.yml.example`)<br />
   If your ever change your config, clear the `cache` directory or run `./symfony cc`
 * Import `data/sql/schema.sql` into your database OR run `./symfony doctrine:insert-sql`
 * Secure the `backend` directory somehow (e.g. HTTP Auth via .htaccess)
@@ -31,6 +31,14 @@ Otherwise everyone will be able to read your database configuration by just call
 
 View `http://your-domain.com` for your new blog or `http://your-domain.com/backend` for writing new content.
 
+
+## Updating
+
+* Get the latest code via download or update via Git. Remember to keep your `web/uploads` directory.
+* Check the `config/app.yml` for any new config values.
+* Run `./symfony doctrine:migrate`.<br />
+  Sry folks without cli, you'll have to update your database manually for now. See `lib/migration/raw/howto`.
+* Clear your cache.
 
 ## Feel free to contribute!
 

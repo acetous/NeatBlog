@@ -9,19 +9,22 @@
  * @property string $content
  * @property integer $views
  * @property boolean $published
+ * @property boolean $micropost
  * 
  * @method string   getTitle()     Returns the current record's "title" value
  * @method string   getContent()   Returns the current record's "content" value
  * @method integer  getViews()     Returns the current record's "views" value
  * @method boolean  getPublished() Returns the current record's "published" value
+ * @method boolean  getMicropost() Returns the current record's "micropost" value
  * @method BlogPost setTitle()     Sets the current record's "title" value
  * @method BlogPost setContent()   Sets the current record's "content" value
  * @method BlogPost setViews()     Sets the current record's "views" value
  * @method BlogPost setPublished() Sets the current record's "published" value
+ * @method BlogPost setMicropost() Sets the current record's "micropost" value
  * 
  * @package    blog
  * @subpackage model
- * @author     Sebastian Herbermann
+ * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseBlogPost extends sfDoctrineRecord
@@ -43,6 +46,10 @@ abstract class BaseBlogPost extends sfDoctrineRecord
              'default' => 0,
              ));
         $this->hasColumn('published', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('micropost', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
              ));
