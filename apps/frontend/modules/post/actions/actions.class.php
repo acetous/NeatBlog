@@ -15,6 +15,13 @@ class postActions extends sfActions
 		$this->posts = Doctrine::getTable('BlogPost')
 			->createQuery('p')
 			->where('published = ?', true)
+			->andWhere('micropost = ?', false)
+			->orderBy('created_at desc')
+			->execute();
+		$this->microposts = Doctrine::getTable('BlogPost')
+			->createQuery('p')
+			->where('published = ?', true)
+			->andWhere('micropost = ?', true)
 			->orderBy('created_at desc')
 			->execute();
 	}

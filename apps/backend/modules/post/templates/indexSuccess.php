@@ -17,7 +17,10 @@
 ?>
 	<tr>
 		<td class="post-date"><?php echo $post->getDateTimeObject('created_at')->format('d.m.'); ?> »</td>
-		<td class="post-title"><?php echo link_to($post->getTitle(), 'post_show', $post); ?></td>
+		<td class="post-title">
+			<?php echo $post->getMicropost() ? '<span class="annotation">(micropost)</span>' : ''; ?>
+			<?php echo link_to($post->getTitle(), 'post_show', $post); ?>
+		</td>
 		<td class="post-actions">
 			<?php echo link_to(($post->getPublished() ? image_tag('public') : image_tag('private')), 'post_publish', $post, array('method' => 'put')) ?>
 			<?php echo link_to(image_tag('edit'), 'post_edit', $post) ?>

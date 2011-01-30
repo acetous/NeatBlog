@@ -35,7 +35,7 @@ table td {
 }
 
 
-div.annotation {
+.annotation {
 	font-size: 70%;
 	text-align:right;
 }
@@ -102,26 +102,37 @@ div.post blockquote {
 	color: #3E578B;
 }
 
-table.posts {
+table.posts,
+table.microposts {
 	width: 100%;
 	text-align: left;
 	margin-bottom: 5px;
 }
-table.posts td.post-date {
+table.posts td.post-date,
+table.microposts td.micropost-date {
 	width: 50px;
 	text-align: right;
 	vertical-align: middle;
 	font-size: 80%;
 }
-table.posts td.post-actions {
+table.posts td.post-actions,
+table.microposts td.micropost-actions {
 	width: 60px;
 }
 .post-actions img {
 	max-height: 12px;
 }
 
-table.posts a:link, table.posts a:focus, table.posts a:hover, table.posts a:active {
+table.posts a:link, table.posts a:focus, table.posts a:hover, table.posts a:active,
+table.microposts a:link, table.microposts a:focus, table.microposts a:hover, table.microposts a:active {
 	color: #3E578B ;
+}
+table.microposts td.micropost-date a:link, 
+table.microposts td.micropost-date a:focus, 
+table.microposts td.micropost-date a:hover, 
+table.microposts td.micropost-date a:active, 
+table.microposts td.micropost-date a:visited {
+	color: #000;
 }
 
 
