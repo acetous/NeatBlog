@@ -11,6 +11,10 @@ post_show:
   options: { model: BlogPost, type: object }
   param:   { module: post, action: show, sf_format: html }
   requirements: { sf_method: get }
+  
+content_imprint:
+  url: /imprint
+  param: { module: content, action: imprint, sf_format: html }
 
 homepage:
   url:	/

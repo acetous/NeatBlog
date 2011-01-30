@@ -88,12 +88,18 @@ div.post h3 {
 	font-size: 110%;
 }
 
-div.post p, div.post ul, div.post ol, div.post pre {
+div.post p, div.post ul, div.post ol, div.post pre, div.post blockquote {
 	margin: 10px;
 }
 
 div.post ul, div.post ol {
 	padding-left: 20px;
+}
+
+div.post blockquote {
+	margin-left: 15px;
+	border-left: 1px dotted #3E578B;
+	color: #3E578B;
 }
 
 table.posts {

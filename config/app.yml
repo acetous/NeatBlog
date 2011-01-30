@@ -1,6 +1,12 @@
 all:
   details:
     name: NeatBlog
-    contact: Twitter:http://www.twitter.com|Facebook:http://www.facebook.com|gibhub:http://www.github.com
+    contact: Twitster:http://twitter.com/|github:http://github.com/
+    imprint: |
+      <h2>Imprint</h2>
+      <p>Use HTML oder leave blank to let it disappear.</p>
   view:
     language: en # available: en, de
+  other:
+    tracking: |
+      <!-- HTML Tracking code if you wish -->

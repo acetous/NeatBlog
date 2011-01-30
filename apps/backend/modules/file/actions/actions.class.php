@@ -47,7 +47,9 @@ class fileActions extends sfActions
 		$dir = dir($path);
 		while (false !== ($entry = $dir->read())) {
 			if (!in_array($entry, array('.', '..'))) {
-				$this->files[] = $entry;
+				if (substr(mime_content_type($file), 0, 6) == 'image/') {
+					$this->files[] = $entry;
+				}
 			}
 		}
 		$dir->close();

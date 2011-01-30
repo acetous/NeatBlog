@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
+	<?php echo sfConfig::get('app_other_tracking'); ?>
 </head>
 <body>
 	<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
@@ -31,6 +32,7 @@
 		</div>
 		<div class="right">
 			powered by <a href="http://github.com/acetous/NeatBlog">&lt;NeatBlog&gt;</a><br />
+			<?php if (strlen(sfConfig::get('app_details_imprint')) > 0) echo link_to(__('Imprint'), 'content_imprint'); ?>
 		</div>
 	</div>
 </body>

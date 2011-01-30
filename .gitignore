@@ -2,4 +2,4 @@ cache/*
 log/*
 web/uploads/*
 config/databases.yml
-properties.ini
+config/properties.ini

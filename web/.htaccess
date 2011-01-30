@@ -3,6 +3,11 @@ Options +FollowSymLinks +ExecCGI
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # make sure www is present
+  # RewriteCond %{HTTP_HOST} !^www. [NC]
+  # RewriteCond %{HTTP_HOST} !^.*\..*\..* [NC]
+  # RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
   # uncomment the following line, if you are having trouble
   # getting no_script_name to work
   #RewriteBase /

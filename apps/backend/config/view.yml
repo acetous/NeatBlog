@@ -14,11 +14,13 @@ default:
 
   stylesheets:
     - main.css
+    - prettify.css
     - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
     - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
 
   javascripts:
     - http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js
+    - prettify/prettify.js
 
   has_layout:     true
   layout:         layout
