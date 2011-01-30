@@ -8,6 +8,7 @@ It aims for making fast blogging possible without the overhead of WYSIWYG editor
 * Write posts using [Markdown syntax][markdown].
 * No usermanagement, no WYSIWYG, no categories, no tags - just write!
 * Style your posts your way! The only thing on post-pages is the post, nothing else.
+* Write a micropost if you just want to drop a sentence. Full-text featured on the homepage.
 
 ## Installation
 
