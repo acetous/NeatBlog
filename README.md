@@ -40,10 +40,13 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 
 * for the underlying framework: [Symfony][symfony]
 * for the great icons: [Silk Icons by FAMFAMFAM][silkicons]
-
+* for the flexible and simple code highlightning script: [google-code-prettify][prettify]
+* for the HTML5 video player skins: [VideoJS][videojs]
 
 
 [neatblog]: http://github.com/acetous/NeatBlog
 [markdown]: http://daringfireball.net/projects/markdown/syntax
 [symfony]: http://www.symfony-project.org/
 [silkicons]: http://www.famfamfam.com/lab/icons/silk/
+[prettify]: http://code.google.com/p/google-code-prettify/
+[videojs]: http://videojs.com/

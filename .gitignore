@@ -2,4 +2,8 @@ cache/*
 log/*
 web/uploads/*
 config/databases.yml
-config/properties.ini
+
+# eclipse
+.project
+.settings
+.buildpath
