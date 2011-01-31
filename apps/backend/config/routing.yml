@@ -64,7 +64,9 @@ file_index:
   url:     /files
   class:   sfRequestRoute
   param:   { module: file, action: index, sf_format: json }
-  requirements: { sf_method: get }
+  requirements:
+    sf_method: get
+    sf_format: (?:json)
 
 homepage:
   url:	/

@@ -47,11 +47,26 @@ class fileActions extends sfActions
 		$dir = dir($path);
 		while (false !== ($entry = $dir->read())) {
 			if (!in_array($entry, array('.', '..'))) {
-				if (substr(mime_content_type($file), 0, 6) == 'image/') {
+				$this->files[] = $entry;
+				/*
+				 * TODO: fix shown filetypes
+				if (substr(mime_content_type($entry), 0, 6) == 'image/') {
 					$this->files[] = $entry;
 				}
+				*/
 			}
 		}
 		$dir->close();
+		
+		$this->globalFiles = array();
+		if (is_dir(sfConfig::get('sf_upload_dir').'/global')) {
+			$dir = dir(sfConfig::get('sf_upload_dir').'/global');
+			while (false !== ($entry = $dir->read())) {
+				if (!in_array($entry, array('.', '..'))) {
+					$this->globalFiles[] = $entry;
+				}
+			}
+			$dir->close();
+		}
 	}
 }

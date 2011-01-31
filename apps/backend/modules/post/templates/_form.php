@@ -34,13 +34,17 @@
 <div class="error" id="imagechooser-error"><p><?php echo __('Your webbrowser needs to be HTML5 capable to upload files!'); ?></p></div>
 <script type="text/javascript">
 var image_path = '/uploads/<?php echo ($form->getObject()->isNew() ? 'other' : $form->getObject()->getDateTimeObject('created_at')->format('Y/m/').$form->getObject()->getId()); ?>/';
+var image_global_path = '/uploads/global/';
 $(function() {
 	// handle view
 	$("button#imagechooser-button").hide();
 
 	// load existing images
-	$.getJSON('<?php echo url_for('file_index') . ($form->getObject()->isNew() ? '' : '?post='.$form->getObject()->getId()); ?>', function(data) {
-		$.each(data, function(index, file) {
+	$.getJSON('<?php echo url_for('file_index', array('sf_format' => 'json')) . ($form->getObject()->isNew() ? '' : '?post='.$form->getObject()->getId()); ?>', function(data) {
+		$.each(data.globalFiles, function(index, file) {
+			$("div#imagechooser").prepend('<div class="image"><img src="'+image_global_path+file+'" /><br /><span class="name">'+file+'</span></div>');
+		});
+		$.each(data.files, function(index, file) {
 			$("div#imagechooser").prepend('<div class="image"><img src="'+image_path+file+'" /><br /><span class="name">'+file+'</span></div>');
 		});
 	});
