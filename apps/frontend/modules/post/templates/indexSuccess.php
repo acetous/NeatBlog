@@ -1,3 +1,4 @@
+<h2><?php echo __('Posts'); ?></h2>
 <?php if (sizeof($posts) == 0) : ?>
 
 	<p><?php echo __('No posts found.'); ?></p>
@@ -21,15 +22,11 @@
 	</table>
 <?php endif; ?>
 
-<?php 
-		$currentMonth = 0;
+<h2><?php echo __('Short'); ?></h2>
+
+	<table class="microposts">
+	<?php 
 		foreach ($microposts as $micropost) :
-			if ($currentMonth != $micropost->getDateTimeObject('created_at')->format('n')) {
-				echo empty($currentMonth) ? '' : '</table>';
-				$currentMonth = $micropost->getDateTimeObject('created_at')->format('n');
-				
-				echo '<table class="microposts">';
-			}
 	?>
 		<tr>
 			<td class="micropost-date">

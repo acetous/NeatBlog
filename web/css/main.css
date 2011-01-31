@@ -115,6 +115,10 @@ table.microposts td.micropost-date {
 	vertical-align: middle;
 	font-size: 80%;
 }
+table.microposts td.micropost-date {
+	vertical-align: top;
+	line-height: 12pt;
+}
 table.posts td.post-actions,
 table.microposts td.micropost-actions {
 	width: 60px;
