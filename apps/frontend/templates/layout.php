@@ -3,7 +3,7 @@
 <head>
 	<?php include_http_metas() ?>
 	<?php include_metas() ?>
-	<title><?php echo sfConfig::get('app_details_name') . (get_slot('title') ? ' | '.get_slot('title') : '') ?></title>
+	<title><?php echo (get_slot('title') ? get_slot('title') . ' | ' : '') . sfConfig::get('app_details_name') ?></title>
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
