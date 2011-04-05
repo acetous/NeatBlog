@@ -15,7 +15,14 @@ post_show:
 content_imprint:
   url: /imprint
   param: { module: content, action: imprint, sf_format: html }
-
+  
+comment_create:
+  url:     /comment
+  class:   sfDoctrineRoute
+  options: { model: BlogComment, type: object }
+  param:   { module: comment, action: create, sf_format: html }
+  requirements: { sf_method: post }
+  
 homepage:
-  url:	/
+  url: /
   param:   { module: post, action: index, sf_format: html }

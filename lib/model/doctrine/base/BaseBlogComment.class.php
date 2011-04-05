@@ -31,7 +31,7 @@ abstract class BaseBlogComment extends sfDoctrineRecord
         $this->setTableName('blog_comment');
         $this->hasColumn('author', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
+             'notnull' => false,
              'length' => 255,
              ));
         $this->hasColumn('content', 'string', null, array(

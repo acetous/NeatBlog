@@ -30,6 +30,9 @@ class postActions extends sfActions
 	{
 		$this->post = $this->getRoute()->getObject();
 		
+		$this->commentForm = new BlogCommentForm();
+		$this->commentForm->setPost($this->post);
+		
 		if (!$this->post->getPublished()) {
 			$this->forward404();
 		}

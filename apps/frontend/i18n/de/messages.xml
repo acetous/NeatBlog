@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2011-01-31T19:59:06Z" product-name="messages">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2011-04-05T20:42:16Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
@@ -43,6 +43,34 @@
       <trans-unit id="10">
         <source>Short</source>
         <target>Kurz gesagt</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>No Comments</source>
+        <target>Keine Kommentare</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Comments</source>
+        <target>Kommentare</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Anonymous</source>
+        <target>Anonym</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Write a comment</source>
+        <target>Schreibe einen Kommentar</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Your Name</source>
+        <target>Dein Name</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Your Comment</source>
+        <target>Dein Kommentar</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Post!</source>
+        <target>Posten!</target>
       </trans-unit>
     </body>
   </file>
