@@ -33,11 +33,19 @@ class postActions extends sfActions
 		$this->commentForm = new BlogCommentForm();
 		$this->commentForm->setPost($this->post);
 		
+		$this->permalink = $request->getUriPrefix() . $this->generateUrl('post_permalink', $this->post);
+		
 		if (!$this->post->getPublished()) {
 			$this->forward404();
 		}
 		
 		$this->post->setViews( $this->post->getViews() + 1 );
 		$this->post->save();
+	}
+	
+	public function executePermalink(sfWebRequest $request)
+	{
+		$post = $this->getRoute()->getObject();
+		$this->redirect($this->generateUrl('post_show', $post), 301);
 	}
 }

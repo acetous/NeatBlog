@@ -10,7 +10,18 @@ post_show:
   class:   sfDoctrineRoute
   options: { model: BlogPost, type: object }
   param:   { module: post, action: show, sf_format: html }
-  requirements: { sf_method: get }
+  requirements:
+    sf_method: get
+    id: \d+
+  
+post_permalink:
+  url:     /p/:id
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: permalink, sf_format: html }
+  requirements: 
+    sf_method: get
+    id: \d+
   
 content_imprint:
   url: /imprint
