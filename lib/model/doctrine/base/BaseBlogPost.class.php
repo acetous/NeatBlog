@@ -10,17 +10,20 @@
  * @property integer $views
  * @property boolean $published
  * @property boolean $micropost
+ * @property Doctrine_Collection $comments
  * 
- * @method string   getTitle()     Returns the current record's "title" value
- * @method string   getContent()   Returns the current record's "content" value
- * @method integer  getViews()     Returns the current record's "views" value
- * @method boolean  getPublished() Returns the current record's "published" value
- * @method boolean  getMicropost() Returns the current record's "micropost" value
- * @method BlogPost setTitle()     Sets the current record's "title" value
- * @method BlogPost setContent()   Sets the current record's "content" value
- * @method BlogPost setViews()     Sets the current record's "views" value
- * @method BlogPost setPublished() Sets the current record's "published" value
- * @method BlogPost setMicropost() Sets the current record's "micropost" value
+ * @method string              getTitle()     Returns the current record's "title" value
+ * @method string              getContent()   Returns the current record's "content" value
+ * @method integer             getViews()     Returns the current record's "views" value
+ * @method boolean             getPublished() Returns the current record's "published" value
+ * @method boolean             getMicropost() Returns the current record's "micropost" value
+ * @method Doctrine_Collection getComments()  Returns the current record's "comments" collection
+ * @method BlogPost            setTitle()     Sets the current record's "title" value
+ * @method BlogPost            setContent()   Sets the current record's "content" value
+ * @method BlogPost            setViews()     Sets the current record's "views" value
+ * @method BlogPost            setPublished() Sets the current record's "published" value
+ * @method BlogPost            setMicropost() Sets the current record's "micropost" value
+ * @method BlogPost            setComments()  Sets the current record's "comments" collection
  * 
  * @package    blog
  * @subpackage model
@@ -58,6 +61,10 @@ abstract class BaseBlogPost extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('BlogComment as comments', array(
+             'local' => 'id',
+             'foreign' => 'blog_post_id'));
+
         $timestampable0 = new Doctrine_Template_Timestampable();
         $sluggable0 = new Doctrine_Template_Sluggable(array(
              'canUpdate' => true,

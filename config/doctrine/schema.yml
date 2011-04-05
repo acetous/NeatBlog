@@ -19,3 +19,21 @@ BlogPost:
     micropost:
       type: boolean
       default: false
+      
+BlogComment:  
+  actAs:
+    Timestampable: ~
+  columns:
+    author:
+      type: string(255)
+      notnull: true
+    content:
+      type: string
+      notnull: true
+    blog_post_id:
+      type: integer
+      notnull: true
+  relations:
+    BlogPost:
+      onDelete: CASCADE
+      foreignAlias: comments
