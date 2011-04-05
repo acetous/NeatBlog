@@ -10,9 +10,6 @@
 
 <div class="comments">
 	<h3><?php echo sizeof($post->getComments()) == 0 ? __('No Comments') : sizeof($post->getComments()).' '.__('Comments'); ?></h3>
-	<?php if (sizeof($post->getComments()) == 0) : ?>
-	<p><?php echo __('No comments'); ?></p>
-	<?php endif; ?>
 	<?php foreach ($post->getComments() as $comment) : ?>
 		<div class="annotation"><?php echo __('at'); ?> <?php echo $comment->getCreatedAt(); ?></div>
 		<div class="comment">

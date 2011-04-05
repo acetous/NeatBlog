@@ -16,7 +16,10 @@
 	?>
 		<tr>
 			<td class="post-date"><?php echo $post->getDateTimeObject('created_at')->format('d.m.'); ?> »</td>
-			<td class="post-title"><?php echo link_to($post->getTitle(), 'post_show', $post); ?></td>
+			<td class="post-title">
+				<span class="rightfloat"><?php echo link_to('('.sizeof($post->getComments()).')', 'post_show', $post); ?></span>
+				<?php echo link_to($post->getTitle(), 'post_show', $post); ?>
+			</td>
 		</tr>
 	<?php endforeach;?>
 	</table>
@@ -30,9 +33,10 @@
 	?>
 		<tr>
 			<td class="micropost-date">
-				<?php echo link_to($micropost->getDateTimeObject('created_at')->format('d.m.'), 'post_show', $micropost); ?> »
+				<?php echo $micropost->getDateTimeObject('created_at')->format('d.m.'); ?> »
 			</td>
 			<td class="micropost-content">
+				<span class="rightfloat"><?php echo link_to('('.sizeof($micropost->getComments()).')', 'post_show', $micropost); ?></span>
 				<?php echo markdown( $micropost->getRaw('content') ); ?>
 			</td>
 		</tr>

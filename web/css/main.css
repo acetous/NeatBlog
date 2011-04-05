@@ -49,6 +49,14 @@ table td {
 	width: 50%;
 }
 
+.leftfloat {
+	float: left;
+}
+
+.rightfloat {
+	float: right;
+}
+
 a:link, a:visited, a:focus, a:hover, a:active {
 	color: #507AD5 ;
 	text-decoration: none;
