@@ -12,4 +12,8 @@
  */
 class BlogPost extends BaseBlogPost
 {
+	public function getPermaLink()
+	{
+		return sfContext::getInstance()->getRouting()->generate('post_permalink', $this, true);
+	}
 }

@@ -8,7 +8,7 @@
 	<?php echo markdown( $sf_data->getRaw('post')->getContent() ); ?>
 </div>
 
-<div class="annotation"><?php echo __('Permalink'); ?>: <?php echo link_to($permalink, $permalink); ?></div>
+<div class="annotation"><?php echo __('Permalink'); ?>: <?php echo link_to($post->getPermaLink(), $post->getPermaLink()); ?></div>
 
 <div class="comments">
 	<h3><?php echo sizeof($post->getComments()) == 0 ? __('No Comments') : sizeof($post->getComments()).' '.__('Comments'); ?></h3>

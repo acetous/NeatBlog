@@ -33,8 +33,6 @@ class postActions extends sfActions
 		$this->commentForm = new BlogCommentForm();
 		$this->commentForm->setPost($this->post);
 		
-		$this->permalink = $request->getUriPrefix() . $this->generateUrl('post_permalink', $this->post);
-		
 		if (!$this->post->getPublished()) {
 			$this->forward404();
 		}
@@ -47,5 +45,16 @@ class postActions extends sfActions
 	{
 		$post = $this->getRoute()->getObject();
 		$this->redirect($this->generateUrl('post_show', $post), 301);
+	}
+	
+	public function executeFeed(sfWebRequest $request)
+	{
+		$this->getResponse()->setHttpHeader('Content-Type', 'application/rss+xml');
+		
+		$this->posts = Doctrine::getTable('BlogPost')
+			->createQuery('p')
+			->where('published = ?', true)
+			->orderBy('created_at desc')
+			->execute();
 	}
 }

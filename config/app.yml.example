@@ -10,3 +10,7 @@ all:
   other:
     tracking: |
       <!-- HTML Tracking code if you wish -->
+  rss:
+    autor: email@example.com (Your Name)
+    description: |
+      This is my personal blog.
