@@ -6,7 +6,8 @@
 	<item>
 		<title><?php echo $post->getTitle(); ?></title>
 		<link><?php echo $post->getPermaLink(); ?></link>
-		<description><?php echo ($post->getMicropost() ? $posts_raw[$index]->getContent() : truncate_text(strip_tags(markdown($posts_raw[$index]->getContent())), 500)); ?></description>
+		<description><?php echo ($post->getMicropost() ? markdown($posts_raw[$index]->getContent()) : nl2br(truncate_text(strip_tags(markdown($posts_raw[$index]->getContent())), 500))); 
+?></description>
 		<guid><?php echo $post->getPermaLink(); ?></guid>
 	</item>
 <?php endforeach; ?>
