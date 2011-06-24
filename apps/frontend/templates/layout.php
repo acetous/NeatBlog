@@ -5,6 +5,7 @@
 	<?php include_metas() ?>
 	<title><?php echo (get_slot('title') ? get_slot('title') . ' | ' : '') . sfConfig::get('app_details_name') ?></title>
 	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $sf_request->getUriPrefix() . $sf_request->getRelativeUrlRoot(); ?>/feed.rss" />
 	<?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
 	<?php echo sfConfig::get('app_other_tracking'); ?>
