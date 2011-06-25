@@ -1,5 +1,8 @@
 <?php use_javascript('comments'); ?>
 <?php use_helper('Text'); ?>
+<?php slot( 'title', $post->getTitle() ); ?>
+
+<div class="content wrapper">
 
 <div class="annotation"><?php echo __('at'); ?> <?php echo $post->getCreatedAt(); ?></div>
 
@@ -27,4 +30,4 @@
 	</div>
 </div>
 
-<?php slot( 'title', $post->getTitle() ); ?>
+</div>

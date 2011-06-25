@@ -24,6 +24,15 @@ class postActions extends sfActions
 			->andWhere('micropost = ?', true)
 			->orderBy('created_at desc')
 			->execute();
+			
+		// check for new comments
+		$this->postNewComments = array();
+		foreach ($this->posts as $post) {
+			$this->postNewComments[$post->getId()] = false;
+		}
+		foreach ($this->microposts as $post) {
+			$this->postNewComments[$post->getId()] = false;
+		}
 	}
 	
 	public function executeShow(sfWebRequest $request)

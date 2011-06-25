@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2011-04-05T20:42:16Z" product-name="messages">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2011-06-25T15:55:05Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
@@ -38,7 +38,7 @@
       </trans-unit>
       <trans-unit id="9">
         <source>Posts</source>
-        <target>Themen</target>
+        <target>Artikel</target>
       </trans-unit>
       <trans-unit id="10">
         <source>Short</source>
@@ -71,6 +71,14 @@
       <trans-unit id="18">
         <source>Post!</source>
         <target>Posten!</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Permalink</source>
+        <target>Permalink</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Read more...</source>
+        <target>Weiterlesen...</target>
       </trans-unit>
     </body>
   </file>

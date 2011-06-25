@@ -12,8 +12,9 @@
 </head>
 <body>
 	<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
-	<div id="content" class="wrapper">
+	<div id="outer-wrapper">
 		<?php echo $sf_content ?>
+		<br clear="both" />
 	</div>
 	<div id="footer" class="wrapper">
 		<div class="left">

@@ -16,4 +16,23 @@ class BlogPost extends BaseBlogPost
 	{
 		return sfContext::getInstance()->getRouting()->generate('post_permalink', $this, true);
 	}
+	
+	public function getExcerpt()
+	{
+		$lines = explode("\n", $this->getContent());
+		$excerpt = "";
+		$excertPresent = false;
+		foreach ($lines as $line) {			
+			$line = trim($line);
+			if (!empty($line)) {
+				if (!$excertPresent && in_array(str_replace(array('ä', 'ö', 'ü'), 'a', mb_strtolower(mb_substr($line, 0, 1))), range("a", "z"))) {
+					$excerpt .= $line."\n";
+					$excertPresent = true;
+				} elseif (preg_match('/^\[[a-z]+\]: .*$/i', $line) > 0) {
+					$excerpt .= $line."\n";
+				}
+			}
+		}
+		return $excerpt;
+	}
 }

@@ -11,5 +11,8 @@ class ProjectConfiguration extends sfProjectConfiguration
 		
 		// include other vendors
 		require_once dirname(__FILE__).'/../lib/vendor/markdown.php';
+		
+		// low-level config
+		mb_internal_encoding('UTF-8');
 	}
 }
