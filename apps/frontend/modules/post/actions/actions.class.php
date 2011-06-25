@@ -12,18 +12,29 @@ class postActions extends sfActions
 {
 	public function executeIndex(sfWebRequest $request)
 	{
-		$this->posts = Doctrine::getTable('BlogPost')
-			->createQuery('p')
-			->where('published = ?', true)
-			->andWhere('micropost = ?', false)
-			->orderBy('created_at desc')
-			->execute();
-		$this->microposts = Doctrine::getTable('BlogPost')
-			->createQuery('p')
-			->where('published = ?', true)
-			->andWhere('micropost = ?', true)
-			->orderBy('created_at desc')
-			->execute();
+		$this->postPager = new sfDoctrinePager('BlogPost', 7);
+		$this->postPager->setQuery(
+			Doctrine::getTable('BlogPost')
+				->createQuery('p')
+				->where('published = ?', true)
+				->andWhere('micropost = ?', false)
+				->orderBy('created_at desc')
+		);
+		$this->postPager->setPage($this->getRequestParameter('p_page', 1));
+		$this->postPager->init();
+		$this->posts = $this->postPager->getResults();
+			
+		$this->micropostPager = new sfDoctrinePager('BlogPost', 10);
+		$this->micropostPager->setQuery(
+			Doctrine::getTable('BlogPost')
+				->createQuery('p')
+				->where('published = ?', true)
+				->andWhere('micropost = ?', true)
+				->orderBy('created_at desc')
+		);
+		$this->micropostPager->setPage($this->getRequestParameter('mp_page', 1));
+		$this->micropostPager->init();
+		$this->microposts = $this->micropostPager->getResults();
 			
 		// check for new comments
 		$this->postNewComments = array();

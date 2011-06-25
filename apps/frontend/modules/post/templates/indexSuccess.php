@@ -1,5 +1,6 @@
 <?php 
 	use_helper('Text');
+	use_helper('Pagination');
 	$posts_raw = $sf_data->getRaw('posts');
 ?>
 
@@ -28,6 +29,7 @@
 		</tr>
 	<?php endforeach;?>
 	</table>
+	<?php echo pager_navigation($postPager, url_for('homepage', array('p_page' => 'PAGE'))); ?>
 <?php endif; ?>
 </div>
 
@@ -56,4 +58,5 @@
 		</tr>
 	<?php endforeach;?>
 	</table>
+	<?php echo pager_navigation($micropostPager, url_for('homepage', array('mp_page' => 'PAGE'))); ?>
 </div>
