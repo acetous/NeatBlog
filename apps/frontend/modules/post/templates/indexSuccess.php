@@ -22,7 +22,7 @@
 			<td class="post-info">
 				<span><?php echo $post->getDateTimeObject('created_at')->format('d.m.'); ?></span>
 				<div class="commentlink <?php $postNewComments[$post->getId()] ? 'new' : ''; ?>">
-					<?php echo link_to('('.sizeof($post->getComments()).')', 'post_show', $post); ?>
+					<a href="<?php echo url_for('post_show', $post) ?>#comments"><?php echo '('.sizeof($post->getComments()).')'; ?></a>
 				</div>
 			</td>
 		</tr>
@@ -50,7 +50,7 @@
 			</td>
 			<td class="micropost-info">
 				<div class="commentlink <?php echo $postNewComments[$micropost->getId()] ? 'new' : ''; ?>">
-					<?php echo link_to('('.sizeof($micropost->getComments()).')', 'post_show', $micropost); ?>
+					<a href="<?php echo url_for('post_show', $micropost); ?>#comments"><?php echo '('.sizeof($micropost->getComments()).')'; ?></a>
 				</div>
 			</td>
 		</tr>

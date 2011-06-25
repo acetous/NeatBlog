@@ -11,12 +11,14 @@
 	<?php echo sfConfig::get('app_other_tracking'); ?>
 </head>
 <body>
-	<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
+	<div id="header" class="<?php echo get_slot('design_type'); ?>">
+		<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
+	</div>
 	<div id="outer-wrapper">
 		<?php echo $sf_content ?>
 		<br clear="both" />
 	</div>
-	<div id="footer" class="wrapper">
+	<div id="footer" class="wrapper <?php echo get_slot('design_type'); ?>">
 		<div class="left">
 			<?php 
 				$contact = sfConfig::get('app_details_contact');

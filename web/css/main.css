@@ -9,7 +9,7 @@ body {
 }
 
 div.wrapper {
-	width: 600px;
+	width: 1000px;
 	margin: 10px auto;
 	overflow: hidden;
 }
@@ -211,7 +211,7 @@ div.comments textarea {
  * Content
  */
 div.content {
-	border-top: 1px solid #000000;
+	width: 600px;
 	padding-top: 10px;
 }
 
@@ -315,18 +315,32 @@ table.microposts td.micropost-date {
 }
  
 /**
- * Footer
+ * 	Header and Footer
  */
+div#header {
+	border-bottom: 1px solid #000000;
+	width: 1000px;
+	margin: 0 auto;
+}
+
 div#footer {
 	border-top: 1px solid #000000;
 	font-size: 80%;
+	width: 1000px;
 }
+
+div#header.small,
+div#footer.small {
+	width: 600px;
+}
+
 div#footer .left {
 	text-align: right;
 	border-right: 1px solid #000000;
 }
+
 div#footer .left, div#footer .right {
-	width: 292px;
+	width: 48%;
 	padding: 3px;
 	float: left;
 }

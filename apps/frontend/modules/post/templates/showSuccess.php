@@ -1,6 +1,9 @@
-<?php use_javascript('comments'); ?>
-<?php use_helper('Text'); ?>
-<?php slot( 'title', $post->getTitle() ); ?>
+<?php 
+	use_javascript('comments');
+	use_helper('Text');
+	slot( 'title', $post->getTitle() );
+	slot( 'design_type', 'small' ); 
+?>
 
 <div class="content wrapper">
 
@@ -14,6 +17,7 @@
 <div class="annotation"><?php echo __('Permalink'); ?>: <?php echo link_to($post->getPermaLink(), $post->getPermaLink()); ?></div>
 
 <div class="comments">
+	<a name="comments"></a>
 	<h3><?php echo sizeof($post->getComments()) == 0 ? __('No Comments') : sizeof($post->getComments()).' '.__('Comments'); ?></h3>
 	<?php foreach ($post->getComments() as $comment) : ?>
 		<div class="annotation"><?php echo __('at'); ?> <?php echo $comment->getCreatedAt(); ?></div>
