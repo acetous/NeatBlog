@@ -16,7 +16,7 @@
 	</div>
 	<div id="outer-wrapper">
 		<?php echo $sf_content ?>
-		<br clear="both" />
+		<br clear="both" style="display:none;" />
 	</div>
 	<div id="footer" class="wrapper <?php echo get_slot('design_type'); ?>">
 		<div class="left">

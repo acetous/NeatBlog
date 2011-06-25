@@ -4,6 +4,9 @@
 	$posts_raw = $sf_data->getRaw('posts');
 ?>
 
+<div class="annotation">
+	<?php echo link_to(image_tag('rss', array('alt' => __('RSS-Feed'))), 'feed' ); ?>
+</div>
 <div id="article-wrapper">
 <h2><?php echo __('Posts'); ?></h2>
 <?php if (sizeof($posts) == 0) : ?>
@@ -22,7 +25,7 @@
 			</td>
 			<td class="post-info">
 				<span><?php echo $post->getDateTimeObject('created_at')->format('d.m.'); ?></span>
-				<div class="commentlink <?php $postNewComments[$post->getId()] ? 'new' : ''; ?>">
+				<div class="commentlink <?php echo $postNewComments[$post->getId()] ? 'new' : ''; ?>">
 					<a href="<?php echo url_for('post_show', $post) ?>#comments"><?php echo '('.sizeof($post->getComments()).')'; ?></a>
 				</div>
 			</td>
@@ -59,4 +62,9 @@
 	<?php endforeach;?>
 	</table>
 	<?php echo pager_navigation($micropostPager, url_for('homepage', array('mp_page' => 'PAGE'))); ?>
+</div>
+
+
+<div class="annotation">
+	<?php echo link_to(image_tag('eye', array('alt' => __('Mark all comments read'))), 'comments_read'); ?>
 </div>

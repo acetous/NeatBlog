@@ -48,3 +48,7 @@ BlogPostVisitor:
     post:
       type: integer
       notnull: true
+    views:
+      type: integer
+      notnull: true
+      default: 1
