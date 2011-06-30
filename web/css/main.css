@@ -204,6 +204,21 @@ div.comments textarea {
 	height: 100px;
 }
 
+div.content div.social-integration {
+	border-top: 1px solid #000000;
+}
+
+div.content div.social-integration div.social {
+	padding: 5px;
+	width: 290px;
+	float: left;
+	min-height: 20px;
+}
+
+div.content div.social-integration div.social img {
+	vertical-align: middle;
+}
+
 
 /**
  * Content
@@ -234,7 +249,7 @@ div#shortpost-wrapper {
 div#outer-wrapper {
 	width: 1000px;
 	margin: 0 auto;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .commentlink {
@@ -309,6 +324,17 @@ table.microposts td.micropost-date {
 	padding: 10px 0;
 	font-weight: bold;
 	text-align: center;
+}
+
+div#social-integration div.social {
+	padding: 5px;
+	width: 240px;
+	float: left;
+	min-height: 20px;
+}
+
+div#social-integration div.social img {
+	vertical-align: middle;
 }
  
 /**

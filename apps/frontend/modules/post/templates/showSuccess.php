@@ -14,7 +14,14 @@
 	<?php echo markdown( $sf_data->getRaw('post')->getContent() ); ?>
 </div>
 
-<div class="annotation"><?php echo __('Permalink'); ?>: <?php echo link_to($post->getPermaLink(), $post->getPermaLink()); ?></div>
+<div class="social-integration">
+	<h2><?php echo __('Socialize'); ?></h2>
+	<?php include_partial('socialize', array('url' => $post->getPermaLink(), 'width' => 290)); ?>
+	<div class="social" style="width:500px;">
+		<?php echo __('Permalink'); ?>: <?php echo link_to($post->getPermaLink(), $post->getPermaLink()); ?>
+	</div>
+	<br clear="both" />
+</div>
 
 <div class="comments">
 	<a name="comments"></a>

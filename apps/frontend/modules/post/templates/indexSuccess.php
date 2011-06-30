@@ -5,11 +5,8 @@
 	
 	setlocale(LC_ALL, sfConfig::get('app_view_locale', null));
 ?>
-
-<div class="annotation">
-	<?php echo link_to(image_tag('rss', array('alt' => __('RSS-Feed'))), 'feed' ); ?>
-</div>
 <div id="article-wrapper">
+
 <h2><?php echo __('Posts'); ?></h2>
 <?php if (sizeof($posts) == 0) : ?>
 
@@ -46,9 +43,22 @@
 	</table>
 	<?php echo pager_navigation($postPager, url_for('homepage', array('p_page' => 'PAGE'))); ?>
 <?php endif; ?>
+
+<div id="social-integration">
+	<br />
+	<h2><?php echo __('Socialize'); ?></h2>
+	<?php include_partial('socialize', array('url' => url_for('@homepage', true), 'width' => 240)); ?>
+	<div class="social">
+		<?php echo link_to(image_tag('feed', array('alt' => __('RSS-Feed'))), 'feed' ); ?>
+		<?php echo link_to(__('Read this as RSS'), 'feed' ); ?>
+	</div>
+	<br clear="both" />
+</div>
+
 </div>
 
 <div id="shortpost-wrapper">
+
 <h2><?php echo __('Short'); ?></h2>
 
 	<table class="microposts">

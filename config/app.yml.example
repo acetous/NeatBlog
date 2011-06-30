@@ -12,6 +12,7 @@ all:
     post_count: 10
     micropost_count: 10
   other:
+    social_integration: true
     tracking: |
       <!-- HTML Tracking code if you wish -->
   rss:
