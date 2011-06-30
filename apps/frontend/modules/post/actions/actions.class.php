@@ -14,7 +14,7 @@ class postActions extends sfActions
 	
 	public function executeIndex(sfWebRequest $request)
 	{
-		$this->postPager = new sfDoctrinePager('BlogPost', 7);
+		$this->postPager = new sfDoctrinePager('BlogPost', sfConfig::get('app_homepage_post_count', 10));
 		$this->postPager->setQuery(
 			Doctrine::getTable('BlogPost')
 				->createQuery('p')
@@ -26,7 +26,7 @@ class postActions extends sfActions
 		$this->postPager->init();
 		$this->posts = $this->postPager->getResults();
 			
-		$this->micropostPager = new sfDoctrinePager('BlogPost', 10);
+		$this->micropostPager = new sfDoctrinePager('BlogPost', sfConfig::get('app_homepage_micropost_count', 10));
 		$this->micropostPager->setQuery(
 			Doctrine::getTable('BlogPost')
 				->createQuery('p')

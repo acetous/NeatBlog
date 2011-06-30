@@ -1,0 +1,268 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'PT Sans', arial, serif;
+	font-size: 11pt;
+}
+
+div.wrapper {
+	width: 600px;
+	margin: 10px auto;
+	overflow: hidden;
+}
+
+h1, h2, h3 {
+	margin: 10px 0;
+}
+h1 {
+	text-align: center;
+}
+h2 {
+}
+h3 {
+}
+
+h1 a:link, h1 a:visited, h1 a:focus, h1 a:hover, h1 a:active {
+	color: #262626;
+}
+
+table td {
+	padding: 2px;
+	vertical-align: top;
+}
+
+
+.annotation {
+	font-size: 70%;
+	text-align:right;
+}
+
+.left {
+	float: left;
+	width: 50%;
+}
+.right {
+	float: right;
+	width: 50%;
+}
+
+.leftfloat {
+	float: left;
+}
+
+.rightfloat {
+	float: right;
+}
+
+a:link, a:visited, a:focus, a:hover, a:active {
+	color: #507AD5 ;
+	text-decoration: none;
+}
+a:visited {
+	color: #8F8F8F;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+img {
+	border: 0;
+}
+
+/**
+ * Forms
+ */
+form {
+	text-align: center;
+}
+input, textarea {
+	font-family: 'Droid Sans', arial, serif;
+	border: 1px solid #8F8F8F;
+	margin: 5px;
+	margin-bottom: 20px;
+	padding: 5px;
+	width: 580px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+}
+input {
+	text-align: center;
+}
+input[type="submit"] {
+	width: 300px;
+	background: #E3E3E3;
+}
+input[type="checkbox"], input[type="checkbox"]:hover, input[type="checkbox"]:focus {
+	width: 13px;
+	height: 13px;
+	border: 0;
+	margin: 5px;
+	padding: 0;
+}
+textarea {
+	height: 200px;
+	font-family: 'Droid Sans Mono', arial, serif;
+	font-size: 80%;
+}
+input:hover, textarea:hover {
+	border: 2px solid #B7B7B7;
+	margin: 4px;
+	margin-bottom: 19px;
+}
+
+input:focus, textarea:focus {
+	border: 2px solid #507AD5;
+	margin: 4px;
+	margin-bottom: 19px;
+}
+div.error {
+	width: 50%;
+	margin: 3px auto;
+	padding: 3px;
+	border: 1px solid #CC0000;
+	background: #FFEBE8;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	font-family: 'Droid Sans Mono', arial, serif;
+	font-size: 80%;
+	text-align: center;
+}
+div.error ul {
+	list-style-type: none;
+}
+div#blog_post_preview {
+	min-height: 100px;
+	background: #FFFEE3;
+	border: 1px solid #8F8F8F;
+}
+
+/**
+ * Posts
+ */
+div.post,
+div.comments {
+}
+
+div.post h1, div.post h2, div.post h3,
+div.comments h1, div.comments h2, div.comments h3 {
+	text-align: left;
+	margin: 10px;
+	font-weight: normal;
+}
+
+div.post h1,
+div.comments h1 {
+	font-size: 145%;
+	font-weight: bold;
+}
+div.post h2,
+div.comments h2 {
+	font-size: 110%;
+	font-weight: bold;
+}
+div.post h3,
+div.comments h3 {
+	font-size: 110%;
+}
+
+div.post p, div.post ul, div.post ol, div.post pre, div.post blockquote,
+div.comments p {
+	margin: 10px;
+}
+
+div.post ul, div.post ol {
+	padding-left: 20px;
+}
+
+div.post blockquote {
+	margin-left: 15px;
+	border-left: 1px dotted #3E578B;
+	color: #3E578B;
+}
+
+table.posts,
+table.microposts {
+	width: 100%;
+	text-align: left;
+	margin-bottom: 5px;
+}
+table.posts td.post-date,
+table.microposts td.micropost-date {
+	width: 50px;
+	text-align: right;
+	vertical-align: middle;
+	font-size: 80%;
+}
+table.microposts td.micropost-date {
+	vertical-align: top;
+	line-height: 12pt;
+}
+table.posts td.post-actions,
+table.microposts td.micropost-actions {
+	width: 60px;
+}
+.post-actions img {
+	max-height: 12px;
+}
+
+table.posts a:link, table.posts a:focus, table.posts a:hover, table.posts a:active,
+table.microposts a:link, table.microposts a:focus, table.microposts a:hover, table.microposts a:active {
+	color: #3E578B ;
+}
+table.microposts td.micropost-date a:link, 
+table.microposts td.micropost-date a:focus, 
+table.microposts td.micropost-date a:hover, 
+table.microposts td.micropost-date a:active, 
+table.microposts td.micropost-date a:visited {
+	color: #000;
+}
+
+div.comments {
+	border-top: 1px solid #000000;
+}
+
+div.comment p {
+	margin: 5px 15px;
+}
+	
+div.comment p.author {
+	font-weight: bold;
+	margin: 0 10px;
+}
+
+div.comments textarea {
+	height: 100px;
+}
+
+
+/**
+ * Content
+ */
+div#content {
+	border-top: 1px solid #000000;
+	padding-top: 10px;
+}
+ 
+/**
+ * Footer
+ */
+div#footer {
+	border-top: 1px solid #000000;
+	font-size: 80%;
+}
+div#footer .left {
+	text-align: right;
+	border-right: 1px solid #000000;
+}
+div#footer .left, div#footer .right {
+	width: 292px;
+	padding: 3px;
+	float: left;
+}

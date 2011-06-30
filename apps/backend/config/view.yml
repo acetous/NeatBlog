@@ -13,10 +13,11 @@ default:
     robots:       index, follow
 
   stylesheets:
-    - main.css
+    - backend.css
     - prettify.css
     - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
     - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
+    - http://fonts.googleapis.com/css?family=PT+Sans&v1
 
   javascripts:
     - http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js

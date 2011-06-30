@@ -7,6 +7,10 @@ all:
       <p>Use HTML oder leave blank to let it disappear.</p>
   view:
     language: en # available: en, de
+    locale: de_DE.utf8 # a locale your system can deal with; delete if not sure
+  homepage:
+    post_count: 10
+    micropost_count: 10
   other:
     tracking: |
       <!-- HTML Tracking code if you wish -->

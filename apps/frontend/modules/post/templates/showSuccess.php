@@ -18,16 +18,16 @@
 
 <div class="comments">
 	<a name="comments"></a>
-	<h3><?php echo sizeof($post->getComments()) == 0 ? __('No Comments') : sizeof($post->getComments()).' '.__('Comments'); ?></h3>
+	<h2><?php echo sizeof($post->getComments()) == 0 ? __('No Comments') : sizeof($post->getComments()).' '.__('Comments'); ?></h2>
 	<?php foreach ($post->getComments() as $comment) : ?>
-		<div class="annotation"><?php echo __('at'); ?> <?php echo $comment->getCreatedAt(); ?></div>
+		<div class="annotation rightfloat"><?php echo $comment->getCreatedAt(); ?></div>
 		<div class="comment">
 			<p class="author"><?php echo strlen($comment->getAuthor()) > 0 ? $comment->getAuthor() : __('Anonymous'); ?></p>
-			<?php echo simple_format_text($comment->getContent()); ?>
+			<?php echo auto_link_text(simple_format_text($comment->getContent()), 'all', array('target' => '_blank', 'rel' => 'nofollow'), true); ?>
 		</div>
 	<?php endforeach; ?>
 	
-	<h3 style="margin-top:30px;"><a href="#" id="commentlink"><?php echo __('Write a comment'); ?></a></h3>
+	<h2 style="margin-top:30px;"><a href="#" id="commentlink"><?php echo __('Write a comment'); ?></a></h2>
 	<div id="commentform" style="display:none;">
 		<h3 style="margin-top:30px;"><?php echo __('Write a comment'); ?></h3>
 		<?php include_partial('comment/form', array('post' => $post, 'form' => $commentForm)); ?>

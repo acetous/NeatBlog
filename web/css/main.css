@@ -4,8 +4,8 @@
 }
 
 body {
-	font-family: 'Droid Sans', arial, serif;
-	font-size: 10pt;
+	font-family: 'PT Sans', arial, serif;
+	font-size: 11pt;
 }
 
 div.wrapper {
@@ -36,8 +36,8 @@ table td {
 
 
 .annotation {
-	font-size: 70%;
 	text-align:right;
+	font-size: 9pt;
 }
 
 .left {
@@ -161,17 +161,14 @@ div.comments h1, div.comments h2, div.comments h3 {
 
 div.post h1,
 div.comments h1 {
-	font-size: 145%;
 	font-weight: bold;
 }
 div.post h2,
 div.comments h2 {
-	font-size: 110%;
 	font-weight: bold;
 }
 div.post h3,
 div.comments h3 {
-	font-size: 110%;
 }
 
 div.post p, div.post ul, div.post ol, div.post pre, div.post blockquote,
@@ -194,12 +191,13 @@ div.comments {
 }
 
 div.comment p {
-	margin: 5px 15px;
+	margin: 5px 20px;
+	font-size: 10pt;
 }
 	
 div.comment p.author {
-	font-weight: bold;
 	margin: 0 10px;
+	font-size: 11pt;
 }
 
 div.comments textarea {
@@ -220,12 +218,12 @@ div.content {
  */
 
 div#article-wrapper {
-	width: 400px;
+	width: 500px;
 	margin-right: 50px;
 }
 
 div#shortpost-wrapper {
-	width: 550px;
+	width: 450px;
 }
 
 div#article-wrapper,
@@ -244,7 +242,6 @@ div#outer-wrapper {
 	padding-left: 18px;
 	height: 18px;
 	vertical-align: middle;
-	font-size: 90%;
 }
 
 .commentlink.new {
@@ -264,17 +261,22 @@ table.microposts td.micropost-info {
 }
 
 table.posts td.post-content .post-title {
-	font-size: 120%;
 	padding: 5px 0;
+	font-weight: bold;
 }
+
+table.posts td.post-content .post-title a:visited {
+	color: #3E578B;
+}
+
 table.posts td.post-content .post-content {
-	font-size: 90%;
 	padding-left: 10px;
 }
 
 table.posts td.post-info *,
 table.microposts td.micropost-info * {
 	opacity: 0.6;
+	font-size: 10pt;
 }
 
 table.microposts td.micropost-content {
@@ -301,17 +303,12 @@ table.posts a:link, table.posts a:focus, table.posts a:hover, table.posts a:acti
 table.microposts a:link, table.microposts a:focus, table.microposts a:hover, table.microposts a:active {
 	color: #3E578B ;
 }
-table.microposts td.micropost-date a:link, 
-table.microposts td.micropost-date a:focus, 
-table.microposts td.micropost-date a:hover, 
-table.microposts td.micropost-date a:active, 
-table.microposts td.micropost-date a:visited {
-	color: #000;
-}
 
+table.posts td.post-date,
 table.microposts td.micropost-date {
-	font-size: 110%;
-	padding-top: 5px;
+	padding: 10px 0;
+	font-weight: bold;
+	text-align: center;
 }
  
 /**
@@ -325,7 +322,6 @@ div#header {
 
 div#footer {
 	border-top: 1px solid #000000;
-	font-size: 80%;
 	width: 1000px;
 }
 

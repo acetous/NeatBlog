@@ -2,6 +2,8 @@
 	use_helper('Text');
 	use_helper('Pagination');
 	$posts_raw = $sf_data->getRaw('posts');
+	
+	setlocale(LC_ALL, sfConfig::get('app_view_locale', null));
 ?>
 
 <div class="annotation">
@@ -15,7 +17,18 @@
 
 <?php else : ?>
 	<table class="posts">
-	<?php foreach ($posts as $index => $post) :	?>
+	<?php
+		$lastDate = ""; 
+		foreach ($posts as $index => $post) :
+	?>
+		<?php
+			$currentDate = strftime('%B', $post->getDateTimeObject('created_at')->getTimestamp()); 
+			if ($lastDate != $currentDate) : 
+		?>
+		<tr>
+			<td class="post-date"><?php echo $currentDate; ?></td>
+		</tr>
+		<?php $lastDate = $currentDate; endif; ?>
 		<tr>
 			<td class="post-content">
 				<div class="post-title"><?php echo link_to($post->getTitle(), 'post_show', $post); ?></div>
@@ -24,7 +37,6 @@
 				</div>
 			</td>
 			<td class="post-info">
-				<span><?php echo $post->getDateTimeObject('created_at')->format('d.m.'); ?></span>
 				<div class="commentlink <?php echo $postNewComments[$post->getId()] ? 'new' : ''; ?>">
 					<a href="<?php echo url_for('post_show', $post) ?>#comments"><?php echo '('.sizeof($post->getComments()).')'; ?></a>
 				</div>
@@ -44,11 +56,14 @@
 		$lastDate = "";
 		foreach ($microposts as $micropost) :
 	?>
-		<?php if ($lastDate != $micropost->getDateTimeObject('created_at')->format('d.m.')) : ?>
+		<?php
+			$currentDate = strftime('%e. %B', $micropost->getDateTimeObject('created_at')->getTimestamp()); 
+			if ($lastDate != $currentDate) :
+		?>
 		<tr>
-			<td class="micropost-date"><?php echo $micropost->getDateTimeObject('created_at')->format('d.m.'); ?></td>
+			<td class="micropost-date"><?php echo $currentDate; ?></td>
 		</tr>
-		<?php $lastDate = $micropost->getDateTimeObject('created_at')->format('d.m.'); endif; ?>
+		<?php $lastDate = $currentDate; endif; ?>
 		<tr>
 			<td class="micropost-content">
 				<?php echo markdown( $micropost->getRaw('content') ); ?>
