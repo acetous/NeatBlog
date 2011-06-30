@@ -244,6 +244,7 @@ div#shortpost-wrapper {
 div#article-wrapper,
 div#shortpost-wrapper {
 	float: left;
+	overflow: hidden;
 }
 
 div#outer-wrapper {
