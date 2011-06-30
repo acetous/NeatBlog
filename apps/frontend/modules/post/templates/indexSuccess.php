@@ -22,7 +22,7 @@
 		foreach ($posts as $index => $post) :
 	?>
 		<?php
-			$currentDate = strftime('%B', $post->getDateTimeObject('created_at')->getTimestamp()); 
+			$currentDate = strftime('%B', $post->getDateTimeObject('created_at')->format('U')); 
 			if ($lastDate != $currentDate) : 
 		?>
 		<tr>
@@ -57,7 +57,7 @@
 		foreach ($microposts as $micropost) :
 	?>
 		<?php
-			$currentDate = strftime('%e. %B', $micropost->getDateTimeObject('created_at')->getTimestamp()); 
+			$currentDate = strftime('%e. %B', $micropost->getDateTimeObject('created_at')->format('U')); 
 			if ($lastDate != $currentDate) :
 		?>
 		<tr>
