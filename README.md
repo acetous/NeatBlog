@@ -1,7 +1,7 @@
 # &lt;NeatBlog&gt;
 
 is a simple but flexible blogging software.<br />
-It aims for making fast blogging possible without the overhead of WYSIWYG editors and post-management tasks. Just write what you want to write and publish it!
+It aims for making fast blogging possible without the overhead of WYSIWYG editors and post-management tasks. Just write what you want and publish it!
 
 ## Features
 
@@ -37,8 +37,7 @@ View `http://your-domain.com` for your new blog or `http://your-domain.com/backe
 
 * Get the latest code via download or update via Git. Remember to keep your `web/uploads` directory.
 * Check the `config/app.yml` for any new config values.
-* Run `./symfony doctrine:migrate`.<br />
-  Sry folks without cli, you'll have to update your database manually for now. See `lib/migration/raw/howto`.
+* Run `./symfony doctrine:migrate`.
 * Clear your cache.
 
 ## Feel free to contribute!
