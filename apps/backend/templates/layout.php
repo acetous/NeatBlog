@@ -13,6 +13,7 @@
 	<div id="menu" class="wrapper annotation">
 		<?php echo link_to(image_tag('homepage'), substr(url_for('homepage'), 0, -8)); ?>
 		<?php echo link_to(image_tag('post-add'), 'post_new'); ?>
+		<?php echo link_to(image_tag('comments'), 'comments'); ?>
 	</div>
 	<div id="content" class="wrapper">
 		<?php echo $sf_content ?>

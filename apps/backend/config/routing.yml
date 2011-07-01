@@ -67,6 +67,20 @@ file_index:
   requirements:
     sf_method: get
     sf_format: (?:json)
+    
+comments:
+  url:     /comments
+  class:   sfDoctrineRoute
+  options: { model: BlogComment, type: list }
+  param:   { module: comment, action: index, sf_format: html }
+  requirements: { sf_method: get }
+
+comment_delete:
+  url:     /comment/:id/delete
+  class:   sfDoctrineRoute
+  options: { model: BlogComment, type: object }
+  param:   { module: comment, action: delete, sf_format: html }
+  requirements: { sf_method: delete }
 
 homepage:
   url:	/
