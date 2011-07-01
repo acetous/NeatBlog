@@ -11,7 +11,8 @@
 <body>
 	<h1><?php echo link_to(sfConfig::get('app_details_name').' | Backend', 'homepage'); ?></h1>
 	<div id="menu" class="wrapper annotation">
-		<?php echo link_to(__('New Post'), 'post_new'); ?>
+		<?php echo link_to(image_tag('homepage'), substr(url_for('homepage'), 0, -8)); ?>
+		<?php echo link_to(image_tag('post-add'), 'post_new'); ?>
 	</div>
 	<div id="content" class="wrapper">
 		<?php echo $sf_content ?>

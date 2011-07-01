@@ -1,4 +1,4 @@
-post:
+posts:
   url:     /
   class:   sfDoctrineRoute
   options: { model: BlogPost, type: list }
