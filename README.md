@@ -18,7 +18,7 @@ It aims for making fast blogging possible without the overhead of WYSIWYG editor
 * Put your database configuration into `config/databases.yml` (see `databases.yml.example`)
 * Put your blog configuration into `config/app.yml` (see `app.yml.example`)<br />
   If your ever change your config, clear the `cache` directory or run `./symfony cc`
-* Import `data/sql/schema.sql` into your database OR run `./symfony doctrine:insert-sql`
+* Run `./symfony doctrine:migrate` to build your database
 * Secure the `backend` directory somehow (e.g. HTTP Auth via .htaccess)
 
 If you got the source from github, make sure to remove the `dev` directory from your installation. The development controller offer in depth information about your configuration.
@@ -58,3 +58,4 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 [silkicons]: http://www.famfamfam.com/lab/icons/silk/
 [prettify]: http://code.google.com/p/google-code-prettify/
 [videojs]: http://videojs.com/
+
