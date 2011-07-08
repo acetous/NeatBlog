@@ -6,6 +6,9 @@ security:  ~
 
 language:
   class: BlogLanguageFilter
+  
+themes:
+  class: ThemedFilter
 
 cache:     ~
 execution: ~

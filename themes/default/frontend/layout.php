@@ -1,6 +1,3 @@
-<?php
-	
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $sf_user->getCulture() ?>" lang="<?php echo $sf_user->getCulture() ?>">
 <head>
@@ -23,12 +20,12 @@
 	</div>
 	<div id="footer" class="wrapper <?php echo get_slot('design_type'); ?>">
 		<div class="left">
-			<?php 
+			<?php
 				$contact = sfConfig::get('app_details_contact');
 				if (!empty($contact)) :
 			?>
 			<?php echo __('Visit me on'); ?><br />
-			<?php 
+			<?php
 				$contact = explode('|', $contact);
 				array_walk($contact, create_function('&$el, $i', '$el = explode(":", $el, 2);'));
 				foreach ($contact as $i => $entry) {
@@ -44,3 +41,4 @@
 	</div>
 </body>
 </html>
+
