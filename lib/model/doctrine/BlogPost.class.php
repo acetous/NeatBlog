@@ -22,15 +22,31 @@ class BlogPost extends BaseBlogPost
 		$lines = explode("\n", $this->getContent());
 		$excerpt = "";
 		$excertPresent = false;
-		foreach ($lines as $line) {			
+		foreach ($lines as $index => $line) {
 			$line = trim($line);
-			if (!empty($line)) {
-				if (!$excertPresent && in_array(str_replace(array('ä', 'ö', 'ü'), 'a', mb_strtolower(mb_substr($line, 0, 1))), range("a", "z"))) {
-					$excerpt .= $line."\n";
-					$excertPresent = true;
-				} elseif (preg_match('/^\[[a-z]+\]: .*$/i', $line) > 0) {
-					$excerpt .= $line."\n";
-				}
+			
+			if (!$excertPresent) {
+				// skip empty lines
+				if (empty($line))
+					continue;
+				// skip headings
+				// FIXME lines starting with '=' or '-' will be ignored
+				if (in_array(substr($line, 0, 1), array('#', '=', '-')))
+					continue;
+				if (array_key_exists($index + 1, $lines) && in_array(substr($lines[$index + 1], 0, 1), array('=', '-')))
+					continue;
+				// skip images
+				// TODO skip lines containing images?
+				if (substr($line, 0, 2) == '![')
+					continue;
+				// skip lines containing HTML
+				if (strlen($line) !=  strlen(strip_tags($line)))
+					continue;
+				
+				$excerpt .= $line."\n";
+				$excertPresent = true;
+			} elseif (preg_match('/^\[[a-z]+\]: .*$/i', $line) > 0) {
+				$excerpt .= $line."\n";
 			}
 		}
 		return $excerpt;
