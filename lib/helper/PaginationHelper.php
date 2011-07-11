@@ -3,6 +3,12 @@
 function pager_navigation($pager, $uri)
 {
 	$navigation = '';
+	
+	foreach (sfContext::getInstance()->getRequest()->getGetParameters() as $index => $value) {
+		if (preg_match(sprintf('/(&|\?)%s=/', $index), $uri) === 0) {
+			$uri .= (strpos($uri, '?') === false ? '?' : '&') . $index . '=' . $value;
+		}
+	}
 
 	if ($pager->haveToPaginate())
 	{
