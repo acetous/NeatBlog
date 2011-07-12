@@ -16,4 +16,16 @@ class BlogPostVisitorTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('BlogPostVisitor');
     }
+    
+    public function cleanup($interval)
+    {
+    	$time = new DateTime();
+    	$time->sub(new DateInterval($interval));
+    	
+    	$query = $this->createQuery('v')
+    		->delete()
+    		->where('v.updated_at < ?', $time->format('Y-m-d'));
+    	
+    	return $query->execute();
+    }
 }
