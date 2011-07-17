@@ -13,6 +13,7 @@ default:
     robots:       index, follow
 
   stylesheets:
+    - css3buttons.css
     - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
     - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
     - http://fonts.googleapis.com/css?family=PT+Sans&v1

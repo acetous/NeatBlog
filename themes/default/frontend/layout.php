@@ -5,20 +5,20 @@
 	<?php include_metas() ?>
 	<title><?php echo (get_slot('title') ? get_slot('title') . ' | ' : '') . sfConfig::get('app_details_name') ?></title>
 	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $sf_request->getUriPrefix() . $sf_request->getRelativeUrlRoot(); ?>/feed.rss" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $sf_request->getUriPrefix() . $sf_request->getRelativeUrlRoot() . url_for('feed'); ?>" />
 	<?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
 	<?php echo sfConfig::get('app_other_tracking'); ?>
 </head>
-<body>
-	<div id="header" class="<?php echo get_slot('design_type'); ?>">
+<body class="<?php echo get_slot('page_type'); ?>">
+	<div id="header">
 		<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
 	</div>
 	<div id="outer-wrapper">
 		<?php echo $sf_content ?>
 		<br clear="both" style="display:none;" />
 	</div>
-	<div id="footer" class="wrapper <?php echo get_slot('design_type'); ?>">
+	<div id="footer">
 		<div class="left">
 			<?php
 				$contact = sfConfig::get('app_details_contact');

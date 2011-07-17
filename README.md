@@ -48,6 +48,7 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 
 * for the underlying framework: [Symfony][symfony]
 * for the great icons: [Silk Icons by FAMFAMFAM][silkicons]
+* for the button-styles: [CSS3 Buttons][css3buttons]
 * for the flexible and simple code highlightning script: [google-code-prettify][prettify]
 * for the HTML5 video player skins: [VideoJS][videojs]
 
@@ -58,4 +59,5 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 [silkicons]: http://www.famfamfam.com/lab/icons/silk/
 [prettify]: http://code.google.com/p/google-code-prettify/
 [videojs]: http://videojs.com/
+[css3buttons]: http://css3buttons.michaelhenriksen.dk/
 

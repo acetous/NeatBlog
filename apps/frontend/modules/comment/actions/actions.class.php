@@ -21,7 +21,7 @@ class commentActions extends sfActions
 		{
 			$comment = $form->save();
 		} else {
-			$this->redirect('homepage');
+			$this->redirect($request->getUri());
 		}
 		$this->redirect('post_show', BlogPostTable::getInstance()->findOneById($form->getValue('blog_post_id')));
 	}

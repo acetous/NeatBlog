@@ -8,12 +8,6 @@ body {
 	font-size: 11pt;
 }
 
-div.wrapper {
-	width: 1000px;
-	margin: 10px auto;
-	overflow: hidden;
-}
-
 h1, h2, h3 {
 	margin: 10px 0;
 }
@@ -38,15 +32,6 @@ table td {
 .annotation {
 	text-align:right;
 	font-size: 9pt;
-}
-
-.left {
-	float: left;
-	width: 50%;
-}
-.right {
-	float: right;
-	width: 50%;
 }
 
 .leftfloat {
@@ -210,7 +195,7 @@ div.content div.social-integration {
 
 div.content div.social-integration div.social {
 	padding: 5px;
-	width: 290px;
+	width: 240px;
 	float: left;
 	min-height: 20px;
 }
@@ -219,13 +204,20 @@ div.content div.social-integration div.social img {
 	vertical-align: middle;
 }
 
+a#commentlink {
+	float: right;
+	margin: 10px;
+}
+
 
 /**
  * Content
  */
 div.content {
-	width: 600px;
+	width: 1000px;
 	padding-top: 10px;
+	margin: 10px auto;
+	overflow: hidden;
 }
 
 /**
@@ -350,11 +342,7 @@ div#header {
 div#footer {
 	border-top: 1px solid #000000;
 	width: 1000px;
-}
-
-div#header.small,
-div#footer.small {
-	width: 600px;
+	margin: 0 auto;
 }
 
 div#footer .left {
@@ -366,4 +354,11 @@ div#footer .left, div#footer .right {
 	width: 48%;
 	padding: 3px;
 	float: left;
+}
+
+/**
+ * Other Elements
+ **/
+.pagination {
+	text-align: center;
 }

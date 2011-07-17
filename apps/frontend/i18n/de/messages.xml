@@ -89,12 +89,16 @@
         <target>von</target>
       </trans-unit>
       <trans-unit id="23">
-        <source>next</source>
-        <target>nächste</target>
+        <source>Next Page</source>
+        <target>Nächste Seite</target>
       </trans-unit>
       <trans-unit id="24">
-        <source>previous</source>
-        <target>vorherige</target>
+        <source>Previous Page</source>
+        <target>Vorherige Seite</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>First Page</source>
+        <target>Erste Seite</target>
       </trans-unit>
     </body>
   </file>
