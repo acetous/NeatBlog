@@ -329,6 +329,11 @@ div#social-integration div.social {
 div#social-integration div.social img {
 	vertical-align: middle;
 }
+
+td.micropost-content ul,
+td.micropost-content ol {
+    margin-left: 20px;
+}
  
 /**
  * 	Header and Footer
