@@ -350,15 +350,18 @@ div#footer {
 	margin: 0 auto;
 }
 
-div#footer .left {
-	text-align: right;
-	border-right: 1px solid #000000;
+div#footer .item {
+	width: 300px;
+	padding: 0 16px 5px 17px;
+	float: left;
+	text-align: center;
 }
 
-div#footer .left, div#footer .right {
-	width: 48%;
-	padding: 3px;
-	float: left;
+div#footer .copyright {
+	clear: left;
+	font-size: 80%;
+	text-align: center;
+	padding: 30px;
 }
 
 /**

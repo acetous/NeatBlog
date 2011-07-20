@@ -12,33 +12,14 @@
 </head>
 <body class="<?php echo get_slot('page_type'); ?>">
 	<div id="header">
-		<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>
+		<?php include_partial('content/header'); ?>
 	</div>
 	<div id="outer-wrapper">
-		<?php echo $sf_content ?>
+		<?php echo $sf_content; ?>
 		<br clear="both" style="display:none;" />
 	</div>
 	<div id="footer">
-		<div class="left">
-			<?php
-				$contact = sfConfig::get('app_details_contact');
-				if (!empty($contact)) :
-			?>
-			<?php echo __('Visit me on'); ?><br />
-			<?php
-				$contact = explode('|', $contact);
-				array_walk($contact, create_function('&$el, $i', '$el = explode(":", $el, 2);'));
-				foreach ($contact as $i => $entry) {
-					echo '<a href="'.$entry[1].'">'.$entry[0].'</a>' . (isset($contact[$i+1]) ? ' | ' : '<br />');
-				}
-			?>
-			<?php endif; ?>
-		</div>
-		<div class="right">
-			powered by <a href="http://github.com/acetous/NeatBlog">&lt;NeatBlog&gt;</a><br />
-			<?php if (strlen(sfConfig::get('app_details_imprint')) > 0) echo link_to(__('Imprint'), 'content_imprint'); ?>
-		</div>
+		<?php include_partial('content/footer'); ?>
 	</div>
 </body>
 </html>
-

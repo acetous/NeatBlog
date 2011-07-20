@@ -1,7 +1,7 @@
 <?php 
 	use_helper('Text');
-	slot( 'title', $post->getTitle() );
-	slot( 'design_type', 'small' ); 
+	slot('title', $post->getTitle());
+	slot('page_type', 'post_show'); 
 ?>
 
 <div class="content wrapper">

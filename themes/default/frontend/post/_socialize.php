@@ -1,6 +1,6 @@
 <?php if (sfConfig::get('app_other_social_integration')) : ?>
 <div class="social" style="width: <?php echo $width; ?>px;">
-	<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=115586655198096&amp;xfbml=1"></script><fb:like href="<?php echo $url ?>" width="<?php echo $width; ?>" show_faces="true" font=""></fb:like>
+	<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=252541928090666&amp;xfbml=1"></script><fb:like href="<?php echo $url ?>" send="true" width="<?php echo $width; ?>" show_faces="true" font=""></fb:like>
 </div>
 <div class="social">
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>

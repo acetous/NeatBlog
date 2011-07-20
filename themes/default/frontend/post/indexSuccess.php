@@ -2,6 +2,8 @@
 	use_helper('Text');
 	use_helper('Pagination');
 	
+	slot('page_type', 'homepage');
+	
 	// fix for locales
 	setlocale(LC_ALL, sfConfig::get('app_view_locale', null));
 ?>
