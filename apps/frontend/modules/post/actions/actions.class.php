@@ -74,11 +74,10 @@ class postActions extends sfActions
 	
 	public function executeCommentsread(sfWebRequest $request)
 	{
-		$visitor = $this->getVisitor($request);
 		Doctrine::getTable('BlogPostVisitor')
 			->createQuery('v')
 			->delete()
-			->where('v.token = ?', $visitor)
+			->where('v.token = ?', $this->getUser()->getVisitorID())
 			->execute();
 		$this->redirect('homepage');
 	}
