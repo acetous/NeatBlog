@@ -20,6 +20,7 @@ default:
 
   javascripts:
     - jquery-1.5.2.min.js
+    - common.js
 
   has_layout:     true
   layout:         layout
