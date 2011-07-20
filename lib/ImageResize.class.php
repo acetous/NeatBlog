@@ -29,7 +29,7 @@ class ImageResize
 		}
 		
 		if (is_null($output)) {
-			$output = dirname($this->image) . $imgName . '-'.$width.'x'.$height.'.'.$type;
+			$output = dirname($this->image) . $imgName . '-thumb.'.$type;
 		} else {
 			if (substr($output, strlen($output) - strlen($type)) != $type) {
 				$output .= '.'.$type;

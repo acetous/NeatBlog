@@ -33,8 +33,8 @@
 <button id="imagechooser-button"><?php echo __('Choose files'); ?></button>
 <div class="error" id="imagechooser-error"><p><?php echo __('Your webbrowser needs to be HTML5 capable to upload files!'); ?></p></div>
 <script type="text/javascript">
-var image_path = '/uploads/<?php echo ($form->getObject()->isNew() ? 'other' : $form->getObject()->getDateTimeObject('created_at')->format('Y/m/').$form->getObject()->getId()); ?>/';
-var image_global_path = '/uploads/global/';
+var image_path = '<?php echo sfContext::getInstance()->getRequest()->getRelativeUrlRoot(); ?>/uploads/<?php echo ($form->getObject()->isNew() ? 'other' : $form->getObject()->getDateTimeObject('created_at')->format('Y/m/').$form->getObject()->getId()); ?>/';
+var image_global_path = '<?php echo sfContext::getInstance()->getRequest()->getRelativeUrlRoot(); ?>/uploads/global/';
 $(function() {
 	// handle view
 	$("button#imagechooser-button").hide();
