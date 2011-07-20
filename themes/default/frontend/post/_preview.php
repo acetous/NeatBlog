@@ -2,7 +2,7 @@
 	<td class="post-content">
 		<div class="post-title"><?php echo link_to($post->getTitle(), 'post_show', $post); ?></div>
 		<div class="post-content">
-			<?php echo markdown($post->getExcerpt() . link_to(__('Read more...'), 'post_show', $post)); ?>
+			<?php echo markdown($sf_data->getRaw('post')->getExcerpt() .' '. link_to(__('Read more...'), 'post_show', $post)); ?>
 		</div>
 	</td>
 	<td class="post-info">
@@ -11,3 +11,4 @@
 		</div>
 	</td>
 </tr>
+

@@ -40,7 +40,7 @@ class BlogPost extends BaseBlogPost
 				if (substr($line, 0, 2) == '![')
 					continue;
 				// skip lines containing HTML
-				if (strlen($line) !=  strlen(strip_tags($line)))
+				if (preg_match('/<(img|div|span)[^>]*>/i', $line) > 0)
 					continue;
 				
 				$excerpt .= $line."\n";
