@@ -30,6 +30,14 @@ class fileActions extends sfActions
 			$file->save($path.'/'.$file->getOriginalName());
 			
 			$this->file = $path.'/'.$file->getOriginalName();
+			
+			$resizeSettings = sfConfig::get('app_uploads_resize');
+			if (is_array($resizeSettings) && sizeof($resizeSettings) > 0) {
+				$ir = new ImageResize($this->file);
+				foreach ($resizeSettings as $resize) {
+					$ir->resize($resize['width'], $resize['height'], $resize['zoom']);
+				}
+			}
 		}
 	}
 	

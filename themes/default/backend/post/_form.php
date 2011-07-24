@@ -40,14 +40,7 @@ $(function() {
 	$("button#imagechooser-button").hide();
 
 	// load existing images
-	$.getJSON('<?php echo url_for('file_index', array('sf_format' => 'json')) . ($form->getObject()->isNew() ? '' : '?post='.$form->getObject()->getId()); ?>', function(data) {
-		$.each(data.globalFiles, function(index, file) {
-			$("div#imagechooser").prepend('<div class="image"><img src="'+image_global_path+file+'" /><br /><span class="name">'+file+'</span></div>');
-		});
-		$.each(data.files, function(index, file) {
-			$("div#imagechooser").prepend('<div class="image"><img src="'+image_path+file+'" /><br /><span class="name">'+file+'</span></div>');
-		});
-	});
+	load_files();
 	
 	// uploader config
 	var uploader = new plupload.Uploader({
@@ -91,10 +84,8 @@ $(function() {
 	});
 
 	uploader.bind('FileUploaded', function (up, file) {
-		$("div#"+file.id)
-			.html('<img src="'+image_path + file.name+'" /><br /><span class="name">'+file.name+'</span>')
-			.removeClass('image-upload')
-			.addClass('image');
+		$("div#"+file.id).remove();
+		load_files();
 	});
 
 	uploader.bind('Error', function (up, error) {
@@ -109,6 +100,17 @@ $(function() {
 			.show();
 	});
 });
+function load_files() {
+	$.getJSON('<?php echo url_for('file_index', array('sf_format' => 'json')) . ($form->getObject()->isNew() ? '' : '?post='.$form->getObject()->getId()); ?>', function(data) {
+		$("div#imagechooser div.image").remove();
+		$.each(data.globalFiles, function(index, file) {
+			$("div#imagechooser").prepend('<div class="image"><img src="'+image_global_path+file+'" /><br /><span class="name">'+file+'</span></div>');
+		});
+		$.each(data.files, function(index, file) {
+			$("div#imagechooser").prepend('<div class="image"><img src="'+image_path+file+'" /><br /><span class="name">'+file+'</span></div>');
+		});
+	});
+}
 </script>
 <style>
 #imagechooser {

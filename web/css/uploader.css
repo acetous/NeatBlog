@@ -18,5 +18,9 @@ div.image-upload {
 
 div.image img {
 	max-height: 100px;
-	max-width: 250px;
+	max-width: 200px;
+}
+
+div.image span.name {
+	font-size: 80%;
 }

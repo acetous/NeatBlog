@@ -22,3 +22,15 @@ all:
     autor: email@example.com (Your Name)
     description: |
       This is my personal blog.
+  uploads:
+    resize:
+      # Define your settings for thumbnails here. Each resize setting must have a 
+      # value for width, height and zoom. You can define mutiple settings.
+      setting_1:
+        width: 300
+        height: 300
+        zoom : 1.5
+      setting_2:
+        width: 500
+        height: 500
+        zoom: 3
