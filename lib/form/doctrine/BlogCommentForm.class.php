@@ -14,6 +14,7 @@ class BlogCommentForm extends BaseBlogCommentForm
 		$this->useFields(array('author', 'content', 'blog_post_id'));
 		
 		$this->widgetSchema['author']->setLabel('Your Name');
+		$this->widgetSchema['author']->setDefault(sfContext::getInstance()->getRequest()->getCookie('comment_name'));
 		$this->widgetSchema['content']->setLabel('Your Comment');
 		
 		$this->validatorSchema['author'] = new sfValidatorString(array(
@@ -26,5 +27,11 @@ class BlogCommentForm extends BaseBlogCommentForm
 
 	public function setPost(BlogPost $post) {
 		 $this->setWidget("blog_post_id", new sfWidgetFormInputHidden(array(), array('value' => $post->getId())));
+	}
+	
+	public function save($con = null) {
+		sfContext::getInstance()->getResponse()->setCookie('comment_name', $this->getValue('author'), time()+60*60*24*30);
+		
+		return parent::save($con);
 	}
 }
