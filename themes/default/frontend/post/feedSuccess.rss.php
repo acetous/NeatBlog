@@ -6,9 +6,7 @@
 	<item>
 		<title><?php echo $post->getTitle(); ?></title>
 		<link><?php echo $post->getPermaLink(); ?></link>
-		<description><?php echo ($post->getMicropost() ? 
-			markdown($posts_raw[$index]->getContent()) : 
-			markdown($posts_raw[$index]->getExcerpt() .' '. link_to(__('Read more...'), 'post_show', $post))); 
+		<description><?php echo markdown($posts_raw[$index]->getContent()); 
 ?></description>
 		<guid><?php echo $post->getPermaLink(); ?></guid>
 	</item>
