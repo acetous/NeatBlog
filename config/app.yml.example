@@ -1,9 +1,8 @@
 all:
   details:
     name: NeatBlog
-    contact: twitter:http://twitter.com/|github:http://github.com/
     about: |
-      <p>Use HTML.</p>
+      <small>Use inline-HTML.</small>
     imprint: |
       <h2>Imprint</h2>
       <p>Use HTML oder leave blank to let it disappear.</p>

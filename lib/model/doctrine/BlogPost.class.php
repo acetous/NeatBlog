@@ -71,4 +71,9 @@ class BlogPost extends BaseBlogPost
 			$visit->save();
 		}
 	}
+	
+	public function isMicropost()
+	{
+		return $this->getMicropost();
+	}
 }
