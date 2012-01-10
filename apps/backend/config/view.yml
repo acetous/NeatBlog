@@ -13,6 +13,8 @@ default:
     robots:       index, follow
 
   stylesheets:
+    - /styles/default/default-frontend.css
+    - /styles/default/default-backend.css
     - prettify.css
     - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
     - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin

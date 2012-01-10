@@ -12,15 +12,9 @@ default:
     language:     de
     robots:       index, follow
 
-  stylesheets:
-    - css3buttons.css
-    - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
-    - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
-    - http://fonts.googleapis.com/css?family=PT+Sans&v1
+  stylesheets: []
 
-  javascripts:
-    - jquery-1.5.2.min.js
-    - common.js
+  javascripts: []
 
   has_layout:     true
   layout:         layout

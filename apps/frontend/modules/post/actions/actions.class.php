@@ -12,6 +12,24 @@ class postActions extends sfActions
 {	
 	public function executeIndex(sfWebRequest $request)
 	{
+		$query = Doctrine::getTable('BlogPost')
+			->createQuery('p')
+			->where('published = ?', true)
+			->orderBy('created_at desc');
+		
+		if ($request->hasParameter('archive')) {
+			$when = $request->getGetParameter('archive');
+			if (!preg_match('/^\d{4}-\d{2}$/', $when))
+				return;
+			
+			$query->andWhere('created_at >= ?', $when.'-01');
+			$query->andWhere('created_at <= ?', $when.'-31');
+		} else {
+			$query->limit(sfConfig::get('app_homepage_post_count', 20));
+		}
+		
+		$this->posts = $query->execute();
+		/*
 		$this->postPager = new sfDoctrinePager('BlogPost', sfConfig::get('app_homepage_post_count', 10));
 		$this->postPager->setQuery(
 			Doctrine::getTable('BlogPost')
@@ -35,6 +53,7 @@ class postActions extends sfActions
 		$this->micropostPager->setPage($this->getRequestParameter('mp_page', 1));
 		$this->micropostPager->init();
 		$this->microposts = $this->micropostPager->getResults();
+		*/
 	}
 	
 	public function executeShow(sfWebRequest $request)

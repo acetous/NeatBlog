@@ -3,14 +3,14 @@
 
   # uncomment the following line, if you are having trouble
   # getting no_script_name to work
-  RewriteBase /backend/
+  RewriteBase /neatblog/backend/
 
   # we skip all files with .something
   #RewriteCond %{REQUEST_URI} \..+$
   #RewriteCond %{REQUEST_URI} !\.html$
   #RewriteRule .* - [L]
 
-  RewriteCond %{REQUEST_URI} ^/backend/(css|images|js).*$
+  RewriteCond %{REQUEST_URI} ^/neatblog/backend/(css|images|js).*$
   RewriteRule ^(.*)$ ../$1 [QSA,L]
 
   # we check if the .html version is here (caching)

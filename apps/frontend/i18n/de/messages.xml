@@ -100,6 +100,22 @@
         <source>First Page</source>
         <target>Erste Seite</target>
       </trans-unit>
+      <trans-unit id="26">
+        <source>comments</source>
+        <target>Kommentare</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>comment</source>
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Post Comment</source>
+        <target>Kommentar Posten</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Cancel</source>
+        <target>Abbruch</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
