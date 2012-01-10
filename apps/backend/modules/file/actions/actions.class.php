@@ -65,6 +65,7 @@ class fileActions extends sfActions
 			}
 		}
 		$dir->close();
+		sort($this->files);
 		
 		$this->globalFiles = array();
 		if (is_dir(sfConfig::get('sf_upload_dir').'/global')) {
