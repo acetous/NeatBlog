@@ -12,17 +12,9 @@ default:
     language:     de
     robots:       index, follow
 
-  stylesheets:
-    - /styles/default/default-frontend.css
-    - /styles/default/default-backend.css
-    - prettify.css
-    - http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin
-    - http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin
-    - http://fonts.googleapis.com/css?family=PT+Sans&v1
+  stylesheets: []
 
-  javascripts:
-    - http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js
-    - prettify/prettify.js
+  javascripts: []
 
   has_layout:     true
   layout:         layout
