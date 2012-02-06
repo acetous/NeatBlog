@@ -5,7 +5,11 @@
     <?php include_http_metas() ?>
 	<?php include_metas() ?>
 	
-	<title>acetous Blog</title>
+	<title><?php include_slot('title', 'acetous Blog'); ?></title>
+
+	<?php if (!has_slot('title')) : ?>
+		<meta name="robots" content="noindex, follow">
+	<?php endif; ?>
 	
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $sf_request->getUriPrefix() . $sf_request->getRelativeUrlRoot() . url_for('feed'); ?>" />
@@ -28,6 +32,9 @@
     <script src="<?php echo javascript_path('/scripts/modern/bootstrap-dropdown.js'); ?>"></script>
     <script src="<?php echo javascript_path('/scripts/modern/modernizr.js'); ?>"></script>
     <script src="<?php echo javascript_path('/scripts/modern/main.js'); ?>"></script>
+	
+	<link href="<?php echo stylesheet_path('/styles/modern/prettify.css'); ?>" rel="stylesheet" type="text/css">
+	<script src="<?php echo javascript_path('/scripts/modern/google-code-prettify/prettify.js'); ?>"></script>
 
     
     <?php include_stylesheets() ?>
@@ -38,9 +45,11 @@
         padding-top: 60px;
       }
     </style>
+
+    <?php echo sfConfig::get('app_other_tracking'); ?>
   </head>
 
-  <body>
+  <body onload="prettyPrint();">
 
     <?php include_component('content', 'header'); ?>
 
