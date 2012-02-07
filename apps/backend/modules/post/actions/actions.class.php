@@ -15,12 +15,8 @@ class postActions extends sfActions
 		$this->posts = Doctrine::getTable('BlogPost')
 			->createQuery('p')
 			->orderBy('created_at desc')
+			->limit(30)
 			->execute();
-	}
-	
-	public function executeShow(sfWebRequest $request)
-	{
-		$this->post = $this->getRoute()->getObject();
 	}
 	
 	public function executePublish(sfWebRequest $request)
@@ -40,6 +36,8 @@ class postActions extends sfActions
 	public function executeNew(sfWebRequest $request)
 	{
 		$this->form = new BlogPostForm();
+		
+		$this->setTemplate('edit');
 	}
 
 	public function executeCreate(sfWebRequest $request)
@@ -72,7 +70,7 @@ class postActions extends sfActions
 				}
 				$post->save();
 			}
-			$this->redirect('post_show', $post);
+			$this->redirect('post/index');
 		}
 
 		$this->setTemplate('new');
@@ -104,6 +102,6 @@ class postActions extends sfActions
 	{
 		$this->post = $this->getRoute()->getObject();
 		$this->post->delete();
-		$this->redirect('post');
+		$this->redirect('post/index');
 	}
 }

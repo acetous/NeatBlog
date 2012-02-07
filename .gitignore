@@ -8,3 +8,4 @@ config/app.yml
 .project
 .settings
 .buildpath
+.externalToolBuilders

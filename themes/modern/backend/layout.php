@@ -25,8 +25,12 @@
     <script src="<?php echo javascript_path('/../scripts/modern/jquery-1.7.1.min.js'); ?>"></script>
 	
     <script src="<?php echo javascript_path('/../scripts/modern/bootstrap-dropdown.js'); ?>"></script>
+    <script src="<?php echo javascript_path('/../scripts/modern/bootstrap-tabs.js'); ?>"></script>
     <script src="<?php echo javascript_path('/../scripts/modern/modernizr.js'); ?>"></script>
     <script src="<?php echo javascript_path('/../scripts/modern/main.js'); ?>"></script>
+    
+    <link href="<?php echo stylesheet_path('/../styles/modern/prettify.css'); ?>" rel="stylesheet" type="text/css">
+    <script src="<?php echo javascript_path('/../scripts/modern/google-code-prettify/prettify.js'); ?>"></script>
 
     
     <?php include_stylesheets() ?>
@@ -39,7 +43,7 @@
     </style>
   </head>
 
-  <body>
+  <body onload="prettyPrint();">
 
     <?php include_partial('content/header'); ?>
 
