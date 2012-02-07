@@ -1,3 +1,5 @@
+<?php slot('title', $post->getTitle()); ?>
+
 <div class="row">
     <div class="span16">
         <?php include_partial('post', array('post' => $post)); ?>
