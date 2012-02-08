@@ -78,7 +78,10 @@
 	</form>
 	<script type="text/javascript">
 	$(function() {
+		// activate autoresize
 		$('textarea').autoResize();
+		// trigger autoresize for initial height
+		$('textarea').each(function() { $(this).change(); });
 	});
 	</script>
 
