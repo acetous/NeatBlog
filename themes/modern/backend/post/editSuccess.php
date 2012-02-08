@@ -91,7 +91,7 @@ var mdConverter;
 $(function() {
 	mdConverter = new Showdown.converter();
 	$('.tabs').bind('change', function (e) {
-		if (e.target.text == "Preview") {
+		if (e.target.href.slice(e.target.href.indexOf('#')) == "#preview") {
 			$('div#preview')
 				.empty()
 				.append(
