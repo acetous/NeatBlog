@@ -46,7 +46,6 @@
       }
     </style>
 
-    <?php echo sfConfig::get('app_other_tracking'); ?>
   </head>
 
   <body onload="prettyPrint();">
@@ -62,6 +61,8 @@
       </footer>
 
     </div> <!-- /container -->
+
+    <?php echo sfConfig::get('app_other_tracking'); ?>
 
   </body>
 </html>
