@@ -4,7 +4,7 @@
 ?>
 <?php foreach ($posts as $index => $post) : ?>
 	<item>
-		<title><?php echo $post->getTitle(); ?></title>
+		<title><?php echo strip_tags($post->getRaw('title')); ?></title>
 		<link><?php echo $post->getPermaLink(); ?></link>
 		<description><?php echo markdown($posts_raw[$index]->getContent()); 
 ?></description>
