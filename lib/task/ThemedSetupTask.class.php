@@ -2,7 +2,7 @@
 
 class ThemedSetupTask extends sfBaseTask
 {
-	private $themesDirectory, $stylesDirectory, $scriptsDirectory;
+	private $themesDirectory, $stylesDirectory, $scriptsDirectory, $assetsDirectory;
 
 	protected function configure()
 	{
@@ -27,6 +27,7 @@ EOF;
 		$this->themesDirectory = sfConfig::get('sf_root_dir') . '/themes';
 		$this->stylesDirectory = sfConfig::get('sf_web_dir') . '/styles';
 		$this->scriptsDirectory = sfConfig::get('sf_web_dir') . '/scripts';
+		$this->assetsDirectory = sfConfig::get('sf_web_dir') . '/assets';
 	}
 
 	protected function execute($arguments = array(), $options = array())
@@ -49,16 +50,29 @@ EOF;
 	private function setupTheme($theme) {
 		$this->logSection($theme, sprintf('Starting setup for theme "%s"', $theme));
 		$this->preCheck($theme);
+		$this->logSection($theme, sprintf("\tCopy styles..."));
 		$this->copyStyles($theme);
+		$this->logSection($theme, sprintf("\tCopy scripts..."));
 		$this->copyScripts($theme);
+		$this->logSection($theme, sprintf("\tCopy assets..."));
+		$this->copyAssets($theme);
 	}
 
 	private function preCheck($theme) {
-		if (!is_readable($this->themesDirectory . '/' . $theme)
-		|| !is_readable($this->themesDirectory . '/' . $theme .'/styles')
-		|| !is_readable($this->themesDirectory . '/' . $theme .'/scripts')
-		)
-		throw new sfException(sprintf('Theme "%s" cannot be read.', $theme));
+		if (!is_readable($this->themesDirectory . '/' . $theme))
+			throw new sfException(sprintf('Theme "%s" cannot be read.', $theme));
+		
+		$dirs = array(
+			$this->themesDirectory . '/' . $theme . '/styles',
+			$this->themesDirectory . '/' . $theme . '/scripts',
+			$this->themesDirectory . '/' . $theme . '/assets'
+		);
+		foreach ($dirs as $dir) {
+			if (!is_dir($dir))
+				@mkdir($dir, true);
+			if (!is_readable($dir))
+				throw new sfException(sprintf('Theme "%s" seems broken. Cannot read %s', $theme, $dir));
+		}
 	}
 
 	private function copyStyles($theme) {
@@ -67,5 +81,9 @@ EOF;
 	
 	private function copyScripts($theme) {
 		Helpers::rcopy($this->themesDirectory . '/' . $theme . '/scripts', $this->scriptsDirectory . '/' . $theme);
+	}
+	
+	private function copyAssets($theme) {
+		Helpers::rcopy($this->themesDirectory . '/' . $theme . '/assets', $this->assetsDirectory . '/' . $theme);
 	}
 }
