@@ -1,22 +1,26 @@
-<?php use_javascript('/../scripts/showdown.js'); ?>
+<?php
+	use_javascript('/../scripts/showdown.js');
+	
+	use_javascript('/../scripts/plupload.min.js');
+	use_javascript('/../scripts/plupload.html5.min.js');
+	use_stylesheet('/../styles/uploader.css');
+	
+	slot('page_type', 'post/edit');
+?>
 
-<?php use_javascript('/../scripts/modern/autoresize.jquery.min.js'); ?>
-
-<?php use_javascript('/../scripts/plupload.min.js'); ?>
-<?php use_javascript('/../scripts/plupload.html5.min.js'); ?>
-<?php use_stylesheet('/../styles/uploader.css'); ?>
-
-<div class="row"><div class="span16">
+<div class="page-header">
 <h1><?php echo __('New Post'); ?></h1>
+</div>
 
-<ul class="tabs" data-tabs="tabs" >
-	<li class="active"><a href="#source"><?php echo __('Source'); ?></a></li>
-	<li><a href="#preview"><?php echo __('Preview'); ?></a></li>
-	<li><a href="#files"><?php echo __('Files'); ?></a></li>
+<div class="row"><div class="span12">
+<ul id="tabs" class="nav nav-tabs">
+	<li class="active"><a href="#source" data-toggle="tab"><?php echo __('Source'); ?></a></li>
+	<li><a href="#preview" data-toggle="tab"><?php echo __('Preview'); ?></a></li>
+	<li><a href="#files" data-toggle="tab"><?php echo __('Files'); ?></a></li>
 </ul>
 
 <div class="tab-content">
-<div id="source" class="tab-pane active">
+<div id="source" class="tab-pane fade active in">
 
 	<form action="<?php echo url_for('post_'.($form->getObject()->isNew() ? 'create' : 'update'), $form->getObject()); ?>" method="POST">
 	<fieldset>
@@ -76,39 +80,12 @@
 	
 	</fieldset>
 	</form>
-	<script type="text/javascript">
-	$(function() {
-		// activate autoresize
-		$('textarea').autoResize();
-		// trigger autoresize for initial height
-		$('textarea').each(function() { $(this).change(); });
-	});
-	</script>
-
 </div>
 
-<div id="preview" class="tab-pane">
+<div id="preview" class="tab-pane fade">
 </div>
-<script type="text/javascript">
-var mdConverter;
-$(function() {
-	mdConverter = new Showdown.converter();
-	$('.tabs').bind('change', function (e) {
-		if (e.target.href.slice(e.target.href.indexOf('#')) == "#preview") {
-			$('div#preview')
-				.empty()
-				.append(
-					mdConverter.makeHtml(
-							"# " + $('input#blog_post_title').attr('value') + "\n\n" +
-							$('textarea#blog_post_content').attr('value')
-					)
-				);
-		}
-	});
-});
-</script>
 
-<div id="files" class="tab-pane">
+<div id="files" class="tab-pane fade">
 	<h3><?php echo __('Files'); ?></h3>
 	
 	<div id="imagechooser">

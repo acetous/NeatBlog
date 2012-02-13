@@ -621,3 +621,4 @@ div.micropost h1{font-size:24px;line-height:27px;}
 h1 a,h1 a:link,h1 a:hover,h1 a:active,h1 a:visited{color:#333333;text-decoration:none;}
 .label a{color:#ffffff;}.label a:hover{text-decoration:none;}
 .comment{padding:10px;}.comment p:last-child{margin:0;}
+table#posts-table td{vertical-align:middle;}

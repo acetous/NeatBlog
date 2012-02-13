@@ -20,27 +20,17 @@
     ?>
 
     <!-- Le styles -->
-    <link href="<?php echo stylesheet_path('/../styles/modern/modern.less'); ?>" rel="stylesheet/less">
-    <script src="<?php echo javascript_path('/../scripts/modern/less-1.1.5.min.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/../scripts/modern/jquery-1.7.1.min.js'); ?>"></script>
-	
-    <script src="<?php echo javascript_path('/../scripts/modern/bootstrap-2.0/bootstrap-dropdown.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/../scripts/modern/bootstrap-2.0/bootstrap-tab.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/../scripts/modern/modernizr.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/../scripts/modern/main.js'); ?>"></script>
+    <link href="<?php echo stylesheet_path('/../styles/modern/modern.backend.min.css'); ?>" rel="stylesheet">
+    <script src="<?php echo javascript_path('/../scripts/modern/modern.backend.min.js'); ?>"></script>
     
-    <link href="<?php echo stylesheet_path('/../styles/modern/prettify.css'); ?>" rel="stylesheet" type="text/css">
-    <script src="<?php echo javascript_path('/../scripts/modern/google-code-prettify/prettify.js'); ?>"></script>
+	<?php 
+		if (get_slot('page_type'))
+			echo '<script>var page_type = "'.get_slot('page_type').'";</script>';
+	?>
 
-    
     <?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
 	
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
   </head>
 
   <body onload="prettyPrint();">

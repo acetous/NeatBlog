@@ -3656,6 +3656,12 @@ li.L9 {
   background: #eeeeee;
 }
 /* own styles */
+[class^="icon-"] {
+  background-image: url(../../assets/modern/glyphicons-halflings.png);
+}
+.icon-white {
+  background-image: url(../../assets/modern/glyphicons-halflings-white.png);
+}
 body {
   padding-top: 60px;
 }
