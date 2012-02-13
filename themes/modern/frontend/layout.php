@@ -7,9 +7,7 @@
 	
 	<title><?php include_slot('title', 'acetous Blog'); ?></title>
 
-	<?php if (!has_slot('title')) : ?>
-		<meta name="robots" content="noindex, follow">
-	<?php endif; ?>
+	<meta name="robots" content="<?php echo get_slot('robots', 'index, follow'); ?>">
 	
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $sf_request->getUriPrefix() . $sf_request->getRelativeUrlRoot() . url_for('feed'); ?>" />
@@ -21,33 +19,19 @@
     
     <?php 
         if (get_slot('page_type'))
-            echo '<script>var page_type = "'.get_slot('page_type').'";window.pageType == "homepage" && window.location.search == "" && Modernizr.localstorage</script>';
+            echo '<script>var page_type = "'.get_slot('page_type').'";</script>';
     ?>
 
-    <!-- Le styles -->
-    <link href="<?php echo stylesheet_path('/styles/modern/modern.less'); ?>" rel="stylesheet/less">
-    <script src="<?php echo javascript_path('/scripts/modern/less-1.1.5.min.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/scripts/modern/jquery-1.7.1.min.js'); ?>"></script>
-	
-    <script src="<?php echo javascript_path('/scripts/modern/bootstrap-2.0/bootstrap-dropdown.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/scripts/modern/modernizr.js'); ?>"></script>
-    <script src="<?php echo javascript_path('/scripts/modern/main.js'); ?>"></script>
-	
-	<script src="<?php echo javascript_path('/scripts/modern/google-code-prettify/prettify.js'); ?>"></script>
+    <link href="<?php echo stylesheet_path('/styles/modern/modern.min.css'); ?>" rel="stylesheet">
+    <script src="<?php echo javascript_path('/scripts/modern/modern.min.js'); ?>"></script>
 
     
     <?php include_stylesheets() ?>
 	<?php include_javascripts() ?>
-	
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
 
   </head>
 
-  <body onload="prettyPrint();">
+  <body>
 
     <?php include_component('content', 'header'); ?>
 

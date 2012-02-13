@@ -9,8 +9,7 @@ default:
     #title:        see layout.php
     #description:  none
     #keywords:     none
-    language:     de
-    robots:       index, follow
+    robots:       noindex, nofollow
 
   stylesheets: []
 

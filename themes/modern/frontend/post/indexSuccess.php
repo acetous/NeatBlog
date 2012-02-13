@@ -2,7 +2,8 @@
 	use_helper('Text');
 	use_helper('Pagination');
 	
-	slot('page_type', 'homepage');
+	slot('page_type', 'post/index');
+	slot('robots', 'noindex, follow');
 	
 	// fix for locales
 	setlocale(LC_ALL, sfConfig::get('app_view_locale', null));

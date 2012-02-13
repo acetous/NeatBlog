@@ -1,5 +1,7 @@
-<?php slot('title', $post->getTitle()); ?>
-<?php use_javascript('/scripts/modern/autoresize.jquery.min.js'); ?>
+<?php 
+	slot('title', $post->getTitle());
+	slot('page_type', 'post/show');
+?>
 
 
 <div class="row">

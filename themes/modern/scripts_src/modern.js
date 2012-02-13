@@ -1,6 +1,9 @@
-$(function(){	
+$(function(){
+	// prettyprint
+	prettyPrint();
+	
 	// Feature: "Unread Posts"
-	if (window.page_type == "homepage" && window.location.search == "" && Modernizr.localstorage) {
+	if (window.page_type == "post/index" && window.location.search == "" && Modernizr.localstorage) {
 		var key = 'lastread';
 		if (null != localStorage.getItem(key)) {
 			var read = false;
