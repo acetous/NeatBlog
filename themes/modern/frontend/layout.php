@@ -25,15 +25,14 @@
     ?>
 
     <!-- Le styles -->
-    <link href="<?php echo stylesheet_path('/styles/modern/main.less'); ?>" rel="stylesheet/less">
+    <link href="<?php echo stylesheet_path('/styles/modern/modern.less'); ?>" rel="stylesheet/less">
     <script src="<?php echo javascript_path('/scripts/modern/less-1.1.5.min.js'); ?>"></script>
     <script src="<?php echo javascript_path('/scripts/modern/jquery-1.7.1.min.js'); ?>"></script>
 	
-    <script src="<?php echo javascript_path('/scripts/modern/bootstrap-dropdown.js'); ?>"></script>
+    <script src="<?php echo javascript_path('/scripts/modern/bootstrap-2.0/bootstrap-dropdown.js'); ?>"></script>
     <script src="<?php echo javascript_path('/scripts/modern/modernizr.js'); ?>"></script>
     <script src="<?php echo javascript_path('/scripts/modern/main.js'); ?>"></script>
 	
-	<link href="<?php echo stylesheet_path('/styles/modern/prettify.css'); ?>" rel="stylesheet" type="text/css">
 	<script src="<?php echo javascript_path('/scripts/modern/google-code-prettify/prettify.js'); ?>"></script>
 
     

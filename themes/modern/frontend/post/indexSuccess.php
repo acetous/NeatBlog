@@ -36,7 +36,7 @@
                 }
                 $rowItems++;
 
-                echo '<div class="span8 micropost" id="post-'.$post->getId().'">';
+                echo '<div class="span6 micropost" id="post-'.$post->getId().'">';
                 include_partial('post', array('post' => $post));
                 include_partial('meta', array('post' => $post));
                 echo '</div>';            
@@ -45,7 +45,7 @@
                     $rowItems = 0;
                     echo '</div>';
                 }
-                echo '<div class="row"><div class="span16" id="post-'.$post->getId().'">';
+                echo '<div class="row"><div class="span12 post" id="post-'.$post->getId().'">';
                 include_partial('post', array('post' => $post));
                 include_partial('meta', array('post' => $post));
                 echo '</div></div>';

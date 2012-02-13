@@ -1,5 +1,5 @@
-<div class="topbar">
-  <div class="fill">
+<div class="navbar">
+  <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="<?php echo substr(url_for('post/index'), 0, -8); ?>">acetous Blog</a>
       <ul class="nav">
