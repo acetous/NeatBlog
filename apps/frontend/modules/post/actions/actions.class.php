@@ -17,43 +17,18 @@ class postActions extends sfActions
 			->where('published = ?', true)
 			->orderBy('created_at desc');
 		
-		if ($request->hasParameter('archive')) {
-			$when = $request->getGetParameter('archive');
-			if (!preg_match('/^\d{4}-\d{2}$/', $when))
+		if ($request->hasParameter('year')) {
+			$when = $request->getGetParameter('year');
+			if (!preg_match('/^\d{4}$/', $when))
 				return;
 			
-			$query->andWhere('created_at >= ?', $when.'-01');
-			$query->andWhere('created_at <= ?', $when.'-31');
+			$query->andWhere('created_at >= ?', $when.'-01-01');
+			$query->andWhere('created_at <= ?', $when.'-12-31');
 		} else {
 			$query->limit(sfConfig::get('app_homepage_post_count', 20));
 		}
 		
 		$this->posts = $query->execute();
-		/*
-		$this->postPager = new sfDoctrinePager('BlogPost', sfConfig::get('app_homepage_post_count', 10));
-		$this->postPager->setQuery(
-			Doctrine::getTable('BlogPost')
-				->createQuery('p')
-				->where('published = ?', true)
-				->andWhere('micropost = ?', false)
-				->orderBy('created_at desc')
-		);
-		$this->postPager->setPage($this->getRequestParameter('p_page', 1));
-		$this->postPager->init();
-		$this->posts = $this->postPager->getResults();
-			
-		$this->micropostPager = new sfDoctrinePager('BlogPost', sfConfig::get('app_homepage_micropost_count', 10));
-		$this->micropostPager->setQuery(
-			Doctrine::getTable('BlogPost')
-				->createQuery('p')
-				->where('published = ?', true)
-				->andWhere('micropost = ?', true)
-				->orderBy('created_at desc')
-		);
-		$this->micropostPager->setPage($this->getRequestParameter('mp_page', 1));
-		$this->micropostPager->init();
-		$this->microposts = $this->micropostPager->getResults();
-		*/
 	}
 	
 	public function executeShow(sfWebRequest $request)
@@ -68,16 +43,38 @@ class postActions extends sfActions
 		}
 		
 		$this->post->setViews( $this->post->getViews() + 1 );
-		$this->post->save();
+		$this->post->save(null, true);
 		
 		// update visitor data
 		$this->post->setRead($this->getUser()->getVisitorID());
+	}
+	
+	public function executeCatchall(sfWebRequest $request)
+	{
+		$post = $this->getRoute()->getObject();
+		if ($request->getUri() != $this->generateUrl('post_show', $post, true))
+			$this->redirect($this->generateUrl('post_show', $post), 301);
+		else
+			$this->forward('post', 'show');
 	}
 	
 	public function executePermalink(sfWebRequest $request)
 	{
 		$post = $this->getRoute()->getObject();
 		$this->redirect($this->generateUrl('post_show', $post), 301);
+	}
+	
+	public function executeSearch(sfWebRequest $request)
+	{
+		$query = $request->getGetParameter('query');
+		
+		if (isset($query) || !empty($query)) {
+			$this->posts = Doctrine::getTable('BlogPost')->getForLuceneQuery($query);
+		} else {
+			$this->posts = array();
+		}
+		
+		$this->setTemplate('index');
 	}
 	
 	public function executeFeed(sfWebRequest $request)

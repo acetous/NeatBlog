@@ -17,8 +17,8 @@
 		  </ul>
 		</li>
       </ul>
-	  <form action="" class="navbar-search pull-right">
-        <input class="search-query" type="text" placeholder="Suche">
+	  <form action="<?php echo url_for('post_search'); ?>" class="navbar-search pull-right">
+        <input class="search-query" type="text" placeholder="Suche" name="query">
       </form>
     </div>
   </div>

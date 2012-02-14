@@ -28,42 +28,22 @@
 	<div class="span12">
 		<div id="comment-form-hint" class="pull-right">
 			<a class="btn btn-large btn-primary"><?php echo __('Write a comment'); ?></a>
-			<br />
-			<br />
 		</div>
 		<h2><?php echo __('Comments'); ?></h2>
+		<br /><br />
 	</div>
 </div>
 <div class="row">
 	<div class="span6" id="comments">
-        <?php foreach ($post->getComments() as $comment) : ?>
-		    <?php include_partial('comment/show', array('comment' => $comment))?>
-	    <?php endforeach; ?>
+		<?php if (sizeof($post->getComments()) > 0) : ?>
+	       <?php foreach ($post->getComments() as $comment) : ?>
+			    <?php include_partial('comment/show', array('comment' => $comment))?>
+		   <?php endforeach; ?>
+	   <?php else : ?>
+		   <div class="well"><?php echo __('No comments yet.'); ?></div>
+	   <?php endif; ?>
     </div>
     <div class="span6" id="comment-form">
         <?php include_partial('comment/form', array('post' => $post, 'form' => $commentForm)); ?>
 	</div>
 </div>
-
-<script type="text/javascript">
-$(function() {
-	// commentform-toggle
-	$('#comment-form').hide();
-	$('#comments').removeClass('span6').addClass('span12');
-	$('#comment-form-hint').click(function() {
-		$('#comment-form').show();
-		$('#comment-form-hint').hide();
-		$('#comments').removeClass('span12').addClass('span6');
-	});
-	$('input[type="reset"]').click(function() {
-		$('#comment-form').hide();
-		$('#comment-form-hint').show();
-		$('#comments').removeClass('span6').addClass('span12');
-	});
-	
-	// activate autoresize
-	$('textarea').autoResize();
-	// trigger autoresize for initial height
-	$('textarea').each(function() { $(this).change(); });
-});
-</script>

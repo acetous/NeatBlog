@@ -12,4 +12,15 @@
  */
 class BlogComment extends BaseBlogComment
 {
+	public function save(Doctrine_Connection $conn = null) {
+		$ret = parent::save($conn);
+		
+		$this->getBlogPost()->updateLuceneIndex();
+		
+		return $ret;
+	}
+	
+	public function __toString() {
+		return $this->getContent();
+	}
 }

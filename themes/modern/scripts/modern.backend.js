@@ -335,6 +335,22 @@ $(function(){
 		}
 		localStorage.setItem(key, $('div.row > div').first().attr('id'));
 	}
+	
+	// Commentform-toggle
+	if (window.page_type == "post/show") {
+		$('#comment-form').hide();
+		$('#comments').removeClass('span6').addClass('span12');
+		$('#comment-form-hint').click(function() {
+			$('#comment-form').show();
+			$('#comment-form-hint').hide();
+			$('#comments').removeClass('span12').addClass('span6');
+		});
+		$('input[type="reset"]').click(function() {
+			$('#comment-form').hide();
+			$('#comment-form-hint').show();
+			$('#comments').removeClass('span6').addClass('span12');
+		});
+	}
 });var mdConverter;
 $(function() {
 	

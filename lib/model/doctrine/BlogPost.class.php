@@ -76,4 +76,55 @@ class BlogPost extends BaseBlogPost
 	{
 		return $this->getMicropost();
 	}
+	
+	public function save(Doctrine_Connection $conn = null, $skipLuceneUpdate = false) {
+		$conn = $conn ? $conn : $this->getTable()->getConnection();
+		
+		$conn->beginTransaction();
+		
+		try {
+			$ret = parent::save($conn);
+			if (!$skipLuceneUpdate)
+				$this->updateLuceneIndex();
+			$conn->commit();
+			return $ret;
+		} catch (Exception $e) {
+			$conn->rollBack();
+			throw $e;
+		}
+	}
+	
+	public function delete(Doctrine_Connection $conn = null) {
+		$index = BlogPostTable::getLuceneIndex();
+		
+		foreach ($index->find('pk:'.$this->getId()) as $hit)
+			$index->delete($hit->id);
+		
+		return parent::delete($conn);
+	}
+	
+	public function updateLuceneIndex() {
+		$index = BlogPostTable::getLuceneIndex();
+		
+		// remove existing entry
+		foreach ($index->find('pk:'.$this->getId()) as $hit)
+			$index->delete($hit->id);
+		
+		if (!$this->getPublished())
+			return;
+		
+		$doc = new Zend_Search_Lucene_Document();
+		
+		$doc->addField(Zend_Search_Lucene_Field::Keyword('pk', $this->getId()));
+		
+		$doc->addField(Zend_Search_Lucene_Field::UnStored('title', $this->getTitle(), 'utf-8'));
+		$doc->addField(Zend_Search_Lucene_Field::UnStored('content', $this->getContent(), 'utf-8'));
+		$comments = '';
+		foreach ($this->getComments() as $comment)
+			$comments .= $comment->getContent()."\n";
+		$doc->addField(Zend_Search_Lucene_Field::UnStored('comments', $comments, 'utf-8'));
+		
+		$index->addDocument($doc);
+		$index->commit();
+	}
 }
