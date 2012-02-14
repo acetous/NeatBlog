@@ -25,9 +25,12 @@
 		</li>
 		
       </ul>
-	  <form action="" class="navbar-search pull-right">
-        <input class="search-query span2" type="text" placeholder="<?php echo __('Post-ID / URL'); ?>">
-        <input class="search-query span2" type="text" placeholder="<?php echo __('Search'); ?>">
+      
+      <form action="<?php echo url_for('post_search'); ?>" class="navbar-search pull-right">
+        <input class="search-query span3" type="text" name="query" placeholder="<?php echo __('Search'); ?>">
+      </form>
+	  <form action="<?php echo url_for('post_search'); ?>" class="navbar-search pull-right">
+        <input class="search-query span1" type="text" name="jump" placeholder="<?php echo __('Post-ID'); ?>">&nbsp;
       </form>
     </div>
   </div>

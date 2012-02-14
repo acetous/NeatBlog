@@ -68,10 +68,10 @@ class postActions extends sfActions
 	{
 		$query = $request->getGetParameter('query');
 		
-		if (isset($query) || !empty($query)) {
+		if (isset($query) && !empty($query)) {
 			$this->posts = Doctrine::getTable('BlogPost')->getForLuceneQuery($query);
 		} else {
-			$this->posts = array();
+			$this->redirect('post/index');
 		}
 		
 		$this->setTemplate('index');

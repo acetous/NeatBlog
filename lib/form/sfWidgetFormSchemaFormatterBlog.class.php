@@ -1,6 +1,6 @@
 <?php
 
-class sfWidgetFormSchemaFormatterBlog extends sfWidgetFormSchemaFormatterList
+class sfWidgetFormSchemaFormatterBootstrap extends sfWidgetFormSchemaFormatterList
 {
 	protected
 		$helpFormat 				= "%help%",

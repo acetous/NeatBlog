@@ -19,6 +19,26 @@ class postActions extends sfActions
 			->execute();
 	}
 	
+	public function executeSearch(sfWebRequest $request)
+	{
+		$query = $request->getGetParameter('query');
+		$jump = $request->getGetParameter('jump');
+		
+		if (isset($query) && !empty($query)) {
+			$this->posts = Doctrine::getTable('BlogPost')->getForLuceneQuery($query);
+		} elseif (isset($jump) && !empty($jump)) {
+			if(intval($jump) == $jump) {
+				if ($post = Doctrine::getTable('BlogPost')->findOneById($jump)) {
+					$this->redirect($this->generateUrl('post_edit', $post));
+				}
+			}
+		} else {
+			$this->redirect('post/index');
+		}
+		
+		$this->setTemplate('index');
+	}
+	
 	public function executePublish(sfWebRequest $request)
 	{
 		$post = $this->getRoute()->getObject();

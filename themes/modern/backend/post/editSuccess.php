@@ -17,12 +17,15 @@
 	<li class="active"><a href="#source" data-toggle="tab"><?php echo __('Source'); ?></a></li>
 	<li><a href="#preview" data-toggle="tab"><?php echo __('Preview'); ?></a></li>
 	<li><a href="#files" data-toggle="tab"><?php echo __('Files'); ?></a></li>
+	<?php if (!$form->getObject()->isNew()) : ?>
+		<li><a href="#comments" data-toggle="tab"><?php echo __('Comments'); ?></a></li>
+	<?php endif; ?>
 </ul>
 
 <div class="tab-content">
 <div id="source" class="tab-pane fade active in">
 
-	<form action="<?php echo url_for('post_'.($form->getObject()->isNew() ? 'create' : 'update'), $form->getObject()); ?>" method="POST">
+	<form class="form-horizontal" action="<?php echo url_for('post_'.($form->getObject()->isNew() ? 'create' : 'update'), $form->getObject()); ?>" method="POST">
 	<fieldset>
 		<legend><?php echo __('Write your post'); ?></legend>
 	
@@ -40,39 +43,35 @@
 			}
 		?>
 		
-		<div class="clearfix <?php echo $field->hasError() ? 'error' : ''?>">
-			<?php echo $field->renderLabel(); ?>
-			<div class="input">
-				<?php echo $field->render(array('class' => 'xxlarge ' . ($field->hasError() ? 'error' : ''))); ?>
+		<div class="control-group <?php echo $field->hasError() ? 'error' : ''?>">
+			<?php echo $field->renderLabel(null, array('class' => 'control-label')); ?>
+			<div class="controls">
+				<?php echo $field->render(array('class' => 'input-xxlarge ' . ($field->hasError() ? 'error' : ''))); ?>
 				<?php echo $field->renderError(); ?>
-				<?php if($field->renderHelp() != "") : ?><span class="help-block"><?php echo $field->renderHelp(); ?></span><?php endif; ?>
+				<?php if($field->renderHelp() != "") : ?><p class="help-block"><?php echo $field->renderHelp(); ?></p><?php endif; ?>
 			</div>
 			
 		</div>
 	<?php endforeach; ?>
 	
-	<div class="clearfix">
+	<div class="control-group">
 		<label id="optionsCheckboxes"><?php echo __('Options'); ?></label>
-			<div class="input">
-				<ul class="inputs-list">
+			<div class="controls">
 				<?php foreach ($checkboxes as $field) : ?>
-					<li>
-						<label>
-							<?php echo $field->render(); ?>
-							<span><?php echo $field->renderLabelName(); ?></span>
-						</label>
-					</li>
+					<label class="checkbox">
+						<?php echo $field->render(); ?>
+						<?php echo $field->renderLabelName(); ?>
+					</label>
 				<?php endforeach; ?>
-				</ul>
 		</div>
 	</div>
 	
-	<div class="actions">
-		<input type="submit" class="btn primary" value="<?php echo __('Post!'); ?>">
+	<div class="form-actions">
+		<input type="submit" class="btn btn-primary" value="<?php echo __('Post!'); ?>"> 
 		<?php echo link_to(__('Abort'), 'post/index', array('class' => 'btn')) ?>
 		
 		<?php if (!$form->getObject()->isNew()) : ?>
-			<?php echo link_to(__('Delete'), 'post_delete', $form->getObject(), array('method' => 'delete', 'confirm' => __('Really delete?'), 'class' => 'btn danger pull-right')) ?>
+			<?php echo link_to(__('Delete'), 'post_delete', $form->getObject(), array('method' => 'delete', 'confirm' => __('Really delete?'), 'class' => 'btn btn-danger pull-right')) ?>
 		<?php endif; ?>
 	</div>	
 	
@@ -184,6 +183,12 @@
 	</style>
 
 </div>
+
+<?php if (!$form->getObject()->isNew()) : ?>
+<div id="comments" class="tab-pane fade">
+	<?php include_component('comment', 'list', array('comments' => $form->getObject()->getComments())); ?>
+</div>
+<?php endif; ?>
 </div>
 
 </div></div>

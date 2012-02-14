@@ -54,6 +54,10 @@ post_show:
   param:   { module: post, action: show, sf_format: html }
   requirements: { sf_method: get }
   
+post_search:
+  url:    /search
+  param:   { module: post, action: search, sf_format: html }
+  
 file_upload:
   url:     /upload
   class:   sfRequestRoute

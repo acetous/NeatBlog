@@ -20,6 +20,6 @@ class BlogPostForm extends BaseBlogPostForm
 		$this->widgetSchema->setLabel('micropost', 'Display the post small.');
 		$this->widgetSchema->setLabel('published', 'Publish the post.');
 		
-		$this->widgetSchema->setFormFormatterName('Blog');
+		$this->widgetSchema->setFormFormatterName('Bootstrap');
 	}
 }
