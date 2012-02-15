@@ -78,6 +78,25 @@ comments:
   options: { model: BlogComment, type: list }
   param:   { module: comment, action: index, sf_format: html }
   requirements: { sf_method: get }
+    
+spam:
+  url:     /spam
+  class:   sfDoctrineRoute
+  options: { model: BlogComment, type: list }
+  param:   { module: comment, action: spam, sf_format: html }
+  requirements: { sf_method: get }
+
+comment_toggleSpam:
+  url:     /comment/:id/spam
+  class:   sfDoctrineRoute
+  options: { model: BlogComment, type: object }
+  param:   { module: comment, action: toggleSpam, sf_format: html }
+  requirements: { sf_method: post }
+
+comment_deleteSpam:
+  url:     /spam
+  param:   { module: comment, action: deleteSpam, sf_format: html }
+  requirements: { sf_method: delete }
 
 comment_delete:
   url:     /comment/:id/delete

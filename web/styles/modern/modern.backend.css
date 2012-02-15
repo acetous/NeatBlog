@@ -3702,13 +3702,7 @@ h1 a:visited {
 .comment p:last-child {
   margin: 0;
 }
-/*
-.btn.tiny {
-	padding: 3px 5px;
-	width: 60px;
-	text-align: center;
-}
-*//* backend-specific styles */
+/* backend-specific styles */
 table#posts-table td {
   vertical-align: middle;
 }

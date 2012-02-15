@@ -14,7 +14,7 @@ all:
     post_count: 10
     micropost_count: 10
   other:
-    social_integration: true
+    akismet_api_key: none # get your free key from http://akismet.com/ to fight spam in comments
     tracking: |
       <!-- HTML Tracking code if you wish -->
   rss:
@@ -25,11 +25,11 @@ all:
     resize:
       # Define your settings for thumbnails here. Each resize setting must have a 
       # value for width, height and zoom. You can define mutiple settings.
-      setting_1:
-        width: 300
-        height: 300
+      small:
+        width: 260
+        height: 180
         zoom : 1.5
-      setting_2:
-        width: 500
-        height: 500
-        zoom: 3
+      medium:
+        width: 360
+        height: 268
+        zoom : 1.5

@@ -12,20 +12,60 @@ class commentActions extends sfActions
 {
 	public function executeIndex(sfWebRequest $request)
 	{
-		$this->commentPager = new sfDoctrinePager('BlogComment', 30);
-		$this->commentPager->setQuery(
-			Doctrine::getTable('BlogComment')
-				->createQuery('c')
-				->orderBy('created_at desc')
-		);
-		$this->commentPager->setPage($this->getRequestParameter('page', 1));
-		$this->commentPager->init();
+		$this->comments = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->orderBy('created_at desc')
+			->where('c.spam = ?', false)
+			->limit(50)
+			->execute();
+	}
+	
+	public function executeSpam(sfWebRequest $request)
+	{
+		$this->comments = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->orderBy('created_at desc')
+			->where('c.spam = ?', true)
+			->execute();
+	}
+	
+	public function executeDeleteSpam(sfWebRequest $request)
+	{
+		$this->comments = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->delete()
+			->where('c.spam = ?', true)
+			->execute();
+		
+		$this->redirect('comment/spam');
+	}
+	
+	public function executeToggleSpam(sfWebRequest $request)
+	{
+		$comment = $this->getRoute()->getObject();
+		
+		if ($comment->getSpam()) {
+			$comment->submitHam();
+		} else {
+			$comment->submitSpam();
+		}
+		
+		$comment->setSpam(!$comment->getSpam());
+		$comment->save();
+		
+		if ($referer = $request->getReferer())
+			$this->redirect($referer);
+		else
+			$this->redirect('comment/spam');
 	}
 	
 	public function executeDelete(sfWebRequest $request)
 	{
 		$this->comment = $this->getRoute()->getObject();
 		$this->comment->delete();
-		$this->redirect('comments');
+		if ($referer = $request->getReferer())
+			$this->redirect($referer);
+		else
+			$this->redirect('comments');
 	}
 }

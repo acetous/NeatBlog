@@ -30,6 +30,9 @@ BlogComment:
     content:
       type: string
       notnull: true
+    spam:
+      type: boolean
+      default: false
     blog_post_id:
       type: integer
       notnull: true

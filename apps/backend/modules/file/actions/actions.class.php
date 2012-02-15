@@ -35,7 +35,7 @@ class fileActions extends sfActions
 			if (is_array($resizeSettings) && sizeof($resizeSettings) > 0) {
 				$ir = new ImageResize($this->file);
 				foreach ($resizeSettings as $resize) {
-					$ir->resize($resize['width'], $resize['height'], $resize['zoom']);
+					$ir->resize($resize['width'], $resize['height'], $resize['zoom'], false);
 				}
 			}
 		}

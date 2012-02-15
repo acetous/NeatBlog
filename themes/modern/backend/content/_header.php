@@ -4,6 +4,8 @@
       <a class="brand" href="<?php echo substr(url_for('post/index'), 0, -8); ?>">acetous Blog</a>
       <ul class="nav">
       
+      	<li><?php echo link_to(__('Dashboard'), 'post/index'); ?></li>
+      
         <li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		  	<i class="icon-file icon-white"></i> <b class="caret"></b>
@@ -20,7 +22,7 @@
 		  </a>
 		  <ul class="dropdown-menu">
 		  	<li><?php echo link_to('<i class="icon-comment"></i> '.__('Last Comments'), 'comment/index'); ?></li>
-		  	<li><?php echo link_to('<i class="icon-ban-circle"></i> '.__('Spam'), 'comment/index'); ?></li>
+		  	<li><?php echo link_to('<i class="icon-ban-circle"></i> '.__('Spam'), 'comment/spam'); ?></li>
 		  </ul>
 		</li>
 		

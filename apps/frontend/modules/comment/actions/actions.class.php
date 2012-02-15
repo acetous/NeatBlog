@@ -20,9 +20,18 @@ class commentActions extends sfActions
 		if ($form->isValid())
 		{
 			$comment = $form->save();
+			
+			$this->checkForSpam($comment);
 		} else {
 			$this->redirect($request->getUri());
 		}
 		$this->redirect('post_show', BlogPostTable::getInstance()->findOneById($form->getValue('blog_post_id')));
+	}
+	
+	public function checkForSpam($comment) {
+		if ($comment->checkForSpam()) {
+			$comment->setSpam(true);
+			$comment->save();
+		}
 	}
 }

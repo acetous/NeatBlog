@@ -9,7 +9,7 @@
 ?>
 
 <div class="page-header">
-<h1><?php echo __('New Post'); ?></h1>
+<h1><?php echo $form->getObject()->isNew() ? __('New Post') : $form->getObject()->getTitle(); ?></h1>
 </div>
 
 <div class="row"><div class="span12">
@@ -18,7 +18,7 @@
 	<li><a href="#preview" data-toggle="tab"><?php echo __('Preview'); ?></a></li>
 	<li><a href="#files" data-toggle="tab"><?php echo __('Files'); ?></a></li>
 	<?php if (!$form->getObject()->isNew()) : ?>
-		<li><a href="#comments" data-toggle="tab"><?php echo __('Comments'); ?></a></li>
+		<li><a href="#comments" data-toggle="tab"><?php echo __('Comments'); ?> (<?php echo sizeof($form->getObject()->getComments()); ?>)</a></li>
 	<?php endif; ?>
 </ul>
 

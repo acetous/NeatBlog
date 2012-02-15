@@ -77,6 +77,15 @@ class BlogPost extends BaseBlogPost
 		return $this->getMicropost();
 	}
 	
+	public function getComments() {
+		return Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->where('c.spam = ?', false)
+			->AndWhere('c.blog_post_id = ?', $this->getId())
+			->orderBy('created_at desc')
+			->execute();
+	}
+	
 	public function save(Doctrine_Connection $conn = null, $skipLuceneUpdate = false) {
 		$conn = $conn ? $conn : $this->getTable()->getConnection();
 		
