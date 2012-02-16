@@ -1,6 +1,6 @@
 <?php 
 	use_helper('Text');
-	slot('title', $post->getTitle());
+	slot('title', strip_Tags($post->getTitle()));
 	slot('page_type', 'post_show'); 
 ?>
 
