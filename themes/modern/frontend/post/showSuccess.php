@@ -1,5 +1,5 @@
 <?php 
-	slot('title', $post->getTitle());
+	slot('title', strip_tags($post->getRaw('title')));
 	slot('page_type', 'post/show');
 ?>
 
