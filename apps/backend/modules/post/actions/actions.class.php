@@ -112,7 +112,7 @@ class postActions extends sfActions
 		{
 			$post = $this->form->save();
 
-			$this->redirect('post_show', $post);
+			$this->redirect('post/index');
 		}
 		
 		$this->setTemplate('edit');
