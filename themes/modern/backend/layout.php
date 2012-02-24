@@ -38,6 +38,9 @@
     <?php include_partial('content/header'); ?>
 
     <div class="container">
+    
+    
+      <?php if ($sf_user->hasFlash('alert')) echo $sf_data->getRaw('sf_user')->getFlash('alert') ?>
 	
 	  <?php echo $sf_content; ?>
 

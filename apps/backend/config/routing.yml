@@ -1,5 +1,5 @@
 posts:
-  url:     /
+  url:     /posts
   class:   sfDoctrineRoute
   options: { model: BlogPost, type: list }
   param:   { module: post, action: index, sf_format: html }
@@ -105,6 +105,6 @@ comment_delete:
   param:   { module: comment, action: delete, sf_format: html }
   requirements: { sf_method: delete }
 
-homepage:
+dashboard:
   url:	/
-  param:   { module: post, action: index, sf_format: html }
+  param:   { module: post, action: dashboard, sf_format: html }

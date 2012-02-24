@@ -44,11 +44,11 @@ class commentActions extends sfActions
 	{
 		$comment = $this->getRoute()->getObject();
 		
-		if ($comment->getSpam()) {
-			$comment->submitHam();
-		} else {
-			$comment->submitSpam();
-		}
+// 		if ($comment->getSpam()) {
+// 			$comment->submitHam();
+// 		} else {
+// 			$comment->submitSpam();
+// 		}
 		
 		$comment->setSpam(!$comment->getSpam());
 		$comment->save();

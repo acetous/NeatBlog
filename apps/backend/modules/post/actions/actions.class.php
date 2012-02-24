@@ -90,6 +90,8 @@ class postActions extends sfActions
 				}
 				$post->save();
 			}
+			$this->getUser()->setFlash('alert', $this->getPartial('postSaveAlert'));
+			
 			$this->redirect('post/index');
 		}
 
@@ -112,7 +114,7 @@ class postActions extends sfActions
 		{
 			$post = $this->form->save();
 
-			$this->redirect('post/index');
+			$this->getUser()->setFlash('alert', $this->getPartial('postSaveAlert'));
 		}
 		
 		$this->setTemplate('edit');
@@ -122,6 +124,64 @@ class postActions extends sfActions
 	{
 		$this->post = $this->getRoute()->getObject();
 		$this->post->delete();
+		
+		$this->getUser()->setFlash('alert', $this->getPartial('postDeleteAlert'));
+		
 		$this->redirect('post/index');
+	}
+	
+	public function executeDashboard(sfWebRequest $request)
+	{
+		// get last visit
+		$lastVisit = new DateTime($request->getCookie('backend_last_visit'));
+		$now = new DateTime();
+		// update cookie if last visit is > 2h ago
+		if ($lastVisit < new DateTime('2 hours ago') || is_null($request->getCookie('backend_last_visit'))) {
+			$this->getResponse()->setCookie('backend_last_visit', urlencode($now->format('c')), time() + 60*60*24*30);
+		}
+		
+		// init vars for the template 
+		$this->posts = array();
+		$this->comments = array();
+		$this->spam = array();
+		
+		// get posts
+		$this->posts = Doctrine::getTable('BlogPost')
+			->createQuery('p')
+			->orderBy('created_at desc')
+			->limit(5)
+			->execute();
+		
+		// get comments
+		$this->comments = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->orderBy('created_at desc')
+			->where('c.created_at > ?', $lastVisit->format('Y-m-d H:i:s'))
+			->andWhere('c.spam = ?', false)
+			->execute();
+		
+		if (sizeof($this->comments) < 3) {
+			$this->comments = Doctrine::getTable('BlogComment')
+				->createQuery('c')
+				->orderBy('created_at desc')
+				->andWhere('c.spam = ?', false)
+				->limit(3)
+				->execute();
+		}
+		
+		// get spam
+		$this->spam = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->orderBy('created_at desc')
+			->where('c.created_at > ?', $lastVisit->format('Y-m-d H:i:s'))
+			->andWhere('c.spam = ?', true)
+			->execute();
+		$this->totalSpam = Doctrine::getTable('BlogComment')
+			->createQuery('c')
+			->orderBy('created_at desc')
+			->where('c.spam = ?', true)
+			->count();
+		
+		$this->setTemplate('dboard');
 	}
 }

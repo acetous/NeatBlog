@@ -23,8 +23,19 @@ copy:
 # uglifyjs is required
 #
 scripts:
-	cat scripts_src/jquery-1.7.1.min.js scripts_src/autoresize.jquery.min.js scripts_src/bootstrap-2.0/bootstrap-dropdown.js scripts_src/bootstrap-2.0/bootstrap-tab.js scripts_src/bootstrap-2.0/bootstrap-transition.js scripts_src/modernizr.js scripts_src/google-code-prettify/prettify.js scripts_src/modern.js > scripts/modern.js
-	cat scripts/modern.js scripts_src/modern.backend.js > scripts/modern.backend.js
+	cat scripts_src/jquery-1.7.1.min.js \
+		scripts_src/autoresize.jquery.min.js \
+		scripts_src/bootstrap-2.0/bootstrap-transition.js \
+		scripts_src/bootstrap-2.0/bootstrap-alert.js \
+		scripts_src/bootstrap-2.0/bootstrap-dropdown.js \
+		scripts_src/bootstrap-2.0/bootstrap-tab.js \
+		scripts_src/modernizr.js \
+		scripts_src/google-code-prettify/prettify.js \
+		scripts_src/modern.js \
+		> scripts/modern.js
+	cat scripts/modern.js \
+		scripts_src/modern.backend.js \
+		> scripts/modern.backend.js
 	uglifyjs -nc scripts/modern.js > scripts/modern.min.js
 	uglifyjs -nc scripts/modern.backend.js > scripts/modern.backend.min.js
 
