@@ -16,6 +16,11 @@ class commentActions extends sfActions
 
 		$form = new BlogCommentForm();
 		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+		
+		if ($cache = $this->getContext()->getViewCacheManager()) {
+			$post = BlogPostTable::getInstance()->findOneById($form->getValue('blog_post_id'));
+			$cache->remove(sprintf('post/catchall?id=%d&%s=*&sf_format=html', $post->getId(), $post->getSlug()));
+		}
 
 		if ($form->isValid())
 		{
