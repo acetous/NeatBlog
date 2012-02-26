@@ -16,7 +16,7 @@ $(function(){
 					read = true;
 				
 				if (!read)
-					$(this).find('.post-meta span.label').first().addClass('success');
+					$(this).find('.post-meta span.label').first().addClass('label-warning');
 			});
 		}
 		localStorage.setItem(key, $('div.row > div').first().attr('id'));
