@@ -11,7 +11,7 @@ $(function(){
 		var key = 'lastread';
 		if (null != localStorage.getItem(key)) {
 			var read = false;
-			$('div.row > div').each(function() {
+			$('div.post, div.micropost').each(function() {
 				if (localStorage.getItem(key) == $(this).attr('id'))
 					read = true;
 				
@@ -19,7 +19,25 @@ $(function(){
 					$(this).find('.post-meta span.label').first().addClass('label-warning');
 			});
 		}
-		localStorage.setItem(key, $('div.row > div').first().attr('id'));
+		localStorage.setItem(key, $('div.post, div.micropost').first().attr('id'));
+	}
+	
+	// Feature: "Unread Comments"
+	if (window.page_type == "post/index" && window.location.search == "" && Modernizr.localstorage) {
+		var key = 'comments-read-';
+		$('div.post, div.micropost').each(function() {
+			var post = parseInt($(this).attr('id').replace('post-', ''));
+			var label = $(this).find('.post-meta span.label').last();
+			var currentKey = key + post;
+			
+			var currentComments = parseInt(label.text());
+			var knownComments = parseInt(localStorage.getItem(currentKey)) || 0;
+			
+			if (currentComments > knownComments)
+				label.addClass('label-warning');
+			if (currentComments != knownComments)
+				localStorage.setItem(currentKey, currentComments);
+		});
 	}
 	
 	// Commentform-toggle
