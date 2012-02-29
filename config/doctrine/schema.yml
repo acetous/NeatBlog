@@ -10,6 +10,9 @@ BlogPost:
     content:
       type: string
       notnull: true
+    markdown:
+      type: boolean
+      default: true
     views:
       type: integer
       default: 0
