@@ -1,3 +1,5 @@
+// global vars
+
 $(function(){
 	// prettyprint
 	prettyPrint();
@@ -8,36 +10,66 @@ $(function(){
 	
 	// Feature: "Unread Posts"
 	if (window.page_type == "post/index" && window.location.search == "" && Modernizr.localstorage) {
-		var key = 'lastread';
-		if (null != localStorage.getItem(key)) {
+		var keyLastread = 'lastread_post';
+		var keyUnread = 'unread_posts';
+		
+		var unreadPosts = JSON.parse(sessionStorage.getItem(keyUnread));
+		if (null == unreadPosts) unreadPosts = new Array();
+		
+		// find unread posts
+		if (null != localStorage.getItem(keyLastread)) {
 			var read = false;
 			$('div.post, div.micropost').each(function() {
-				if (localStorage.getItem(key) == $(this).attr('id'))
+				var post = $(this).attr('id');
+				if (localStorage.getItem(keyLastread) == post)
 					read = true;
 				
-				if (!read)
-					$(this).find('.post-meta span.label').first().addClass('label-warning');
+				if (!read) unreadPosts.push(post);
 			});
 		}
-		localStorage.setItem(key, $('div.post, div.micropost').first().attr('id'));
+		
+		// mark unread posts
+		$.each(unreadPosts, function(index, post) {
+			$('#'+post+' .post-meta span.label').first().addClass('label-warning');
+		});
+		
+		// save data
+		localStorage.setItem(keyLastread, $('div.post, div.micropost').first().attr('id'));
+		sessionStorage.setItem(keyUnread, JSON.stringify(unreadPosts));
 	}
 	
 	// Feature: "Unread Comments"
 	if (window.page_type == "post/index" && window.location.search == "" && Modernizr.localstorage) {
-		var key = 'comments-read-';
+		var key = 'comments-read';
+		
+		var readComments = JSON.parse(localStorage.getItem(key));
+		if (null == readComments) readComments = new Object();
+		
+		var unreadComments = JSON.parse(sessionStorage.getItem(key));
+		if (null == unreadComments) unreadComments = new Array();
+		
+		// search for unread comments
 		$('div.post, div.micropost').each(function() {
 			var post = parseInt($(this).attr('id').replace('post-', ''));
 			var label = $(this).find('.post-meta span.label').last();
-			var currentKey = key + post;
-			
+						
 			var currentComments = parseInt(label.text());
-			var knownComments = parseInt(localStorage.getItem(currentKey)) || 0;
+			var knownComments = parseInt(readComments[post]) || 0;
 			
 			if (currentComments > knownComments)
-				label.addClass('label-warning');
+				unreadComments.push(post);
 			if (currentComments != knownComments)
-				localStorage.setItem(currentKey, currentComments);
+				readComments[post] = currentComments;
 		});
+		
+		// mark unread comments
+		$.each(unreadComments, function(index, post) {
+			$('#post-'+post+' .post-meta span.label').last().addClass('label-warning');
+		});
+		
+		// save data
+		localStorage.setItem(key, JSON.stringify(readComments));
+		sessionStorage.setItem(key, JSON.stringify(unreadComments));
 	}
 	
 	// Commentform-toggle
