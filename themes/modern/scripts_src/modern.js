@@ -72,6 +72,33 @@ $(function(){
 		sessionStorage.setItem(key, JSON.stringify(unreadComments));
 	}
 	
+	// mark unread comments as read
+	if (window.page_type == "post/show" &&  Modernizr.localstorage) {
+		var key = 'comments-read';
+		
+		var chunks = window.location.pathname.split("/");
+		var post = parseInt(chunks[chunks.length - 2]);
+		
+		var unreadComments = JSON.parse(sessionStorage.getItem(key));
+		if (null == unreadComments) unreadComments = new Array();
+		
+		if (unreadComments.indexOf(post) > -1) {
+			unreadComments.splice(unreadComments.indexOf(post), 1);
+			
+			sessionStorage.setItem(key, JSON.stringify(unreadComments));
+		}
+		
+		// update comment-count
+		var readComments = JSON.parse(localStorage.getItem(key));
+		if (null == readComments) readComments = new Object();
+		
+		var commentCount = $("div.comment").length;
+		if (commentCount > 0 && commentCount != readComments[post] ) {
+			readComments[post] = commentCount;
+			localStorage.setItem(key, JSON.stringify(readComments));
+		}
+	}
+	
 	// Commentform-toggle
 	if (window.page_type == "post/show") {
 		$('#comment-form').hide();
