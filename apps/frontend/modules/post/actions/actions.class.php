@@ -44,9 +44,6 @@ class postActions extends sfActions
 		
 		$this->post->setViews( $this->post->getViews() + 1 );
 		$this->post->save(null, true);
-		
-		// update visitor data
-		$this->post->setRead($this->getUser()->getVisitorID());
 	}
 	
 	public function executeCatchall(sfWebRequest $request)

@@ -52,26 +52,6 @@ class BlogPost extends BaseBlogPost
 		return $excerpt;
 	}
 	
-	public function setRead($visitor)
-	{
-		$visit = Doctrine::getTable('BlogPostVisitor')
-		->createQuery('v')
-		->where('v.token = ?', $visitor)
-		->andWhere('v.post = ?', $this->getId())
-		->limit(1)
-		->execute()
-		->getFirst();
-		if ($visit) {
-			$visit->setViews($visit->getViews() + 1);
-			$visit->save();
-		} else {
-			$visit = new BlogPostVisitor();
-			$visit->setToken($visitor);
-			$visit->setPost($this->getId());
-			$visit->save();
-		}
-	}
-	
 	public function isMicropost()
 	{
 		return $this->getMicropost();
