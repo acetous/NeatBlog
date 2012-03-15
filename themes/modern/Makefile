@@ -29,6 +29,7 @@ scripts:
 		scripts_src/bootstrap-2.0/bootstrap-alert.js \
 		scripts_src/bootstrap-2.0/bootstrap-dropdown.js \
 		scripts_src/bootstrap-2.0/bootstrap-tab.js \
+		scripts_src/bootstrap-2.0/bootstrap-carousel.js \
 		scripts_src/modernizr.js \
 		scripts_src/google-code-prettify/prettify.js \
 		scripts_src/json2.js \

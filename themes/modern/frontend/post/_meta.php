@@ -1,4 +1,4 @@
-<p class="post-meta"><small>
+<p class="post-meta">
 
     <span class="label">
         <a href="<?php echo url_for('post_show', $post) ?>">
@@ -12,4 +12,4 @@
         </a>
     </span>
     
-</small></p>
+</p>
