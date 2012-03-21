@@ -32,7 +32,6 @@ scripts:
 		scripts_src/bootstrap-2.0/bootstrap-carousel.js \
 		scripts_src/modernizr.js \
 		scripts_src/google-code-prettify/prettify.js \
-		scripts_src/json2.js \
 		scripts_src/modern.js \
 		> scripts/modern.js
 	cat scripts/modern.js \
