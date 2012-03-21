@@ -62,7 +62,7 @@ class BlogPost extends BaseBlogPost
 			->createQuery('c')
 			->where('c.spam = ?', false)
 			->AndWhere('c.blog_post_id = ?', $this->getId())
-			->orderBy('created_at desc')
+			->orderBy('created_at asc')
 			->execute();
 	}
 	
