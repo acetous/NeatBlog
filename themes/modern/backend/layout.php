@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <?php include_http_metas() ?>
 	<?php include_metas() ?>
 	
-	<title>acetous Blog</title>
+	<title><?php echo sfConfig::get('app_details_name'); ?></title>
 	
 	<link rel="shortcut icon" href="/favicon.ico" />
 
