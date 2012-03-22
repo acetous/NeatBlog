@@ -18,6 +18,9 @@ $(function() {
 				$('div#preview')
 					.empty()
 					.append(content);
+				
+				// prettify code
+				prettyPrint();
 			}
 		});
 	} // post/edit
