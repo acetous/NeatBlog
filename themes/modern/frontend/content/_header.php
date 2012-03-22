@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="<?php echo url_for('post/index'); ?>">acetous Blog</a>
+      <a class="brand" href="<?php echo url_for('post/index'); ?>"><?php echo sfConfig::get('app_details_name'); ?></a>
       <ul class="nav">
 	<?php if (isset($latestYear) && isset($earliestYear)) : ?>
         <li class="dropdown">
