@@ -19,10 +19,12 @@ class contentComponents extends sfComponents
 			->execute()
 			->getFirst();
 		
-		$this->latestMonth = strftime('%m', $latestPost->getDateTimeObject('created_at')->format('U'));
-		$this->latestYear = strftime('%Y', $latestPost->getDateTimeObject('created_at')->format('U'));
-		
-		$this->earliestMonth = strftime('%m', $earliestPost->getDateTimeObject('created_at')->format('U'));
-		$this->earliestYear = strftime('%Y', $earliestPost->getDateTimeObject('created_at')->format('U'));
+		if ($latestPost && $earliestPost) {
+			$this->latestMonth = strftime('%m', $latestPost->getDateTimeObject('created_at')->format('U'));
+			$this->latestYear = strftime('%Y', $latestPost->getDateTimeObject('created_at')->format('U'));
+			
+			$this->earliestMonth = strftime('%m', $earliestPost->getDateTimeObject('created_at')->format('U'));
+			$this->earliestYear = strftime('%Y', $earliestPost->getDateTimeObject('created_at')->format('U'));
+		}
 	}
 }

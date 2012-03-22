@@ -3,6 +3,7 @@
     <div class="container">
       <a class="brand" href="<?php echo url_for('post/index'); ?>">acetous Blog</a>
       <ul class="nav">
+	<?php if (isset($latestYear) && isset($earliestYear)) : ?>
         <li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		  	<?php echo __('Archive'); ?>
@@ -16,6 +17,7 @@
 		    <?php endfor; ?>
 		  </ul>
 		</li>
+	<?php endif; ?>
       </ul>
 	  <form action="<?php echo url_for('post_search'); ?>" class="navbar-search pull-right">
         <input class="search-query" type="text" placeholder="Suche" name="query">
