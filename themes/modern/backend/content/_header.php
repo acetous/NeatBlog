@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="<?php echo substr(url_for('dashboard'), 0, -8); ?>">acetous Blog</a>
+      <a class="brand" href="<?php echo substr(url_for('dashboard'), 0, -8); ?>"><?php echo sfConfig::get('app_details_name'); ?></a>
       <ul class="nav">
       
       	<li><?php echo link_to(__('Dashboard'), 'dashboard'); ?></li>
