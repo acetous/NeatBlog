@@ -30,7 +30,6 @@ class BlogComment extends BaseBlogComment
 			return;
 		
 		$akismet = new AkismetClient($apikey, sfContext::getInstance()->getRouting()->generate('homepage', null, true));
-		$akismet->enableExtendedPrivacy();
 		return $akismet->checkComment(array(
 			//'permalink' => $this->getBlogPost()->getPermaLink(),
 			'comment_type' => 'comment',
