@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <?php include_http_metas() ?>
 	<?php include_metas() ?>
 	
-	<title><?php include_slot('title', 'acetous Blog'); ?></title>
+	<title><?php include_slot('title', sfConfig::get('app_details_name')); ?></title>
 
 	<meta name="robots" content="<?php echo get_slot('robots', 'index, follow'); ?>">
 	
