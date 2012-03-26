@@ -1,2 +1,8 @@
-<?php slot('page_type', 'imprint'); ?>
-<?php echo $sf_data->getRaw('content'); ?>
+<?php
+
+  slot('page_type', 'imprint');
+  slot('robots', 'noindex, follow');
+  
+  echo $sf_data->getRaw('content');
+  
+?>
