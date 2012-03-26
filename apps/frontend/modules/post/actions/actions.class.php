@@ -84,14 +84,4 @@ class postActions extends sfActions
 			->orderBy('created_at desc')
 			->execute();
 	}
-	
-	public function executeCommentsread(sfWebRequest $request)
-	{
-		Doctrine::getTable('BlogPostVisitor')
-			->createQuery('v')
-			->delete()
-			->where('v.token = ?', $this->getUser()->getVisitorID())
-			->execute();
-		$this->redirect('homepage');
-	}
 }
