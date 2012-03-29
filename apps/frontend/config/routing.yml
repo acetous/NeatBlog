@@ -47,10 +47,6 @@ comment_create:
   param:   { module: comment, action: create, sf_format: html }
   requirements: { sf_method: post }
 
-comments_read:
-  url: /comments-read
-  param: { module: post, action: commentsread, sf_format: html }
-
 feed:
   url: /feed.rss
   param: { module: post, action: feed, sf_format: rss }
