@@ -2,14 +2,12 @@
 	<div class="navbar-inner">
 		<div class="container">
 		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <i class="icon-search icon-white"></i>
           </a>
 				<a class="brand" href="<?php echo url_for('post/index'); ?>"><?php echo sfConfig::get('app_details_name'); ?>
 				</a>
 			<div class="nav-collapse">
-				<ul class="nav">
+				<ul class="nav hide-mobile">
 					<?php if (isset($latestYear) && isset($earliestYear)) : ?>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> <?php echo __('Archive'); ?> <b

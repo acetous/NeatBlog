@@ -4,6 +4,8 @@
     <?php include_http_metas() ?>
 	<?php include_metas() ?>
 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title><?php include_slot('title', sfConfig::get('app_details_name')); ?></title>
 
 	<meta name="robots" content="<?php echo get_slot('robots', 'index, follow'); ?>">
