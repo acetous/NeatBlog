@@ -1,5 +1,6 @@
 /* bootstrap */
 @import "bootstrap-2.0/bootstrap.less";
+@import "bootstrap-2.0/responsive.less";
 
 /* google-code-prettify */
 @import "prettify.less";
@@ -18,6 +19,11 @@
 // navbar
 body {
 	padding-top: 60px;
+}
+@media (max-width: 979px) {
+body {
+	padding-top: 0;
+}	
 }
 
 // horizontal divider

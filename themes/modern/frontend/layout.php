@@ -21,8 +21,8 @@
             echo '<script>var page_type = "'.get_slot('page_type').'";</script>';
     ?>
 
-    <link href="<?php echo stylesheet_path('/styles/modern/modern.min.css'); ?>" rel="stylesheet">
-    <script src="<?php echo javascript_path('/scripts/modern/modern.min.js'); ?>"></script>
+    <link href="<?php echo stylesheet_path('/styles/modern/modern.min.css'); ?>?v=1" rel="stylesheet">
+    <script src="<?php echo javascript_path('/scripts/modern/modern.min.js'); ?>?v=1"></script>
 
     
     <?php include_stylesheets() ?>
