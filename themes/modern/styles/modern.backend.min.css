@@ -638,7 +638,7 @@ li.L1,li.L3,li.L5,li.L7,li.L9{background:#eeeeee;}
 .icon-white{background-image:url(../../assets/modern/glyphicons-halflings-white.png);}
 body{padding-top:60px;}
 @media (max-width:979px){body{padding-top:0;} .hide-mobile{display:none !important;}}div.row:not(:first-child)>div.post,div.row:not(:first-child)>div.micropost{border-top:1px solid #eeeeee;margin-top:20px;padding-top:20px;}
-footer{border-top:1px solid #eeeeee;text-align:center;margin-top:20px;padding-top:20px;}
+@media (max-width:767px){div.row:first-child>div.post:not(:first-child),div.row:first-child>div.micropost:not(:first-child){border-top:1px solid #eeeeee;margin-top:20px;padding-top:20px;}}footer{border-top:1px solid #eeeeee;text-align:center;margin-top:20px;padding-top:20px;}
 div.micropost h1,div.post h1{font-size:28px;line-height:27px;}
 h1 a,h1 a:link,h1 a:hover,h1 a:active,h1 a:visited{color:#333333;text-decoration:none;}
 .label a{color:#ffffff;}.label a:hover{text-decoration:none;}

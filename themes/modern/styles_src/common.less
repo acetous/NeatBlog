@@ -20,12 +20,12 @@ body {
 	padding-top: 60px;
 }
 @media (max-width: 979px) {
-body {
-	padding-top: 0;
-}
-.hide-mobile {
-	display: none !important;
-}
+	body {
+		padding-top: 0;
+	}
+	.hide-mobile {
+		display: none !important;
+	}
 }
 
 // horizontal divider
@@ -34,6 +34,15 @@ div.row:not(:first-child) > div.micropost {
 	border-top: 1px solid @grayLighter;
 	margin-top: @gridGutterWidth;
 	padding-top: @gridGutterWidth;
+}
+
+@media (max-width: 767px) {
+	div.row:first-child > div.post:not(:first-child),
+	div.row:first-child > div.micropost:not(:first-child) {
+		border-top: 1px solid @grayLighter;
+		margin-top: @gridGutterWidth;
+		padding-top: @gridGutterWidth;
+	}
 }
 
 footer {

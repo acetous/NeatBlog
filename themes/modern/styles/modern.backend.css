@@ -3822,6 +3822,14 @@ div.row:not(:first-child) > div.micropost {
   margin-top: 20px;
   padding-top: 20px;
 }
+@media (max-width: 767px) {
+  div.row:first-child > div.post:not(:first-child),
+  div.row:first-child > div.micropost:not(:first-child) {
+    border-top: 1px solid #eeeeee;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
 footer {
   border-top: 1px solid #eeeeee;
   text-align: center;

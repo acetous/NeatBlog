@@ -6,7 +6,8 @@
 
 <div class="row">
     <div class="span12">
-        <?php include_partial('post', array('post' => $post)); ?>
+        <div class="page-header"><h1><?php echo link_to($post->getRaw('title'), 'post_show', $post); ?></h1></div>
+		<?php echo $post->getMarkdown() ? markdown( $post->getRaw('content') ) : $post->getRaw('content'); ?>
 
         <p class="post-meta"><small>
 
