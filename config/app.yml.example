@@ -7,7 +7,7 @@ all:
       <h2>Imprint</h2>
       <p>Use HTML oder leave blank to let it disappear.</p>
   view:
-    theme: default
+    theme: modern
     language: en # available: en, de
     locale: de_DE.utf8 # a locale your system can deal with; delete if not sure
   homepage:

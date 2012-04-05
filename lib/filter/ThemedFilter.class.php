@@ -3,19 +3,15 @@
 class ThemedFilter extends sfFilter {
 
 	public function execute($filterChain) {
+		set_error_handler(array('ThemedFilter', 'handleError'), error_reporting());
+		
 		if ($this->isFirstCall()) {
 			// set view classes
-			$theme = sfConfig::get('app_view_theme');
+			$themes = explode(',', sfConfig::get('app_view_theme'));
 			$moduleDirs = array();
-			if (!empty($theme) && $theme != 'default') {
-				$moduleDirs = array(
-					sfConfig::get('sf_root_dir') . '/themes/default/' . $this->context->getConfiguration()->getApplication(),
-					sfConfig::get('sf_root_dir') . '/themes/'.sfConfig::get('app_view_theme').'/' . $this->context->getConfiguration()->getApplication()
-				);
-			} else {
-				$moduleDirs = array(
-					sfConfig::get('sf_root_dir') . '/themes/default/' . $this->context->getConfiguration()->getApplication()
-				);
+			foreach ($themes as $theme) {
+				$theme = trim($theme);
+				$moduleDirs[] = sfConfig::get('sf_root_dir') . '/themes/'.$theme.'/' . $this->context->getConfiguration()->getApplication(); 
 			}
 			foreach ($moduleDirs as $moduleDir) {
 				foreach(scandir($moduleDir) as $module) {
@@ -26,8 +22,13 @@ class ThemedFilter extends sfFilter {
 				}
 			}
 		}
+		
+		restore_error_handler();
 
 		$filterChain->execute();
 	}
-
+	
+	public static function handleError($errno, $errstr, $errfile, $errline) {
+		throw new sfRenderException(sprintf("Could not initialize templates. Error (%d):\n %s\n in %s (line %d)", $errno, $errstr, $errfile, $errline));
+	}
 }
