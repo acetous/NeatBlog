@@ -12,4 +12,60 @@
  */
 class BlogComment extends BaseBlogComment
 {
+	public function save(Doctrine_Connection $conn = null) {
+		$ret = parent::save($conn);
+		
+		$this->getBlogPost()->updateLuceneIndex();
+		
+		return $ret;
+	}
+	
+	public function __toString() {
+		return $this->getContent();
+	}
+	
+	public function checkForSpam() {
+		$apikey = sfConfig::get('app_other_akismet_api_key', 'none');
+		if ($apikey == 'none')
+			return;
+		
+		$akismet = new AkismetClient($apikey, sfContext::getInstance()->getRouting()->generate('homepage', null, true));
+		return $akismet->checkComment(array(
+			//'permalink' => $this->getBlogPost()->getPermaLink(),
+			'comment_type' => 'comment',
+			'comment_author' => $this->getAuthor(),
+			'comment_content' => $this->getContent()
+		));
+	}
+	
+	public function submitSpam() {
+		$apikey = sfConfig::get('app_other_akismet_api_key', 'none');
+		if ($apikey == 'none')
+			return;
+		
+		$akismet = new AkismetClient($apikey, sfContext::getInstance()->getRouting()->generate('homepage', null, true));
+		$akismet->enableExtendedPrivacy();
+		$akismet->submitSpam(array(
+			//'permalink' => $this->getBlogPost()->getPermaLink(),
+			'comment_type' => 'comment',
+			'comment_author' => $this->getAuthor(),
+			'comment_content' => $this->getContent()
+		));
+	}
+	
+	public function submitHam() {
+		$apikey = sfConfig::get('app_other_akismet_api_key', 'none');
+		if ($apikey == 'none')
+			return;
+		
+		$akismet = new AkismetClient($apikey, sfContext::getInstance()->getRouting()->generate('homepage', null, true));
+		$akismet->enableExtendedPrivacy();
+		$akismet->submitHam(array(
+			//'permalink' => $this->getBlogPost()->getPermaLink(),
+			'comment_type' => 'comment',
+			'comment_author' => $this->getAuthor(),
+			'comment_content' => $this->getContent()
+		));
+		
+	}
 }

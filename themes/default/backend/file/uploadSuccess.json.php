@@ -1,1 +1,0 @@
-{file: '<?php echo $file; ?>'}

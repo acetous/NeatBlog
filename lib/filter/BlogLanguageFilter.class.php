@@ -6,6 +6,7 @@ class BlogLanguageFilter extends sfFilter
 	{
 		if ($this->isFirstCall())
 		{
+			// set culture
 			$this->getContext()->getUser()->setCulture(
 				sfConfig::get('app_view_language')
 			);

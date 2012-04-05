@@ -1,0 +1,1 @@
+<p style="text-align: right;"><small>powered by <a href="http://github.com/acetous/NeatBlog">&lt;NeatBlog&gt;</a></small></p>

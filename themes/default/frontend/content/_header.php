@@ -1,1 +1,0 @@
-<h1><?php echo link_to(sfConfig::get('app_details_name'), 'homepage'); ?></h1>

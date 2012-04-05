@@ -35,7 +35,7 @@ class fileActions extends sfActions
 			if (is_array($resizeSettings) && sizeof($resizeSettings) > 0) {
 				$ir = new ImageResize($this->file);
 				foreach ($resizeSettings as $resize) {
-					$ir->resize($resize['width'], $resize['height'], $resize['zoom']);
+					$ir->resize($resize['width'], $resize['height'], $resize['zoom'], false);
 				}
 			}
 		}
@@ -52,19 +52,22 @@ class fileActions extends sfActions
 				$path = sfConfig::get('sf_upload_dir') . $post->getDateTimeObject('created_at')->format('/Y/m/') . $post->getId();
 		}
 		
-		$dir = dir($path);
-		while (false !== ($entry = $dir->read())) {
-			if (!in_array($entry, array('.', '..'))) {
-				$this->files[] = $entry;
-				/*
-				 * TODO: fix shown filetypes
-				if (substr(mime_content_type($entry), 0, 6) == 'image/') {
+		if (is_dir($path)) {		
+			$dir = dir($path);
+			while (false !== ($entry = $dir->read())) {
+				if (!in_array($entry, array('.', '..'))) {
 					$this->files[] = $entry;
+					/*
+					 * TODO: fix shown filetypes
+					if (substr(mime_content_type($entry), 0, 6) == 'image/') {
+						$this->files[] = $entry;
+					}
+					*/
 				}
-				*/
 			}
+			$dir->close();
+			sort($this->files);
 		}
-		$dir->close();
 		
 		$this->globalFiles = array();
 		if (is_dir(sfConfig::get('sf_upload_dir').'/global')) {

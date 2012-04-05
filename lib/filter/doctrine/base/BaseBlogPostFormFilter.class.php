@@ -15,6 +15,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'title'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'content'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'markdown'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'views'      => new sfWidgetFormFilterInput(),
       'published'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'micropost'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
@@ -26,6 +27,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'title'      => new sfValidatorPass(array('required' => false)),
       'content'    => new sfValidatorPass(array('required' => false)),
+      'markdown'   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'views'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'published'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'micropost'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
@@ -54,6 +56,7 @@ abstract class BaseBlogPostFormFilter extends BaseFormFilterDoctrine
       'id'         => 'Number',
       'title'      => 'Text',
       'content'    => 'Text',
+      'markdown'   => 'Boolean',
       'views'      => 'Number',
       'published'  => 'Boolean',
       'micropost'  => 'Boolean',

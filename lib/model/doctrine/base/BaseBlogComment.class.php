@@ -7,15 +7,18 @@
  * 
  * @property string $author
  * @property string $content
+ * @property boolean $spam
  * @property integer $blog_post_id
  * @property BlogPost $BlogPost
  * 
  * @method string      getAuthor()       Returns the current record's "author" value
  * @method string      getContent()      Returns the current record's "content" value
+ * @method boolean     getSpam()         Returns the current record's "spam" value
  * @method integer     getBlogPostId()   Returns the current record's "blog_post_id" value
  * @method BlogPost    getBlogPost()     Returns the current record's "BlogPost" value
  * @method BlogComment setAuthor()       Sets the current record's "author" value
  * @method BlogComment setContent()      Sets the current record's "content" value
+ * @method BlogComment setSpam()         Sets the current record's "spam" value
  * @method BlogComment setBlogPostId()   Sets the current record's "blog_post_id" value
  * @method BlogComment setBlogPost()     Sets the current record's "BlogPost" value
  * 
@@ -37,6 +40,10 @@ abstract class BaseBlogComment extends sfDoctrineRecord
         $this->hasColumn('content', 'string', null, array(
              'type' => 'string',
              'notnull' => true,
+             ));
+        $this->hasColumn('spam', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              ));
         $this->hasColumn('blog_post_id', 'integer', null, array(
              'type' => 'integer',

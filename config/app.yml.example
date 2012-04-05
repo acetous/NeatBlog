@@ -1,21 +1,22 @@
 all:
   details:
     name: NeatBlog
-    contact: twitter:http://twitter.com/|github:http://github.com/
     about: |
-      <p>Use HTML.</p>
+      <small>Use inline-HTML.</small>
     imprint: |
       <h2>Imprint</h2>
       <p>Use HTML oder leave blank to let it disappear.</p>
   view:
-    theme: default
+    theme: modern
     language: en # available: en, de
-    locale: de_DE.utf8 # a locale your system can deal with; delete if not sure
+    locale: en_US.utf8 # a locale your system can deal with; *delete this config value if not sure*
+                       # examples: en_US.utf8, en_GB.utf8, de_DE.utf8
+                       # more information: http://php.net/manual/de/function.setlocale.php
   homepage:
     post_count: 10
     micropost_count: 10
   other:
-    social_integration: true
+    akismet_api_key: none # get your free key from http://akismet.com/ to fight spam in comments
     tracking: |
       <!-- HTML Tracking code if you wish -->
   rss:
@@ -26,11 +27,11 @@ all:
     resize:
       # Define your settings for thumbnails here. Each resize setting must have a 
       # value for width, height and zoom. You can define mutiple settings.
-      setting_1:
-        width: 300
-        height: 300
+      small:
+        width: 260
+        height: 180
         zoom : 1.5
-      setting_2:
-        width: 500
-        height: 500
-        zoom: 3
+      medium:
+        width: 360
+        height: 268
+        zoom : 1.5
