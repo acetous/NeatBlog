@@ -1,13 +1,14 @@
 # &lt;NeatBlog&gt;
 
 is a simple but flexible blogging software.<br />
-It aims for making fast blogging possible without the overhead of WYSIWYG editors and post-management tasks. Just write what you want and publish it!
+It aims for making fast blogging possible without the overhead of WYSIWYG editors and post management. Just write your content and publish it!
 
 ## Features
 
 * Write posts using [Markdown syntax][markdown]. Or just mix in some HTML.
 * No usermanagement, no WYSIWYG, no categories, no tags - just write!
 * Style your posts your way! The only thing on post-pages is the post, nothing else.
+* Oh, there are comments, too.
 
 ## Installation
 
