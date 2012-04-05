@@ -9,7 +9,9 @@ all:
   view:
     theme: modern
     language: en # available: en, de
-    locale: de_DE.utf8 # a locale your system can deal with; delete if not sure
+    locale: en_US.utf8 # a locale your system can deal with; *delete this config value if not sure*
+                       # examples: en_US.utf8, en_GB.utf8, de_DE.utf8
+                       # more information: http://php.net/manual/de/function.setlocale.php
   homepage:
     post_count: 10
     micropost_count: 10

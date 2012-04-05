@@ -35,7 +35,7 @@
 		<h2><?php echo __('New Spam'); ?></h2>
 		<?php if (sizeof($spam) == 0) : ?>
 			<div class="alert alert-info">
-				<p><strong><?php echo __('No new spam.'); ?></strong> <?php echo __('You\'re lucky!'); ?></p>
+				<p><strong><?php echo __('No new spam.'); ?></strong> <?php echo __("You're lucky!"); ?></p>
 				<?php if ($totalSpam > 0) : ?>
 					<p><?php echo sprintf(__('But there are %s comments marked as spam in total.'), '<strong>'.$totalSpam.'</strong>'); ?></p>
 				<?php endif; ?>

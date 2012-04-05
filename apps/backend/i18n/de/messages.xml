@@ -60,6 +60,102 @@
         <source>Make it public?</source>
         <target>Veröffentlichen?</target>
       </trans-unit>
+      <trans-unit id="15">
+        <source>Dashboard</source>
+        <target>Übersicht</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Last Posts</source>
+        <target>Letzte Beiträge</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Date</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Actions</source>
+        <target>Aktionen</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>New Comments</source>
+        <target>Neue Kommentare</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>New Spam</source>
+        <target>Neuer Spam</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>No new spam.</source>
+        <target>Kein neuer Spam.</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>You're lucky!</source>
+        <target>Du Glückspilz!</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>But there are %s comments marked as spam in total.</source>
+        <target>Es sind jedoch insgesamt %s Kommentare als Spam markiert.</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Write new</source>
+        <target>Erstellen</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Last Comments</source>
+        <target>Letzte Kommentare</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Source</source>
+        <target>Quelltext</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Files</source>
+        <target>Dateien</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Content</source>
+        <target>Inhalt</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Options</source>
+        <target>Optionen</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Display the post small.</source>
+        <target>Schmal anzeigen.</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Publish the post.</source>
+        <target>Veröffentlichen.</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Use markdown to render the post. Pure HTML otherwise.</source>
+        <target>Mit Markdown rendern. Ansonsten HTML.</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Abort</source>
+        <target>Abbrechen</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Current Spam</source>
+        <target>Aktueller Spam</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Hooray! No spam!</source>
+        <target>Hurra! Kein Spam!</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Delete all spam</source>
+        <target>Allen Spam löschen</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Search</source>
+        <target>Suche</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
