@@ -18,6 +18,7 @@ class BlogCommentForm extends BaseBlogCommentForm
 		$this->widgetSchema['content']->setLabel('Your Comment');
 		
 		$this->validatorSchema['author'] = new sfValidatorString(array(
+			'required' => false,
 			'trim' => true
 		));
 		$this->validatorSchema['content'] = new sfValidatorString(array(

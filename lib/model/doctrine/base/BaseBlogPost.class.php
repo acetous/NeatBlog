@@ -7,6 +7,7 @@
  * 
  * @property string $title
  * @property string $content
+ * @property boolean $markdown
  * @property integer $views
  * @property boolean $published
  * @property boolean $micropost
@@ -14,12 +15,14 @@
  * 
  * @method string              getTitle()     Returns the current record's "title" value
  * @method string              getContent()   Returns the current record's "content" value
+ * @method boolean             getMarkdown()  Returns the current record's "markdown" value
  * @method integer             getViews()     Returns the current record's "views" value
  * @method boolean             getPublished() Returns the current record's "published" value
  * @method boolean             getMicropost() Returns the current record's "micropost" value
  * @method Doctrine_Collection getComments()  Returns the current record's "comments" collection
  * @method BlogPost            setTitle()     Sets the current record's "title" value
  * @method BlogPost            setContent()   Sets the current record's "content" value
+ * @method BlogPost            setMarkdown()  Sets the current record's "markdown" value
  * @method BlogPost            setViews()     Sets the current record's "views" value
  * @method BlogPost            setPublished() Sets the current record's "published" value
  * @method BlogPost            setMicropost() Sets the current record's "micropost" value
@@ -43,6 +46,10 @@ abstract class BaseBlogPost extends sfDoctrineRecord
         $this->hasColumn('content', 'string', null, array(
              'type' => 'string',
              'notnull' => true,
+             ));
+        $this->hasColumn('markdown', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => true,
              ));
         $this->hasColumn('views', 'integer', null, array(
              'type' => 'integer',

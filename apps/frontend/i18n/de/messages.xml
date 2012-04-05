@@ -100,6 +100,54 @@
         <source>First Page</source>
         <target>Erste Seite</target>
       </trans-unit>
+      <trans-unit id="26">
+        <source>comments</source>
+        <target>Kommentare</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>comment</source>
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Post Comment</source>
+        <target>Kommentar Posten</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Cancel</source>
+        <target>Abbruch</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Archive</source>
+        <target>Archiv</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>No comments yet.</source>
+        <target>Keine Kommentare</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>It seemes no posts match your criteria. Reasons may be</source>
+        <target>Es scheint als würden keine Posts zu deiner Auswahl passen. Gründe dafür könnten sein:</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>You have selected an archive with no posts. I promise to write more in the future!</source>
+        <target>Du hast ein Archiv ohne Inhalte ausgewählt. Ich verspreche, mehr zu schreiben!</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>There are no posts matching your search criteria. Just ask me to write about the topic you are such curious about!</source>
+        <target>Keine Posts treffen auf deine Suchanfrage zu. Sag mir einfach, worüber ich schreiben soll!</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Return to index</source>
+        <target>Zurück zur Startseite</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Your Search for</source>
+        <target>Deine Suche nach</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>results</source>
+        <target>Ergebnisse</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

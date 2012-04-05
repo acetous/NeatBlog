@@ -15,6 +15,7 @@ abstract class BaseBlogCommentFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'author'       => new sfWidgetFormFilterInput(),
       'content'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'spam'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'blog_post_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('BlogPost'), 'add_empty' => true)),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -23,6 +24,7 @@ abstract class BaseBlogCommentFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'author'       => new sfValidatorPass(array('required' => false)),
       'content'      => new sfValidatorPass(array('required' => false)),
+      'spam'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'blog_post_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('BlogPost'), 'column' => 'id')),
       'created_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -48,6 +50,7 @@ abstract class BaseBlogCommentFormFilter extends BaseFormFilterDoctrine
       'id'           => 'Number',
       'author'       => 'Text',
       'content'      => 'Text',
+      'spam'         => 'Boolean',
       'blog_post_id' => 'ForeignKey',
       'created_at'   => 'Date',
       'updated_at'   => 'Date',

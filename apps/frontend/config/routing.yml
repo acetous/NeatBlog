@@ -4,6 +4,15 @@ post:
   options: { model: BlogPost, type: list }
   param:   { module: post, action: index, sf_format: html }
   requirements: { sf_method: get }
+    
+post_catchall:
+  url:     /:id/*
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: catchall, sf_format: html }
+  requirements:
+    sf_method: get
+    id: \d+
 
 post_show:
   url:     /:id/:slug
@@ -22,6 +31,10 @@ post_permalink:
   requirements:
     sf_method: get
     id: \d+
+    
+post_search:
+  url:    /search
+  param:   { module: post, action: search, sf_format: html }
 
 content_imprint:
   url: /imprint
@@ -33,10 +46,6 @@ comment_create:
   options: { model: BlogPost, type: object }
   param:   { module: comment, action: create, sf_format: html }
   requirements: { sf_method: post }
-
-comments_read:
-  url: /comments-read
-  param: { module: post, action: commentsread, sf_format: html }
 
 feed:
   url: /feed.rss

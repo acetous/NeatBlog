@@ -1,0 +1,75 @@
+/* bootstrap */
+@import "bootstrap-2.0/bootstrap.less";
+
+/* google-code-prettify */
+@import "prettify.less";
+
+
+/* own styles */
+
+// fix icon-sprite location
+[class^="icon-"] {
+	background-image: url(../../assets/modern/glyphicons-halflings.png);
+}
+.icon-white {
+	background-image: url(../../assets/modern/glyphicons-halflings-white.png);
+}
+
+// navbar
+body {
+	padding-top: 60px;
+}
+@media (max-width: 979px) {
+	body {
+		padding-top: 0;
+	}
+	.hide-mobile {
+		display: none !important;
+	}
+}
+
+// horizontal divider
+div.row:not(:first-child) > div.post,
+div.row:not(:first-child) > div.micropost {
+	border-top: 1px solid @grayLighter;
+	margin-top: @gridGutterWidth;
+	padding-top: @gridGutterWidth;
+}
+
+@media (max-width: 767px) {
+	div.row:first-child > div.post:not(:first-child),
+	div.row:first-child > div.micropost:not(:first-child) {
+		border-top: 1px solid @grayLighter;
+		margin-top: @gridGutterWidth;
+		padding-top: @gridGutterWidth;
+	}
+}
+
+footer {
+	border-top: 1px solid @grayLighter;
+	text-align: center;
+	margin-top: @gridGutterWidth;
+	padding-top: @gridGutterWidth;
+}
+
+// reset styles of all h1-link
+h1 a, h1 a:link, h1 a:hover, h1 a:active, h1 a:visited {
+	color: @grayDark;
+	text-decoration: none;
+}
+
+// reset styles of all label-links
+.label a {
+	color: @white;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+// comments
+.comment {
+	padding: 10px;
+	p:last-child {
+		margin: 0;
+	}
+}

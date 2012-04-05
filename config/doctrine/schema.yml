@@ -10,6 +10,9 @@ BlogPost:
     content:
       type: string
       notnull: true
+    markdown:
+      type: boolean
+      default: true
     views:
       type: integer
       default: 0
@@ -30,6 +33,9 @@ BlogComment:
     content:
       type: string
       notnull: true
+    spam:
+      type: boolean
+      default: false
     blog_post_id:
       type: integer
       notnull: true
@@ -37,18 +43,3 @@ BlogComment:
     BlogPost:
       onDelete: CASCADE
       foreignAlias: comments
-      
-BlogPostVisitor:
-  actAs:
-    Timestampable: ~
-  columns:
-    token:
-      type: string(100)
-      notnull: true
-    post:
-      type: integer
-      notnull: true
-    views:
-      type: integer
-      notnull: true
-      default: 1

@@ -3,5 +3,6 @@
 
   # redirect anything else than files to the real root
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ /$1 [R=301]
+  RewriteCond %{REQUEST_URI} ^/(.*)/dev/(.*)$
+  RewriteRule ^(.*)$ /%1/%2 [R=301]
 </IfModule>
