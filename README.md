@@ -5,16 +5,15 @@ It aims for making fast blogging possible without the overhead of WYSIWYG editor
 
 ## Features
 
-* Write posts using [Markdown syntax][markdown].
+* Write posts using [Markdown syntax][markdown]. Or just mix in some HTML.
 * No usermanagement, no WYSIWYG, no categories, no tags - just write!
 * Style your posts your way! The only thing on post-pages is the post, nothing else.
-* Write a micropost if you just want to drop a sentence. Full-text featured on the homepage.
 
 ## Installation
 
 * Download a package from the &lt;NeatBlog&gt; [Project Page][neatblog]
-* Unpack it on your server and poit your domain to the `web` directory
-* Let the webserver write into `log`, `cache` and `web/uploads`
+* Unpack it on your server and point your domain to the `web` directory
+* Let the webserver write into `log`, `cache`, `data` and `web/uploads`
 * Put your database configuration into `config/databases.yml` (see `databases.yml.example`)
 * Put your blog configuration into `config/app.yml` (see `app.yml.example`)<br />
   If your ever change your config, clear the `cache` directory or run `./symfony cc`
@@ -32,12 +31,14 @@ Otherwise everyone will be able to read your database configuration by just call
 
 View `http://your-domain.com` for your new blog or `http://your-domain.com/backend` for writing new content.
 
+Check our [wiki][wiki] for a FAQ and available console commands.
+
 
 ## Updating
 
-* Get the latest code via download or update via Git. Remember to keep your `web/uploads` directory.
+* Get the latest code via download or update via Git. Remember to keep your config files and `web/uploads` directory.
 * Check the `config/app.yml` for any new config values.
-* Run `./symfony doctrine:migrate`.
+* Run `./symfony doctrine:migrate` to update your database.
 * Clear your cache.
 
 ## Feel free to contribute!
@@ -46,18 +47,21 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 
 # Attributions
 
-* for the underlying framework: [Symfony][symfony]
-* for the great icons: [Silk Icons by FAMFAMFAM][silkicons]
-* for the button-styles: [CSS3 Buttons][css3buttons]
-* for the flexible and simple code highlightning script: [google-code-prettify][prettify]
-* for the HTML5 video player skins: [VideoJS][videojs]
+* for the PHP framework: [Symfony][symfony]
+* for the CSS/JS-framework: [Bootstrap][bootstrap] and [jQuery][jquery], including [LESS][less] for easier CSS
+* for the code highlightning: [google-code-prettify][prettify]
+* for HTMl5 feature detection: [Modernizr][modernizr]
+* the jQuery-Plugins: [autoResize][jquery-autoresize]
 
 
 [neatblog]: http://github.com/acetous/NeatBlog
-[markdown]: http://daringfireball.net/projects/markdown/syntax
+[wiki]: https://github.com/acetous/NeatBlog/wiki
 [symfony]: http://www.symfony-project.org/
+[markdown]: http://daringfireball.net/projects/markdown/syntax
 [silkicons]: http://www.famfamfam.com/lab/icons/silk/
 [prettify]: http://code.google.com/p/google-code-prettify/
-[videojs]: http://videojs.com/
-[css3buttons]: http://css3buttons.michaelhenriksen.dk/
-
+[bootstrap]: http://twitter.github.com/bootstrap/
+[jquery]: http://jquery.com/
+[modernizr]: http://modernizr.com/
+[less]: http://lesscss.org/
+[jquery-autoresize]: http://james.padolsey.com/javascript/jquery-plugin-autoresize/
