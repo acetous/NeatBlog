@@ -52,7 +52,7 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 * for the CSS/JS-framework: [Bootstrap][bootstrap] and [jQuery][jquery], including [LESS][less] for easier CSS
 * for the code highlightning: [google-code-prettify][prettify]
 * for HTMl5 feature detection: [Modernizr][modernizr]
-* the jQuery-Plugins: [autoResize][jquery-autoresize]
+* the jQuery-Plugins: [autoResize][jquery-autoresize] and [fancyBox][fancybox]
 
 
 [neatblog]: http://github.com/acetous/NeatBlog
@@ -66,3 +66,4 @@ Fork my project and add your own features! Or just report your ideas (and - if y
 [modernizr]: http://modernizr.com/
 [less]: http://lesscss.org/
 [jquery-autoresize]: http://james.padolsey.com/javascript/jquery-plugin-autoresize/
+[fancybox]: http://fancyapps.com/fancybox/

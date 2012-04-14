@@ -114,4 +114,22 @@ $(function(){
 			$('#comments').removeClass('span6').addClass('span12');
 		});
 	}
+	
+	// fancybox options
+	$.fancybox.defaults.margin = [60,20,20,20];
+	
+	// fancybox
+	$('a').each(function() {
+		var href = $(this).attr('href');
+		if (typeof href === 'undefined')
+			return;
+		
+		if (href.substr(0, location.origin.length) == location.origin || href.substr(0, 1) == '/') {
+			var filetypes = ['jpg', 'gif', 'png', 'jpeg'];
+			if (filetypes.indexOf(href.substr(href.lastIndexOf('.') + 1)) !== -1) {
+				$(this).addClass('fancybox');
+			}
+		}
+	});
+	$('a.fancybox').fancybox();
 });

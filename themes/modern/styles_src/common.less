@@ -4,8 +4,11 @@
 /* google-code-prettify */
 @import "prettify.less";
 
+/* fancybox */
+@import "jquery.fancybox.less";
 
-/* own styles */
+
+/* fix 3rd party styles */
 
 // fix icon-sprite location
 [class^="icon-"] {
@@ -14,6 +17,20 @@
 .icon-white {
 	background-image: url(../../assets/modern/glyphicons-halflings-white.png);
 }
+
+// fix asset locations for fancybox
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../../assets/modern/fancybox/fancybox_sprite.png');
+}
+#fancybox-loading div {
+	background: url('../../assets/modern/fancybox/fancybox_loading.gif') center center no-repeat;
+}
+.fancybox-nav {
+	background: transparent url('../../assets/modern/fancybox/blank.gif'); /* helps IE */
+}
+
+
+/* own styles */
 
 // navbar
 body {
