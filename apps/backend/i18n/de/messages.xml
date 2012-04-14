@@ -156,6 +156,14 @@
         <source>Search</source>
         <target>Suche</target>
       </trans-unit>
+      <trans-unit id="39">
+        <source>No comments yet.</source>
+        <target>Bisher keine Kommentare.</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Better write something interesing, huh?</source>
+        <target>Schreib mal was interessantes!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
