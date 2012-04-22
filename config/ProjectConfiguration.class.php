@@ -31,5 +31,8 @@ class ProjectConfiguration extends sfProjectConfiguration
 	static public function registerOtherVendors() {
 		require_once sfConfig::get('sf_lib_dir').'/vendor/AkismetClient.class.php';
 		require_once sfConfig::get('sf_lib_dir').'/vendor/markdown.php';
+		
+		self::registerZend();
+		Zend_Loader_Autoloader::getInstance()->registerNamespace('Shortcodes_');
 	}
 }

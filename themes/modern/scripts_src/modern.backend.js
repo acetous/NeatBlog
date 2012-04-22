@@ -15,6 +15,7 @@ $(function() {
 					content = "<h1>" + $('input#blog_post_title').attr('value') + "</h1>\n" +
 						$('textarea#blog_post_content').attr('value');
 				}
+				content = shortcodes_preview(content);
 				$('div#preview')
 					.empty()
 					.append(content);

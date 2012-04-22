@@ -25,7 +25,8 @@ copy:
 scripts:
 	cat scripts_src/jquery-1.7.1.min.js \
 		scripts_src/autoresize.jquery.min.js \
-		scripts_src/jquery.fancybox.js \
+		scripts_src/fancybox/jquery.fancybox.js \
+		scripts_src/fancybox/jquery.fancybox-media.js \
 		scripts_src/bootstrap-2.0/bootstrap-transition.js \
 		scripts_src/bootstrap-2.0/bootstrap-alert.js \
 		scripts_src/bootstrap-2.0/bootstrap-dropdown.js \
@@ -38,6 +39,7 @@ scripts:
 		> scripts/modern.js
 	cat scripts/modern.js \
 		scripts_src/modern.backend.js \
+		scripts_src/shortcodes.js \
 		> scripts/modern.backend.js
 	uglifyjs -nc scripts/modern.js > scripts/modern.min.js
 	uglifyjs -nc scripts/modern.backend.js > scripts/modern.backend.min.js

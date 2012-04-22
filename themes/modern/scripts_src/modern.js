@@ -117,6 +117,9 @@ $(function(){
 	
 	// fancybox options
 	$.fancybox.defaults.margin = [60,20,20,20];
+	$.fancybox.defaults.helpers = {
+			media: {}
+	};
 	
 	// fancybox
 	$('a').each(function() {

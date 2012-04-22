@@ -20,6 +20,7 @@
 	<?php if (!$form->getObject()->isNew()) : ?>
 		<li><a href="#comments" data-toggle="tab"><?php echo __('Comments'); ?> (<?php echo sizeof($form->getObject()->getComments()); ?>)</a></li>
 	<?php endif; ?>
+	<li><a href="#shortcodes" data-toggle="tab"><?php echo __('Shortcodes'); ?></a></li>
 </ul>
 
 <div class="tab-content">
@@ -182,6 +183,10 @@
 	}
 	</style>
 
+</div>
+
+<div id="shortcodes" class="tab-pane fade">
+	<?php include_partial('shortcodes'); ?>
 </div>
 
 <?php if (!$form->getObject()->isNew()) : ?>
