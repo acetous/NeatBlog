@@ -21,8 +21,8 @@
     ?>
 
     <!-- Le styles -->
-    <link href="<?php echo stylesheet_path('/../styles/modern/modern.backend.min.css'); ?>" rel="stylesheet">
-    <script src="<?php echo javascript_path('/../scripts/modern/modern.backend.min.js'); ?>"></script>
+    <link href="<?php echo stylesheet_path('/../styles/modern/modern.backend.min.css'); ?>?v=2" rel="stylesheet">
+    <script src="<?php echo javascript_path('/../scripts/modern/modern.backend.min.js'); ?>?v=2"></script>
     
 	<?php 
 		if (get_slot('page_type'))
