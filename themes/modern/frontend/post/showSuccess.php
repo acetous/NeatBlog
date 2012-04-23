@@ -14,6 +14,7 @@
 			echo do_shortcodes($post_content);
 		?>
 
+		<div class="clearfix"></div>
         <p class="post-meta"><small>
 
             <span class="label">
