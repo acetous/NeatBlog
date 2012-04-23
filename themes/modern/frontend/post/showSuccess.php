@@ -1,6 +1,8 @@
 <?php 
 	slot('title', strip_tags($post->getRaw('title')));
 	slot('page_type', 'post/show');
+	
+	use_helper('Shortcode');
 ?>
 
 
