@@ -83,6 +83,7 @@ class postActions extends sfActions
 		$this->posts = Doctrine::getTable('BlogPost')
 			->createQuery('p')
 			->where('published = ?', true)
+			->andWhere('published_at <= now()')
 			->orderBy('created_at desc')
 			->execute();
 	}

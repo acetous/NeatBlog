@@ -18,7 +18,7 @@
         <p class="post-meta"><small>
 
             <span class="label">
-                <?php echo strftime('%e. %B', $post->getDateTimeObject('created_at')->format('U')); ?>
+                <?php echo strftime('%e. %B', $post->getDateTimeObject('published_at')->format('U')); ?>
             </span>
             &nbsp;
             <span class="label">
