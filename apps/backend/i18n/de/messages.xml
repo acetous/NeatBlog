@@ -164,6 +164,18 @@
         <source>Better write something interesing, huh?</source>
         <target>Schreib mal was interessantes!</target>
       </trans-unit>
+      <trans-unit id="41">
+        <source>Release Date</source>
+        <target>Veröffentlichung</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Unkown date format</source>
+        <target>Unbekanntes Datumsformat</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Write your post</source>
+        <target>Schreibe deinen Post</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

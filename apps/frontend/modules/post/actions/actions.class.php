@@ -15,18 +15,20 @@ class postActions extends sfActions
 		$query = Doctrine::getTable('BlogPost')
 			->createQuery('p')
 			->where('published = ?', true)
-			->orderBy('created_at desc');
+			->orderBy('published_at desc');
 		
 		if ($request->hasParameter('year')) {
 			$when = $request->getGetParameter('year');
 			if (!preg_match('/^\d{4}$/', $when))
 				return;
 			
-			$query->andWhere('created_at >= ?', $when.'-01-01');
-			$query->andWhere('created_at <= ?', $when.'-12-31');
+			$query->andWhere('published_at >= ?', $when.'-01-01');
+			$query->andWhere('published_at <= ?', $when.'-12-31');
 		} else {
 			$query->limit(sfConfig::get('app_homepage_post_count', 20));
 		}
+		
+		$query->andWhere('published_at <= now()');
 		
 		$this->posts = $query->execute();
 	}
@@ -38,7 +40,7 @@ class postActions extends sfActions
 		$this->commentForm = new BlogCommentForm();
 		$this->commentForm->setPost($this->post);
 		
-		if (!$this->post->getPublished()) {
+		if (!$this->post->getPublished() || $this->post->getDateTimeObject('published_at') > new DateTime()) {
 			$this->forward404();
 		}
 		

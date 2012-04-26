@@ -14,7 +14,7 @@ class postActions extends sfActions
 	{
 		$this->posts = Doctrine::getTable('BlogPost')
 			->createQuery('p')
-			->orderBy('created_at desc')
+			->orderBy('published_at desc')
 			->limit(30)
 			->execute();
 	}
@@ -115,6 +115,8 @@ class postActions extends sfActions
 			$post = $this->form->save();
 
 			$this->getUser()->setFlash('alert', $this->getPartial('postSaveAlert'));
+			
+			$this->redirect($this->generateUrl('post_edit', $post));
 		}
 		
 		$this->setTemplate('edit');
@@ -148,7 +150,7 @@ class postActions extends sfActions
 		// get posts
 		$this->posts = Doctrine::getTable('BlogPost')
 			->createQuery('p')
-			->orderBy('created_at desc')
+			->orderBy('published_at desc')
 			->limit(5)
 			->execute();
 		

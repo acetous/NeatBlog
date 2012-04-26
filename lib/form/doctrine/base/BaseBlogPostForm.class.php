@@ -15,29 +15,31 @@ abstract class BaseBlogPostForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'         => new sfWidgetFormInputHidden(),
-      'title'      => new sfWidgetFormInputText(),
-      'content'    => new sfWidgetFormTextarea(),
-      'markdown'   => new sfWidgetFormInputCheckbox(),
-      'views'      => new sfWidgetFormInputText(),
-      'published'  => new sfWidgetFormInputCheckbox(),
-      'micropost'  => new sfWidgetFormInputCheckbox(),
-      'created_at' => new sfWidgetFormDateTime(),
-      'updated_at' => new sfWidgetFormDateTime(),
-      'slug'       => new sfWidgetFormInputText(),
+      'id'           => new sfWidgetFormInputHidden(),
+      'title'        => new sfWidgetFormInputText(),
+      'content'      => new sfWidgetFormTextarea(),
+      'markdown'     => new sfWidgetFormInputCheckbox(),
+      'views'        => new sfWidgetFormInputText(),
+      'published'    => new sfWidgetFormInputCheckbox(),
+      'published_at' => new sfWidgetFormDateTime(),
+      'micropost'    => new sfWidgetFormInputCheckbox(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
+      'slug'         => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'title'      => new sfValidatorString(array('max_length' => 255)),
-      'content'    => new sfValidatorString(),
-      'markdown'   => new sfValidatorBoolean(array('required' => false)),
-      'views'      => new sfValidatorInteger(array('required' => false)),
-      'published'  => new sfValidatorBoolean(array('required' => false)),
-      'micropost'  => new sfValidatorBoolean(array('required' => false)),
-      'created_at' => new sfValidatorDateTime(),
-      'updated_at' => new sfValidatorDateTime(),
-      'slug'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'title'        => new sfValidatorString(array('max_length' => 255)),
+      'content'      => new sfValidatorString(),
+      'markdown'     => new sfValidatorBoolean(array('required' => false)),
+      'views'        => new sfValidatorInteger(array('required' => false)),
+      'published'    => new sfValidatorBoolean(array('required' => false)),
+      'published_at' => new sfValidatorDateTime(),
+      'micropost'    => new sfValidatorBoolean(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
+      'slug'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

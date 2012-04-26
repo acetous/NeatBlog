@@ -56,7 +56,7 @@
 	<?php endforeach; ?>
 	
 	<div class="control-group">
-		<label id="optionsCheckboxes"><?php echo __('Options'); ?></label>
+		<label id="optionsCheckboxes" class="control-label"><?php echo __('Options'); ?></label>
 			<div class="controls">
 				<?php foreach ($checkboxes as $field) : ?>
 					<label class="checkbox">
