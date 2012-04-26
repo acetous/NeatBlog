@@ -53,4 +53,8 @@ class BlogPostTable extends Doctrine_Table
 			return array();
 		}
 	}
+	
+	public static function generateToken() {
+		return md5(uniqid(time()));
+	}
 }

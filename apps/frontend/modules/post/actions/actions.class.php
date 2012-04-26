@@ -63,6 +63,16 @@ class postActions extends sfActions
 		$this->redirect($this->generateUrl('post_show', $post), 301);
 	}
 	
+	public function executePrivate(sfWebRequest $request)
+	{
+		$this->post = $this->getRoute()->getObject();
+		
+		$this->commentForm = new BlogCommentForm();
+		$this->commentForm->setPost($this->post);
+		
+		$this->setTemplate('show');
+	}
+	
 	public function executeSearch(sfWebRequest $request)
 	{
 		$query = $request->getGetParameter('query');

@@ -6,6 +6,8 @@
 	use_stylesheet('/../styles/uploader.css');
 	
 	slot('page_type', 'post/edit');
+	
+	use_helper('Application');
 ?>
 
 <div class="page-header">
@@ -66,6 +68,17 @@
 				<?php endforeach; ?>
 		</div>
 	</div>
+	
+	<?php if (!$form->getObject()->isNew()) : ?>
+	<div class="control-group">
+		<label class="control-label"><?php echo __('Private URL'); ?></label>
+		<div class="controls">
+			<p class="help-block">
+				<a href="<?php echo frontend_url().'private/'.$form->getObject()->getToken(); ?>"><?php echo frontend_url().'private/'.$form->getObject()->getToken(); ?></a>
+			</p>
+		</div>
+	</div>
+	<?php endif; ?>
 	
 	<div class="form-actions">
 		<input type="submit" class="btn btn-primary" value="<?php echo __('Post!'); ?>"> 

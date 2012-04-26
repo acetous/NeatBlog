@@ -32,6 +32,15 @@ post_permalink:
     sf_method: get
     id: \d+
     
+post_private:
+  url:     /private/:token
+  class:   sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param:   { module: post, action: private, sf_format: html }
+  requirements:
+    sf_method: get
+    id: \d+
+    
 post_search:
   url:    /search
   param:   { module: post, action: search, sf_format: html }

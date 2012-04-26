@@ -19,6 +19,9 @@ BlogPost:
     published:
       type: boolean
       default: false
+    token: 
+      type: string(255)
+      notnull: true
     published_at:
       type: timestamp
       notnull: true

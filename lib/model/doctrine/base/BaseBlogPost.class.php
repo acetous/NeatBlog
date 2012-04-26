@@ -10,6 +10,7 @@
  * @property boolean $markdown
  * @property integer $views
  * @property boolean $published
+ * @property string $token
  * @property timestamp $published_at
  * @property boolean $micropost
  * @property Doctrine_Collection $comments
@@ -19,6 +20,7 @@
  * @method boolean             getMarkdown()     Returns the current record's "markdown" value
  * @method integer             getViews()        Returns the current record's "views" value
  * @method boolean             getPublished()    Returns the current record's "published" value
+ * @method string              getToken()        Returns the current record's "token" value
  * @method timestamp           getPublishedAt()  Returns the current record's "published_at" value
  * @method boolean             getMicropost()    Returns the current record's "micropost" value
  * @method Doctrine_Collection getComments()     Returns the current record's "comments" collection
@@ -27,6 +29,7 @@
  * @method BlogPost            setMarkdown()     Sets the current record's "markdown" value
  * @method BlogPost            setViews()        Sets the current record's "views" value
  * @method BlogPost            setPublished()    Sets the current record's "published" value
+ * @method BlogPost            setToken()        Sets the current record's "token" value
  * @method BlogPost            setPublishedAt()  Sets the current record's "published_at" value
  * @method BlogPost            setMicropost()    Sets the current record's "micropost" value
  * @method BlogPost            setComments()     Sets the current record's "comments" collection
@@ -61,6 +64,11 @@ abstract class BaseBlogPost extends sfDoctrineRecord
         $this->hasColumn('published', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
+             ));
+        $this->hasColumn('token', 'string', 255, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 255,
              ));
         $this->hasColumn('published_at', 'timestamp', null, array(
              'type' => 'timestamp',

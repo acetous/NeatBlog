@@ -1,3 +1,6 @@
+<?php 
+	use_helper('Application');
+?>
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
@@ -7,7 +10,7 @@
             <span class="icon-bar"></span>
           </a>
 				<a class="brand"
-					href="<?php echo substr(url_for('dashboard'), 0, -8); ?>"><?php echo sfConfig::get('app_details_name'); ?>
+					href="<?php echo frontend_url(); ?>"><?php echo sfConfig::get('app_details_name'); ?>
 				</a>
 			<div class="nav-collapse">
 				<ul class="nav">

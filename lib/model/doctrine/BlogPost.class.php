@@ -67,6 +67,10 @@ class BlogPost extends BaseBlogPost
 	}
 	
 	public function save(Doctrine_Connection $conn = null, $skipLuceneUpdate = false) {
+		if ($this->getToken() == '') {
+			$this->setToken(BlogPostTable::generateToken());
+		}
+		
 		$conn = $conn ? $conn : $this->getTable()->getConnection();
 		
 		$conn->beginTransaction();
